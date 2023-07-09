@@ -9,6 +9,7 @@ import VisuoInstructions from './components/VisuoInstructions';
 import Visuospatial from './components/Visuospatial';
 import RecallInstructions from './components/RecallInstructions';
 import LevelDisplay from './components/LevelDisplay';
+import AttentionTutorial from './components/AttentionTutorial';
 import './components/stylesheet.css';
 
 const App = () => {
@@ -113,6 +114,10 @@ const App = () => {
         setStage('att-instr');
     };
     const handleAttInstr = () => {
+        setSelectedLevel(2);
+        setStage('att-tutorial');
+    };
+    const handleAttTut = () => {
         setStage('attentionColors');
     }
     const handleCols = () => {
@@ -142,14 +147,19 @@ const App = () => {
         setStage('end');
     };
 
+    const nextStage = (stageName) => {
+        setStage(stageName);
+    }
+
     return (
         <div>
-            {stage === 'intro' && <Intro onTimeEnd={handleIntro} />}
-            {stage === 'int1' && <LevelDisplay level={selectedLevel} onTimeEnd={handleInt1} />}
-            {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={handleEncInstr} />}
-            {stage === 'encoding' && <Encoding words={words} onTimeEnd={handleEnc} />}
-            {stage === 'int2' && <LevelDisplay level={selectedLevel} onTimeEnd={handleInt2} />}
-            {stage === 'att-instr' && <AttentionInstructions onTimeEnd={handleAttInstr} />}
+            {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
+            {stage === 'int1' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('enc-instr')} />}
+            {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
+            {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
+            {stage === 'int2' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('att-instr')} />}
+            {stage === 'att-instr' && <AttentionInstructions onTimeEnd={() => nextStage('att-tutorial')} />}
+            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={handleAttTut} />}
             {stage === 'attentionColors' && <Attention answer="Color" shapes={attentionShapes} onTimeEnd={handleCols}/>}
             {stage === 'attentionShapes' && <Attention answer="Shape" shapes={attentionShapes} onTimeEnd={handleShapes}/>}
             {stage === 'int3' && <LevelDisplay level={selectedLevel} onTimeEnd={handleInt3} />}

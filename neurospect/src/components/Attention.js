@@ -7,8 +7,8 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 	const [svgIndeces, setSvgIndeces] = useState([null, null]);
 	const [iter, setIter] = useState(0);
 	const [correct, setCorrect] = useState(0);
-	const [correctText, setCorrectText] = useState("");
-	const [wrongText, setWrongText] = useState("");
+	const [textColor, setTextColor] = useState('#F6F4FA');
+	const [text, setText] = useState('Correct!');
 
 	let svgDets = [];
 
@@ -47,7 +47,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 				shape = "square";
 				break;
 			case 2:
-				shape = "triange";
+				shape = "triangle";
 				break;
 			case 3:
 				shape = "diamond";
@@ -85,8 +85,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 		setSvgIndeces(svgs[1]);
 
 		const interval = setInterval(() => {
-			setCorrectText("");
-			setWrongText("");
+			setTextColor("#F6F4FA");
 			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
@@ -118,21 +117,21 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 
 		if(answer === "Color") {
 			if(val1 === val2) {
-				setCorrectText("Correct!");
+				setText('Correct!');
+				setTextColor("#2E8970");
 				setCorrect(correct + 1);
-				setWrongText("");
 			} else {
-				setCorrectText("");
-				setWrongText("Wrong!");
+				setText("Wrong!")
+				setTextColor("#CD3843");
 			}
 		} else if(answer === "Shape") {
 			if(val3 === val4) {
-				setCorrectText("Correct!");
+				setText('Correct!');
+				setTextColor("#2E8970");
 				setCorrect(correct + 1);
-				setWrongText("");
 			} else {
-				setCorrectText("");
-				setWrongText("Wrong!");
+				setText("Wrong!")
+				setTextColor("#CD3843");
 			}
 		}
 	}
@@ -147,21 +146,21 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 		if(answer === "Color") {
 
 			if(val1 === val2) {
-				setCorrectText("");
-				setWrongText("Wrong!");
+				setText("Wrong!")
+				setTextColor("#CD3843");
 			} else {
-				setCorrectText("Correct!");
+				setText('Correct!');
+				setTextColor("#2E8970");
 				setCorrect(correct + 1);
-				setWrongText("");
 			}
 		} else if(answer === "Shape") {
 			if(val3 === val4) {
-				setCorrectText("");
-				setWrongText("Wrong!");
+				setText("Wrong!")
+				setTextColor("#CD3843");
 			} else {
-				setCorrectText("Correct!");
+				setText('Correct!');
+				setTextColor("#2E8970");
 				setCorrect(correct + 1);
-				setWrongText("");
 			}
 		}
 	}
@@ -173,9 +172,8 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
                 <div className="shape">{displaySvgs[0]}</div>
                 <div className="shape">{displaySvgs[1]}</div>
             </div>
-			<div>
-				<div className='correct'>{correctText}</div>
-				<div className='wrong'>{wrongText}</div>
+			<div className='response'>
+				<div style = {{color: textColor}}className='correct'>{text}</div>
 			</div>
 
 			

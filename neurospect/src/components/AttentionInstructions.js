@@ -11,9 +11,11 @@ const AttentionInstructions = ({onTimeEnd}) => {
                     <strong>Attention</strong>
                 </div>
                 <div className='instructions-content'>
-                    Ready for an attention test? Check if the shapes are of the same colors.
+                    <div>Ready for an attention test? Check if the shapes are of the same colors.</div>
                 </div>
-                <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+                <div>
+                        <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+                    </div>
             </div>
         </div>
     );
