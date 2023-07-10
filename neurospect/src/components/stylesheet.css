@@ -61,10 +61,12 @@ body {
 
 .logo-header {
     background-color: #F6F4FA;
+    width: 100%;
 }
 
 .instructions-back {
     background-color: #5A89F5;
+    height:30vh;
 }
 
 .instructions-header {
@@ -169,6 +171,7 @@ h4 {
     max-width: 500px;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 }
 
 .listCont {
@@ -269,7 +272,11 @@ h4 {
 
 .buttonNext {
     border: none;
-    background-color: #5A89F5;
+    background-color: #F6F4FA;
+    position: 'absolute';
+    bottom: 0;
+    left:0;
+    width:100%;
 }
 
 .correct {

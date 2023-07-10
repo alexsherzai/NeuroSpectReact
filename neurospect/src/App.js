@@ -159,15 +159,17 @@ const App = () => {
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('att-instr')} />}
             {stage === 'att-instr' && <AttentionInstructions onTimeEnd={() => nextStage('att-tutorial')} />}
-            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={handleAttTut} />}
-            {stage === 'attentionColors' && <Attention answer="Color" shapes={attentionShapes} onTimeEnd={handleCols}/>}
-            {stage === 'attentionShapes' && <Attention answer="Shape" shapes={attentionShapes} onTimeEnd={handleShapes}/>}
-            {stage === 'int3' && <LevelDisplay level={selectedLevel} onTimeEnd={handleInt3} />}
-            {stage === 'vis-instr' && <VisuoInstructions onTimeEnd={handleVisInstr} />}
-            {stage === 'visuo' && <Visuospatial onTimeEnd={handleVis}/>}
-            {stage === 'int4' && <LevelDisplay level={selectedLevel} onTimeEnd={handleInt4} />}
-            {stage === 'rec-instr' && <RecallInstructions onTimeEnd={handleRecInstr} />}
-            {stage === 'recall' && <Recall words={words} onTimeEnd={handleRecall}/>}
+            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'attentionColors' && <Attention answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-tutorial2')}/>}
+            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'attentionShapes' && <Attention answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
+            {stage === 'int3' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('vis-instr')} />}
+            {stage === 'vis-instr' && <VisuoInstructions onTimeEnd={() => nextStage('vis-tutorial')} />}
+            {stage === 'vis-tutorial' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'visuo' && <Visuospatial onTimeEnd={() => nextStage('int4')}/>}
+            {stage === 'int4' && <LevelDisplay level={selectedLevel} onTimeEnd={() => nextStage('rec-instr')} />}
+            {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
+            {stage === 'recall' && <Recall words={words} onTimeEnd={() => nextStage('end')}/>}
             {stage === 'end' && <h1>Game Over!</h1>}
         </div>
     );

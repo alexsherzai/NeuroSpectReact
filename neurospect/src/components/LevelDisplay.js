@@ -30,10 +30,11 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 							<div className='level-name-incomp'>{levelNum}</div>
 						</div>
 					))}
-				<div className='buttonCont'>
+			</div>
+
+			<div className='buttonCont'>
 					<button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
 				</div>
-			</div>
 		</div>
 	);
 };
