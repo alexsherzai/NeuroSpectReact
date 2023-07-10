@@ -10,6 +10,8 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 	const [textColor, setTextColor] = useState('#F6F4FA');
 	const [text, setText] = useState('Correct!');
 	const [buttonClicked, setButtonClicked] = useState(false);
+	const [preButtonClick, setPreButtonClick] = useState(0);
+	const [buttonClickTimes, setButtonClickTimes] = useState([]);
 
 	let svgDets = [];
 
@@ -79,6 +81,8 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 	};
 
 
+	
+
 	useEffect(() => {
 		const svgs = getRandomSvgs();
 
@@ -86,6 +90,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 		setSvgIndeces(svgs[1]);
 
 		const interval = setInterval(() => {
+			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
 			setCounter((iter) => {
 				if (iter >= 30) {
@@ -120,6 +125,9 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 
 		if(!buttonClicked) {
 			setButtonClicked(true);
+			let timeToClick = Date.now() - preButtonClick;
+			buttonClickTimes.push(timeToClick);
+			console.log(timeToClick);
 			
 			if(answer === "Color") {
 				if(val1 === val2) {
@@ -152,6 +160,10 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 
 		if(!buttonClicked) {
 			setButtonClicked(true);
+			let timeToClick = Date.now() - preButtonClick;
+			buttonClickTimes.push(timeToClick);
+			console.log(buttonClickTimes);
+
 			if(answer === "Color") {
 
 				if(val1 === val2) {

@@ -8,6 +8,18 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 	const [opacityVal, setOpacityVal] = useState(0);
 	const [tutorialMode, setTutorialMode] = useState(true);
 
+	const shapes = [
+		<svg width="100" height="100">
+			<circle cx="50" cy="50" r="50" strokeWidth="0" fill="red" />
+		</svg>,
+		<svg width="100" height="100">
+			<circle cx="50" cy="50" r="50" strokeWidth="0" fill="blue" />
+		</svg>,
+		<svg width="100" height="100">
+			<rect width="100" height="100" strokeWidth="0" fill="orange" />
+		</svg>
+	];
+
 	const onClickDiff = () => {
 		setText("Wrong!")
 		setTextColor("#CD3843");
