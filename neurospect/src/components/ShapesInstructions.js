@@ -1,7 +1,7 @@
 import React from 'react';
 import './stylesheet.css';
 
-const AttentionInstructions = ({tutButton, onTimeEnd}) => {
+const ShapesInstructions = ({tutButton, onTimeEnd}) => {
 
     return (
         <div>
@@ -11,7 +11,7 @@ const AttentionInstructions = ({tutButton, onTimeEnd}) => {
                     <strong>Attention</strong>
                 </div>
                 <div className='instructions-content'>
-                    <div>Ready for an attention test? Check if the <span className='highlight'>shapes</span> are of the <span className='highlight'>same color</span>.</div>
+                    <div>Ready for the next part? Now check if the <span className='highlight'>shapes</span> themselves are the <span className='highlight'>same</span>.</div>
                 </div>
                 <div>
                     <button className="buttonNext" onClick={tutButton}><img src="/TutorialButton.png"/></button>
@@ -22,4 +22,4 @@ const AttentionInstructions = ({tutButton, onTimeEnd}) => {
     );
 };
 
-export default AttentionInstructions;
+export default ShapesInstructions;

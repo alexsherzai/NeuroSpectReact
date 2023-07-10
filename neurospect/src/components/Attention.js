@@ -9,6 +9,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 	const [correct, setCorrect] = useState(0);
 	const [textColor, setTextColor] = useState('#F6F4FA');
 	const [text, setText] = useState('Correct!');
+	const [buttonClicked, setButtonClicked] = useState(false);
 
 	let svgDets = [];
 
@@ -100,6 +101,8 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 					setTimeout(() => {
 						setDisplaySvgs([null, null]);
 					}, timeOfAppearance);
+
+					setButtonClicked(false);
 					
 					return iter + 1;
 				}
@@ -115,23 +118,27 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 		let val3 = getShape(svgIndeces[0]);
 		let val4 = getShape(svgIndeces[1]);
 
-		if(answer === "Color") {
-			if(val1 === val2) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setCorrect(correct + 1);
-			} else {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			}
-		} else if(answer === "Shape") {
-			if(val3 === val4) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setCorrect(correct + 1);
-			} else {
-				setText("Wrong!")
-				setTextColor("#CD3843");
+		if(!buttonClicked) {
+			setButtonClicked(true);
+			
+			if(answer === "Color") {
+				if(val1 === val2) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(correct + 1);
+				} else {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				}
+			} else if(answer === "Shape") {
+				if(val3 === val4) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(correct + 1);
+				} else {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				}
 			}
 		}
 	}
@@ -143,24 +150,27 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 		let val3 = getShape(svgIndeces[0]);
 		let val4 = getShape(svgIndeces[1]);
 
-		if(answer === "Color") {
+		if(!buttonClicked) {
+			setButtonClicked(true);
+			if(answer === "Color") {
 
-			if(val1 === val2) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} else {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setCorrect(correct + 1);
-			}
-		} else if(answer === "Shape") {
-			if(val3 === val4) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} else {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setCorrect(correct + 1);
+				if(val1 === val2) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} else {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(correct + 1);
+				}
+			} else if(answer === "Shape") {
+				if(val3 === val4) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} else {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(correct + 1);
+				}
 			}
 		}
 	}
