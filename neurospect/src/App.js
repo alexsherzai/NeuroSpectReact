@@ -15,7 +15,7 @@ import VisuoTutorial from './components/VisuoTutorial';
 import './components/stylesheet.css';
 
 const App = () => {
-    const [stage, setStage] = useState('vis-instr');
+    const [stage, setStage] = useState('intro');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
 
