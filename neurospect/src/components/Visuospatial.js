@@ -272,6 +272,9 @@ const Visuospatial = ( { onTimeEnd }) => {
 
     return (
 		<div>
+            <div style={{textAlign:'center'}}>
+                <h3 style={{fontFamily:'Poppins-Regular'}}>{iter}/15</h3>
+            </div>
             <div>{mainShape}</div>
 
             <div className="vis-button-container">

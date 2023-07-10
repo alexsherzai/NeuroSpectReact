@@ -7,6 +7,7 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 	const [text, setText] = useState('Correct!');
 	const [opacityVal, setOpacityVal] = useState(0);
 	const [tutorialMode, setTutorialMode] = useState(true);
+	const [iter, setIter] = useState(0);
 
 	const shapes = [
 		<svg width="100" height="100">
@@ -19,6 +20,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<rect width="100" height="100" strokeWidth="0" fill="orange" />
 		</svg>
 	];
+
+	
 
 	const onClickDiff = () => {
 		setText("Wrong!")

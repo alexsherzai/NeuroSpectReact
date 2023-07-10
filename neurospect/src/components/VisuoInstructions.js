@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './stylesheet.css';
 
-const VisuoInstructions = ({onTimeEnd}) => {
+const VisuoInstructions = ({tutButton, onTimeEnd}) => {
 
 
     
@@ -15,7 +15,10 @@ const VisuoInstructions = ({onTimeEnd}) => {
             <div className='instructions-content'>
                 Look at the reference shape and choose the shape that is the rotated version of the reference shape.
             </div>
-            <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+            <div>
+                    <button className="buttonNext" onClick={tutButton}><img src="/TutorialButton.png"/></button>
+                    <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+            </div>
         </div>
     );
 };

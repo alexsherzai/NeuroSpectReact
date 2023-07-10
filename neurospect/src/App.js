@@ -11,10 +11,11 @@ import RecallInstructions from './components/RecallInstructions';
 import LevelDisplay from './components/LevelDisplay';
 import AttentionTutorial from './components/AttentionTutorial';
 import ShapesInstructions from './components/ShapesInstructions';
+import VisuoTutorial from './components/VisuoTutorial';
 import './components/stylesheet.css';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('vis-instr');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
 
@@ -114,8 +115,8 @@ const App = () => {
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'attentionShapes' && <Attention answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
-            {stage === 'vis-instr' && <VisuoInstructions onTimeEnd={() => nextStage('vis-tutorial')} />}
-            {stage === 'vis-tutorial' && <LevelDisplay level={3} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('vis-tutorial')} />}
+            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
             {stage === 'visuo' && <Visuospatial onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
