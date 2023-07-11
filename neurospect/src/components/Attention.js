@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './stylesheet.css';
 
-const Attention = ({ answer, shapes, onTimeEnd }) => {
+const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [counter, setCounter] = useState(0);
 	const [displaySvgs, setDisplaySvgs] = useState([null, null]);
 	const [svgIndeces, setSvgIndeces] = useState([null, null]);
 	const [iter, setIter] = useState(0);
-	const [correct, setCorrect] = useState(0);
+	const [correct, setCorrect] = useState([]);
 	const [textColor, setTextColor] = useState('#F6F4FA');
 	const [text, setText] = useState('Correct!');
 	const [buttonClicked, setButtonClicked] = useState(false);
@@ -95,6 +95,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
+					storeData();
 					onTimeEnd();
 					return iter;
 				} else {
@@ -133,7 +134,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 				if(val1 === val2) {
 					setText('Correct!');
 					setTextColor("#2E8970");
-					setCorrect(correct + 1);
+					correct.push(1);
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
@@ -142,7 +143,7 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 				if(val3 === val4) {
 					setText('Correct!');
 					setTextColor("#2E8970");
-					setCorrect(correct + 1);
+					correct.push(1);
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
@@ -165,14 +166,13 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 			console.log(buttonClickTimes);
 
 			if(answer === "Color") {
-
 				if(val1 === val2) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
-					setCorrect(correct + 1);
+					correct.push(1);
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
@@ -181,11 +181,22 @@ const Attention = ({ answer, shapes, onTimeEnd }) => {
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
-					setCorrect(correct + 1);
+					correct.push(1);
 				}
 			}
 		}
 	}
+
+
+	const storeData = () => {
+		let pSpeed = buttonClickTimes.reduce((partialSum, a) => partialSum + a, 0);
+
+		pSpeed += ((30 - buttonClickTimes.length) * 1500);
+		pSpeed /= 30;
+
+		storeAtt(correct.length);
+		storeSpeed(Math.round(pSpeed));
+    };
 
 	return (
 		<div>

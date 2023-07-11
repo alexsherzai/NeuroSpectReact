@@ -14,10 +14,40 @@ import ShapesInstructions from './components/ShapesInstructions';
 import VisuoTutorial from './components/VisuoTutorial';
 import './components/stylesheet.css';
 
+import { addDoc, collection } from 'firebase/firestore';
+import { storage } from './config/firebase';
+
 const App = () => {
     const [stage, setStage] = useState('intro');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
+    const [acs, setAcs] = useState(0);
+    const [AttShS, setAttShS] = useState(0);
+    const [psc, setPsc] = useState(0);
+    const [pss, setPss] = useState(0);
+    const [visSc, setVisSc] = useState(0);
+    const [recSc, setRecSc] = useState(0);
+
+
+    const storeAttentionColors = (score) => {
+        setAcs(score);
+    };
+    const storeAttentionShapes = (score) => {
+        setAttShS(score);
+    };
+    const storeSpeedColors = (score) => {
+        setPsc(score);
+    };
+    const storeSpeedShapes = (score) => {
+        setPss(score);
+    };
+    const storeVisuospatial = (score) => {
+        setVisSc(score);
+    };
+    const storeRecall = (score) => {
+        setRecSc(score);
+    };
+    
 
     const attentionShapes = [
 		<svg width="100" height="100">
@@ -101,6 +131,29 @@ const App = () => {
         setStage(stageName);
     }
 
+    
+    const AddData = async() => {
+        setStage('end');
+
+        console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
+
+        const reviewRef = collection(storage, "neurospect");
+
+        try {
+            await addDoc(reviewRef, {
+                attentionScoreColors: acs,
+                attentionScoreShapes: AttShS,
+                processingSpeedColors: psc,
+                processingSpeedShapes: pss,
+                visuospatial: visSc,
+                recall: recSc
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+
     return (
         <div>
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
@@ -110,18 +163,18 @@ const App = () => {
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
             {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'attentionColors' && <Attention answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
+            {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
             {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'attentionShapes' && <Attention answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
+            {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
             {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('vis-tutorial')} />}
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
-            {stage === 'visuo' && <Visuospatial onTimeEnd={() => nextStage('int4')}/>}
+            {stage === 'visuo' && <Visuospatial storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall words={words} onTimeEnd={() => nextStage('end')}/>}
-            {stage === 'end' && <h1>Game Over!</h1>}
+            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
+            {stage === 'end' && <h1>Redirect back to link!</h1>}
         </div>
     );
 };

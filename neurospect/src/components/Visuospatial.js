@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-const Visuospatial = ( { onTimeEnd }) => {
+const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [iter, setIter] = useState(0);
     const [mainShape, setMainShape] = useState(null);
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
     const [correct, setCorrect] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(0);
     const [timeLeft, setTimeLeft] = useState(90);
+
+    const storeData = () => {
+        storeVis(correct);
+    }
 
     const turn = (pts, dir, size) => {
         var totalString = "";
@@ -216,7 +220,7 @@ const Visuospatial = ( { onTimeEnd }) => {
 
         let colArray = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
 
-        const [mainShapeSvg, correctDir] = generateShape(dir, 50, 175, 200, colArray);
+        const [mainShapeSvg, correctDir] = generateShape(dir, 40, 100, 100, colArray);
         setMainShape(mainShapeSvg);
 
         const [optionShp, correctIndex] = generateOptions(correctDir, colArray);
@@ -225,6 +229,7 @@ const Visuospatial = ( { onTimeEnd }) => {
         setCorrectAnswer(correctIndex);
 
 		if(iter >= 15) {
+            storeData();
             onTimeEnd();
         }
 
@@ -275,9 +280,12 @@ const Visuospatial = ( { onTimeEnd }) => {
             <div style={{textAlign:'center'}}>
                 <h3 style={{fontFamily:'Poppins-Regular'}}>{iter}/15</h3>
             </div>
-            <div>{mainShape}</div>
+            
 
             <div className="vis-button-container">
+                <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                    <div>{mainShape}</div>
+                </div>
                 <button className="visuoButton" onClick={button1}>
                     <div>{optionShapes[0]}</div>
                 </button>

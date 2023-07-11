@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
-const Recall = ({ words, onTimeEnd }) => {
+const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
     const [inputWords, setInputWords] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     
+
+    const storeData = () => {
+        storeRec(answeredWords.length - 1);
+    };
+
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {
@@ -16,10 +21,7 @@ const Recall = ({ words, onTimeEnd }) => {
                 return oldTime - 1;
             });
         }, 1000);
-        return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords]);
 
-    useEffect(() => {
         const checkWords = () => {
             let count = 0;
 
@@ -29,17 +31,19 @@ const Recall = ({ words, onTimeEnd }) => {
                 setInputWords('');
             }
 
-            console.log(answeredWords);
-
             setCorrectWords(count);
         };
 
         if(answeredWords.length === 9) {
+            storeData();
             onTimeEnd();
         }
-    
+
         checkWords();
-    }, [inputWords, words]);
+        storeData();
+
+        return () => clearInterval(timer);
+    }, [onTimeEnd, inputWords, words]);
     
     const correct = 0;
     
