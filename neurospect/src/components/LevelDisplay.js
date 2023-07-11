@@ -15,6 +15,7 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 		<div>
 			<img src="/LogoHeader.png"/>
 			<div className='level-content'>
+				<h3>Neurospect (Play on Mobile) </h3>
 					{completedLevels && completedLevels.map((levelNum, index) => (
 						<div className="listCont">
 							<span className='levels'>✓</span> 
