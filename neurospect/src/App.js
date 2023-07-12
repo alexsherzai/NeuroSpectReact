@@ -131,6 +131,10 @@ const App = () => {
         setStage(stageName);
     }
 
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
     
     const AddData = async() => {
         setStage('end');
@@ -139,8 +143,12 @@ const App = () => {
 
         const reviewRef = collection(storage, "neurospect");
 
+        
+
         try {
             await addDoc(reviewRef, {
+                testID: prolificID,
+                userID: userID,
                 attentionScoreColors: acs,
                 attentionScoreShapes: AttShS,
                 processingSpeedColors: psc,

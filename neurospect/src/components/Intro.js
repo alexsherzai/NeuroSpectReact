@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+
 import './stylesheet.css';
 
 const Intro = ({onTimeEnd}) => {
 
     const [timeLeft, setTimeLeft] = useState(3);
+
+    
 
     useEffect(() => {
         const timer = setInterval(() => {

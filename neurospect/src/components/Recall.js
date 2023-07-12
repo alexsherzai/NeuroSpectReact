@@ -22,13 +22,21 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             });
         }, 1000);
 
+        if(inputWords.charAt(inputWords.length - 1) === ' ') {
+            setInputWords(inputWords.slice(0, -1));
+        }
+
         const checkWords = () => {
             let count = 0;
 
-            if (words.includes(inputWords) && !answeredWords.includes(inputWords)) {
-                count++;
-                answeredWords.push(inputWords);
-                setInputWords('');
+            for(var i = 0; i < words.length; i ++ ) {
+                
+                if (words[i].toLowerCase() === inputWords.toLowerCase() && !answeredWords.includes(inputWords)) {
+
+                    count++;
+                    answeredWords.push(words[i]);
+                    setInputWords('');
+                }
             }
 
             setCorrectWords(count);
@@ -64,7 +72,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     <input
                         className='textField'
                         type="text"
-                        placeholder="Enter remembered words..."
+                        placeholder="Click this field and type remembered words..."
                         value={inputWords}
                         onChange={e => setInputWords(e.target.value)} 
                     />

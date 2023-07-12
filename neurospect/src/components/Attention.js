@@ -126,7 +126,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 		if(!buttonClicked) {
 			setButtonClicked(true);
-			let timeToClick = Date.now() - preButtonClick;
+			let timeToClick = 0;
+			if(preButtonClick > 0) {
+				timeToClick = Date.now() - preButtonClick;
+			}
 			buttonClickTimes.push(timeToClick);
 			console.log(timeToClick);
 			

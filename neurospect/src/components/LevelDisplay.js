@@ -13,29 +13,31 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 
 	return (
 		<div>
-			<img src="/LogoHeader.png"/>
-			<div className='level-content'>
-				<h3>Neurospect (Play on Mobile) </h3>
-					{completedLevels && completedLevels.map((levelNum, index) => (
-						<div className="listCont">
-							<span className='levels'>✓</span> 
-							<div className='level-name'>{levelNum}</div>
-						</div>
-					))}
-				<div className="listCont">
-					<span className='levels-curr'>{level + 1}</span> <div className='level-name-curr'>{currentLevel}</div>
+			<div>
+				<img src="/LogoHeader.png"/>
+				<div className='level-content'>
+					<h3>Neurospect (Play on Mobile) </h3>
+						{completedLevels && completedLevels.map((levelNum, index) => (
+							<div className="listCont">
+								<span className='levels'>✓</span> 
+								<div className='level-name'>{levelNum}</div>
+							</div>
+						))}
+					<div className="listCont">
+						<span className='levels-curr'>{level + 1}</span> <div className='level-name-curr'>{currentLevel}</div>
+					</div>
+						{remainingLevels && remainingLevels.map((levelNum, index) => (
+							<div className="listCont">
+								<span className='levels-incomp'>{level + index + 2}</span> 
+								<div className='level-name-incomp'>{levelNum}</div>
+							</div>
+						))}
 				</div>
-					{remainingLevels && remainingLevels.map((levelNum, index) => (
-						<div className="listCont">
-							<span className='levels-incomp'>{level + index + 2}</span> 
-							<div className='level-name-incomp'>{levelNum}</div>
-						</div>
-					))}
-			</div>
 
-			<div className='buttonCont'>
+				<div className='buttonCont'>
 					<button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
 				</div>
+			</div>
 		</div>
 	);
 };
