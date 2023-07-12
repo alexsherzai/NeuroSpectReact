@@ -18,7 +18,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('end');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
@@ -182,7 +182,9 @@ const App = () => {
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
-            {stage === 'end' && <h1>Redirect back to link!</h1>}
+            {stage === 'end' && 
+                <h1>Redirect back to link!<br/> {prolificID !== null ? 'Enter Completion Code: CGZN9LAK' : ''}</h1>
+            }
         </div>
     );
 };
