@@ -208,8 +208,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 							<div style={{marginTop:'110%', marginLeft:'70%'}}>
 								<img src='/TutorialIcons/Arrow1.png'/>
 							</div>
-							<div style={{marginLeft:'18%'}}>
-								<img src='/TutorialIcons/CheckColors.png'/>
+							<div style={{fontFamily:'Poppins-Regular', backgroundColor:'white', borderRadius:'6px', marginTop:'15%'}}>
+								<Text style={{margin:'20px'}}>Check if the '{answer.toLowerCase()}s' of the 'pair' are different</Text>
 							</div>
 						</div>
 				</div>

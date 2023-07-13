@@ -14,7 +14,7 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 
 	useEffect(() => {
 		setTimeout(function() {
-			if(firstTime) {
+			if(firstTime && level === 0) {
 				setIsOpen(true);
 			}
 		}, 1000);

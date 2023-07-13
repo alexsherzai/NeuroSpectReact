@@ -201,8 +201,10 @@ h4 {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #FF9417;
-    color: white;
+    background-color: white;
+    color: #5A89F5;
+    stroke: #5A89F5;
+    stroke-width: 1pxd;
     font-weight: bold;
     font-size: 14px;
     margin-right: 10px;
@@ -229,12 +231,14 @@ h4 {
     align-items: center;
     justify-content: center;
     height: 30px;
-    background-color: #5A89F5;
+    background-color: white;
     border-radius: 10px;
     box-shadow: 1px 1px 1px black;
     font-family: 'Poppins-Regular';
     padding-top: 5%;
     padding-bottom: 5%;
+    color: #24292E;
+    font-size: 25px;
 }
 
 .level-name-curr {
@@ -251,6 +255,8 @@ h4 {
     padding-bottom: 5%;
     stroke: #5A89F5;
     stroke-width: 1px;
+    color: #24292E;
+    font-size: 25px;
 }
 
 .level-name-incomp {
