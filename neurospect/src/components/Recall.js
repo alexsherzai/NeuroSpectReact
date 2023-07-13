@@ -5,6 +5,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [inputWords, setInputWords] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
+    const [inputFieldColor, setInputFieldColor] = useState('black');
     
 
     const storeData = () => {
@@ -29,13 +30,25 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         const checkWords = () => {
             let count = 0;
 
+            let included = false;
+
             for(var i = 0; i < words.length; i ++ ) {
                 
-                if (words[i].toLowerCase() === inputWords.toLowerCase() && !answeredWords.includes(inputWords)) {
+                if (words[i].toLowerCase() === inputWords.toLowerCase()) {
 
-                    count++;
-                    answeredWords.push(words[i]);
-                    setInputWords('');
+                    for(var j = 0; j < answeredWords.length; j++) {
+                        if(answeredWords[j].toLowerCase() === inputWords.toLowerCase()) {
+                            included = true;
+                            break;
+                        }
+                    }
+
+                    if(!included) {
+                        count++;
+                        answeredWords.push(words[i]);
+                        setInputWords('');
+                        setInputFieldColor('green');
+                    }
                 }
             }
 
@@ -73,6 +86,13 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                         className='textField'
                         type="text"
                         placeholder="Click this field and type remembered words..."
+                        style={{borderRadius:'10px', borderBlockColor:{inputFieldColor}}}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                setInputFieldColor('red');
+                                console.log("test");
+                            }
+                        }}
                         value={inputWords}
                         onChange={e => setInputWords(e.target.value)} 
                     />
