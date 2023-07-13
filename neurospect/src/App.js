@@ -16,11 +16,11 @@ import Countdown from './components/Countdown';
 import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
-import { addDoc, collection } from 'firebase/firestore';
+import { setDoc, addDoc, collection, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('recall');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
@@ -145,10 +145,10 @@ const App = () => {
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = collection(storage, "neurospect");
+        const reviewRef = doc(storage, "neurospect", userID);
 
         try {
-            await addDoc(reviewRef, {
+            await setDoc(reviewRef, {
                 testID: prolificID,
                 userID: userID,
                 attentionScoreColors: acs,

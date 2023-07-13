@@ -5,7 +5,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [inputWords, setInputWords] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
-    const [inputFieldColor, setInputFieldColor] = useState('black');
+    const [warning, setWarning] = useState('');
     
 
     const storeData = () => {
@@ -13,6 +13,11 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     };
 
     useEffect(() => {
+        if(inputWords.length === 0) {
+            setWarning('');
+        }
+
+
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {
                 if (oldTime <= 1) {
@@ -47,7 +52,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                         count++;
                         answeredWords.push(words[i]);
                         setInputWords('');
-                        setInputFieldColor('green');
+                        setWarning('');
                     }
                 }
             }
@@ -86,17 +91,21 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                         className='textField'
                         type="text"
                         placeholder="Click this field and type remembered words..."
-                        style={{borderRadius:'10px', borderBlockColor:{inputFieldColor}}}
+                        style={{borderRadius:'10px'}}
                         onKeyDown={(e) => {
                             if (e.key === "Enter") {
-                                setInputFieldColor('red');
                                 console.log("test");
+                                setWarning("Not a valid word!");
                             }
                         }}
                         value={inputWords}
                         onChange={e => setInputWords(e.target.value)} 
                     />
                 </div>
+            </div>
+
+            <div style={{textAlign:'center', fontFamily:'Poppins-Regular'}}>
+                <h3 style={{color: '#CD3843'}}>{warning}</h3>
             </div>
             
         </div>
