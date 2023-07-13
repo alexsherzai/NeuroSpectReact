@@ -8,7 +8,7 @@ const VisuoInstructions = ({tutButton, onTimeEnd}) => {
     
     return (
         <div className='instructions-back'>
-            <img className="logo-header" src="./LogoHeader.png" />
+            <div style={{height:'6vh'}}></div>
             <div className='instructions-header'>
                 <strong>Visuospatial</strong>
             </div>

@@ -1,22 +1,38 @@
-import React from 'react';
 import './stylesheet.css';
+import ReactModal from 'react-modal';
+import React, { useEffect, useState } from 'react';
 
 const LevelDisplay = ({ level, onTimeEnd }) => {
 
 	const levels = ['Word Memory', 'Attention', 'Visuospatial', 'Recall'];
+	const [isOpen, setIsOpen] = useState(false);
+	const [firstTime, setFirstTime] = useState(true);
 
 	const completedLevels = levels.slice(0, level);
 	const currentLevel = levels[level];
 	const remainingLevels = levels.slice(level + 1);
 
+	useEffect(() => {
+		setTimeout(function() {
+			if(firstTime) {
+				setIsOpen(true);
+			}
+		}, 1000);
+	});
+
+	const understood = () => {
+		setFirstTime(false);
+		setIsOpen(false);
+	}
 
 
 	return (
 		<div>
 			<div>
-				<img src="/LogoHeader.png"/>
+				<div style={{height:'5vh'}}>
+					
+				</div>
 				<div className='level-content'>
-					<h3>Neurospect (Play on Mobile) </h3>
 						{completedLevels && completedLevels.map((levelNum, index) => (
 							<div className="listCont">
 								<span className='levels'>✓</span> 
@@ -37,6 +53,15 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 				<div className='buttonCont'>
 					<button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
 				</div>
+
+				<ReactModal
+					isOpen={isOpen}
+					contentLabel="Example Modal"
+				>
+					<img style={{position: 'absolute', top: '0px', right:'0px', width:'100%'}} src='./PopUpBrain.png'/>
+					<img style={{marginTop:'100%', width: '100%'}} src='./AttentionGamers.png' />
+					<button onClick={understood} className='buttonNext'><img style={{position: 'absolute', bottom: '0px', right:'0px', width:'100%'}} src='./Understood.png' /></button>
+				</ReactModal>
 			</div>
 		</div>
 	);

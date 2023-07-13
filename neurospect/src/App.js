@@ -12,13 +12,15 @@ import LevelDisplay from './components/LevelDisplay';
 import AttentionTutorial from './components/AttentionTutorial';
 import ShapesInstructions from './components/ShapesInstructions';
 import VisuoTutorial from './components/VisuoTutorial';
+import Countdown from './components/Countdown';
+import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
 import { addDoc, collection } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('end');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
@@ -135,6 +137,8 @@ const App = () => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
+    console.log(userID);
+
     
     const AddData = async() => {
         setStage('end');
@@ -142,8 +146,6 @@ const App = () => {
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
         const reviewRef = collection(storage, "neurospect");
-
-        
 
         try {
             await addDoc(reviewRef, {
@@ -170,20 +172,23 @@ const App = () => {
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
             {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('countdown-att1')} />}
+            {stage === 'countdown-att1' && <Countdown onTimeEnd={() => setStage('attentionColors')}/>}
             {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
             {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('countdown-att2')} />}
+            {stage === 'countdown-att2' && <Countdown onTimeEnd={() => setStage('attentionShapes')}/>}
             {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
             {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('vis-tutorial')} />}
-            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('countdown-vis')} />}
+            {stage === 'countdown-vis' && <Countdown onTimeEnd={() => setStage('visuo')}/>}
             {stage === 'visuo' && <Visuospatial storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
             {stage === 'end' && 
-                <h1>Redirect back to link!<br/> {prolificID !== null ? 'Enter Completion Code: CGZN9LAK' : ''}</h1>
+                <DisplayScore attScoreColors={21} attScoreShapes={18} speedColors={718} speedShapes={941} visuo={12} recall={4}/>
             }
         </div>
     );

@@ -6,7 +6,7 @@ const AttentionInstructions = ({tutButton, onTimeEnd}) => {
     return (
         <div>
             <div className='instructions-back'>
-                <img className="logo-header" src="./LogoHeader.png" />
+                <div style={{height:'6vh'}}></div>
                 <div className='instructions-header'>
                     <strong>Attention</strong>
                 </div>
