@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-console.log("Auth domain: " + process.env.REACT_APP_API_KEY_DEV);
-
 const firebaseConfigDev = {
     apiKey: process.env.REACT_APP_API_KEY_DEV,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN_DEV,

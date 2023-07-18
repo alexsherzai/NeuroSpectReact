@@ -152,8 +152,6 @@ const App = () => {
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        console.log(docName);
-
         const reviewRef = doc(storage, "neurospect", docName);
 
         try {
