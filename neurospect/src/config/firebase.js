@@ -1,16 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfigDev = {
-    apiKey: "AIzaSyBYTlNI-VTKCRNq8xANI0CUkGxxiU8bAbY",
-    authDomain: "neuroverse-dev.firebaseapp.com",
-    projectId: "neuroverse-dev",
-    storageBucket: "neuroverse-dev.appspot.com",
-    messagingSenderId: "473832931878",
-    appId: "1:473832931878:web:ae0afa49e461e90dd29ce7",
-    measurementId: "G-EBL3BGHH6K"
+const firebaseConfigProd = {
+    apiKey: "AIzaSyAz-wddbpROXPhPEeItB01ngri0XUD0XSg",
+    authDomain: "neuroverse-fdf22.firebaseapp.com",
+    projectId: "neuroverse-fdf22",
+    storageBucket: "neuroverse-fdf22.appspot.com",
+    messagingSenderId: "656486393456",
+    appId: "1:656486393456:web:525952f1906aa4967236b5",
+    measurementId: "G-MNS48EZ8GT"
 };
 
-const appDev = initializeApp(firebaseConfigDev);
+const appProd = initializeApp(firebaseConfigProd);
 
-export const storage = getFirestore(appDev);
+export const storage = getFirestore(appProd);
