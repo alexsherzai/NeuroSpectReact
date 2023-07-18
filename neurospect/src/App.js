@@ -22,7 +22,7 @@ import { getFirestore } from "firebase/firestore";
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro'); 
+    const [stage, setStage] = useState('recall'); 
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
