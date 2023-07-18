@@ -136,11 +136,13 @@ const App = () => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
+    let docName = userID;
+
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
 
     if(prolificID !== null) {
-        userID = prolificID;
+        docName = prolificID;
         console.log("Study Participant");
     }
      
@@ -149,7 +151,7 @@ const App = () => {
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = doc(storage, "neurospect", userID);
+        const reviewRef = doc(storage, "neurospect", docName);
 
         try {
             await setDoc(reviewRef, {
