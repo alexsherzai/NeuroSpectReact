@@ -49,7 +49,6 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
-    
 
     const attentionShapes = [
 		<svg width="100" height="100">
