@@ -133,7 +133,6 @@ const App = () => {
     }
 
     const queryParams = new URLSearchParams(window.location.search)
-    const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
@@ -149,7 +148,6 @@ const App = () => {
         try {
             await setDoc(reviewRef, {
                 lastUpdated: currentDate,
-                testID: prolificID,
                 userID: userID,
                 attentionScoreColors: acs,
                 attentionScoreShapes: AttShS,
