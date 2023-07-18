@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-const firebaseConfig = {
+const firebaseConfigDev = {
     apiKey: "AIzaSyBYTlNI-VTKCRNq8xANI0CUkGxxiU8bAbY",
     authDomain: "neuroverse-dev.firebaseapp.com",
     projectId: "neuroverse-dev",
@@ -11,5 +11,6 @@ const firebaseConfig = {
     measurementId: "G-EBL3BGHH6K"
 };
 
-const app = initializeApp(firebaseConfig);
-export const storage = getFirestore(app);
+const appDev = initializeApp(firebaseConfigDev);
+
+export const storage = getFirestore(appDev);

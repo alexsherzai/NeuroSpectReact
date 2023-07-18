@@ -2,22 +2,18 @@
     font-family: Poppins-Light;
     src: url(../fonts/Poppins-Light.ttf);
 }
-
 @font-face {
     font-family: Poppins-Regular;
     src: url(../fonts/Poppins-Regular.ttf);
 }
-
 @font-face {
     font-family: Poppins-Bold;
     src: url(../fonts/Poppins-Bold.ttf);
 }
-
 h1 {
     font-family: Poppins-Bold;
     text-align: center;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -25,7 +21,6 @@ body {
     font-family: 'Poppins-Regular', sans-serif;
     background-color: #F6F4FA;
 }
-
 .header {
     width: 100%;
     height: 15vh;
@@ -37,7 +32,6 @@ body {
     font-size: 2em;
     font-family: Poppins-Bold;
 }
-
 .footer {
     width: 100%;
     height: 20vh;
@@ -49,7 +43,6 @@ body {
     font-size: 2em;
     font-family: Poppins-Bold;
 }
-
 .content {
     z-index: 1000;
     width: 100%;
@@ -59,16 +52,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .logo-header {
     background-color: #F6F4FA;
     width: 100%;
 }
-
 .instructions-back {
     height:30vh;
 }
-
 .instructions-header {
     width: 100%;
     height: 25vh;
@@ -78,17 +68,14 @@ body {
     font-family: 'Poppins-Regular';
     font-size: 30px;
 }
-
 h4 {
     font-family: 'Poppins-Regular';
     font-size: 13px;
 }
-
 .highlight {
     font-family: 'Poppins-Bold';
     color:#FF9417;
 }
-
 .instructions-content {
     width: 100%;
     height: 45vh;
@@ -100,7 +87,6 @@ h4 {
     font-size: 30px;
     text-align: center;
 }
-
 .shape {
     width: 45%;
     height: 100%;
@@ -108,7 +94,6 @@ h4 {
     align-items: center;
     justify-content: center;
 }
-
 .encoding-content {
     display: flex;
     flex-wrap: wrap;
@@ -118,7 +103,6 @@ h4 {
     align-items: center;
     background-color: #F6F4FA;
 }
-
 .word {
     width: 40%;
     height: 5%;
@@ -131,25 +115,20 @@ h4 {
     padding-top: 5%;
     padding-bottom: 5%;
 }
-
 .word-left {
     order: 1;
 }
-
 .word-right {
     order: 2;
 }
-
 .timer {
     color: #FF9417;
   }
-
 .attentionButton {
     z-index: inherit;
     border: none;
     background-color: #F6F4FA;
 }
-
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -157,13 +136,11 @@ h4 {
     align-items: center;
     height: 50vh;
 }
-  
 .visuoButton {
     width: 45%;
     margin: 2.5%;
     z-index: inherit;
 }
-
 .level-content {
     display: flex;
     flex-direction: column;
@@ -172,7 +149,6 @@ h4 {
     align-items: center;
     height: 70vh;
 }
-
 .listCont {
     display: flex;
     align-items: center;
@@ -180,7 +156,6 @@ h4 {
     width: 95%;
     margin-bottom: 15%;
 }
-
 .levels {
     display: flex;
     align-items: center;
@@ -194,7 +169,6 @@ h4 {
     font-size: 14px;
     margin-right: 10px;
 }
-
 .levels-curr {
     display: flex;
     align-items: center;
@@ -210,7 +184,6 @@ h4 {
     font-size: 14px;
     margin-right: 10px;
 }
-
 .levels-incomp {
     display: flex;
     align-items: center;
@@ -225,7 +198,6 @@ h4 {
     margin-right: 10px;
     opacity: 40%;
 }
-
 .level-name {
     flex-grow: 1;
     display: flex;
@@ -241,7 +213,6 @@ h4 {
     color: #24292E;
     font-size: 25px;
 }
-
 .level-name-curr {
     flex-grow: 1;
     display: flex;
@@ -259,7 +230,6 @@ h4 {
     color: #24292E;
     font-size: 25px;
 }
-
 .level-name-incomp {
     flex-grow: 1;
     display: flex;
@@ -274,7 +244,6 @@ h4 {
     padding-bottom: 5%;
     opacity: 40%;
 }
-
 .buttonNext {
     border: none;
     background-color: #F6F4FA;
@@ -283,37 +252,31 @@ h4 {
     left:0;
     width:100%;
 }
-
 .correct {
     font-family: 'Poppins-Bold';
     font-size: 25px;
     margin-bottom: 5%;
 }
-  
 .wrong {
     font-family: 'Poppins-Bold';
     font-size: 25px;
 }
-  
 .feedback {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
 .textField {
     width: 90%;
     height: 5%;
     font-family: 'Poppins-Regular';
 }
-
 .button-container {
     flex: 1;
     justify-content: 'flex-end';
     margin-bottom: 36;
 }
-
 .intro {
     background-color: #F6F4FA;
     height:100vh;
@@ -324,42 +287,35 @@ h4 {
     -webkit-animation: fadeinout 2.8s linear forwards;
     animation: fadeinout 2.8s linear forwards;
 }
-
 .intro-logo {
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-left: auto;
+    margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
     display: block;
 }
-
 @-webkit-keyframes fadeinout {
   0%,100% { opacity: 0; }
   30% { opacity: 1; }
   60% {opacity: 1;}
 }
-
 @keyframes fadeinout {
   0%,100% { opacity: 0; }
   30% { opacity: 1; }
   60% {opacity: 1;}
 }
-
 .response {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-
 .tutorialHeader {
     font-size: 15px;
 }
-
 .highlighted {
     animation: highlightedEffect 3s linear infinite;
 }
-  
 @keyframes highlightedEffect {
     0% {
         background-color: #F6F4FA;
@@ -374,8 +330,6 @@ h4 {
         background-color: #F6F4FA;
     }
 }
-  
-
 .tutorialCover {
     position: absolute;
     z-index: 500;
@@ -386,7 +340,6 @@ h4 {
     width: 100%;
     height: 100%;
 }
-
 .tutorialCoverNoFade {
     position: absolute;
     z-index: 500;
@@ -395,7 +348,6 @@ h4 {
     width: 100%;
     height: 100%;
 }
-
 @keyframes opacityEffect {
     0% {
         opacity: 0;
@@ -407,7 +359,6 @@ h4 {
         opacity: 0.8;
     }
 }
-
 .tutorialImgs {
     position: absolute;
     z-index: inherit;
@@ -419,7 +370,6 @@ h4 {
     max-width: 450px;
     min-width: 440px;
 }
-
 .content-highlight {
     z-index: 1000;
     background-color: white;
@@ -432,7 +382,6 @@ h4 {
     margin-right: 10%;
     border-radius: 15px;
 }
-
 .content-unhighlight {
     z-index: 0;
     background-color: white;
@@ -445,50 +394,38 @@ h4 {
     margin-right: 10%;
     border-radius: 15px;
 }
-
 .button-highlight {
     z-index: 1000;
     border-radius: 40px;
 }
-
 .button-unhighlight {
     z-index: 0;
     border-radius: 40px;
 }
-
 .tutorialDis {
     display: none;
 }
-
 .noHighlightText {
     position: absolute;
     z-index: 1000;
 }
-
 .yesHighlightText {
     position: absolute;
     z-index: 1000;
 }
-
 /* Display Score */
-
 tr {
     background-color: white;
     padding: 30px;
     margin: 30px;
 }
-
 table {
     height: 100%;
 }
-
-
 input:focus {
     outline-width: 0;
 }
-
 /* Visuo Tutorial */
-
 .vis-main-shape {
     z-index: 1002;
     background-color: #F6F4FA;
@@ -498,10 +435,9 @@ input:focus {
     width: 100%;
     height: 40%;
     border-radius: 15px;
-    text-align:'center'; 
+    text-align:'center';
     margin:'10px';
 }
-
 .vis-main-shape2 {
     z-index: 0;
     background-color: #F6F4FA;
@@ -511,17 +447,23 @@ input:focus {
     width: 100%;
     height: 40%;
     border-radius: 15px;
-    text-align:'center'; 
+    text-align:'center';
     margin:'10px';
 }
-
 .vis-button-container {
     z-index: 1002;
     background-color: #F6F4FA;
 }
-
 .tut-intro-fade {
     animation: opacityEffect 1.5s linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
+
+
+
+
+
+
+
