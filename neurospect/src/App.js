@@ -136,8 +136,6 @@ const App = () => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
-    console.log(userID);
-
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
      
