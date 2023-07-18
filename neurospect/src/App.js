@@ -128,6 +128,8 @@ const App = () => {
 		</svg>,
 	];
 
+    console.log(process.env.REACT_APP_API_KEY);
+
     const nextStage = (stageName) => {
         setStage(stageName);
     }
@@ -173,11 +175,11 @@ const App = () => {
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('countdown-att1')} />}
             {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('countdown-att1')} />}
             {stage === 'countdown-att1' && <Countdown onTimeEnd={() => setStage('attentionColors')}/>}
             {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('countdown-att2')} />}
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('countdown-att2')} />}
             {stage === 'countdown-att2' && <Countdown onTimeEnd={() => setStage('attentionShapes')}/>}
             {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
