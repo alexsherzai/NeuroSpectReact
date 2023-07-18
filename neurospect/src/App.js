@@ -17,6 +17,8 @@ import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
 import { setDoc, addDoc, collection, doc } from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { storage } from './config/firebase';
 
 const App = () => {
@@ -143,10 +145,7 @@ const App = () => {
 
     if(prolificID !== null) {
         docName = prolificID;
-        console.log("Study Participant");
     }
-
-    console.log(docName);
      
     const AddData = async() => {
         setStage('end');
