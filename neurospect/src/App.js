@@ -137,13 +137,11 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
-    console.log("Prolific ID: " + prolificID);
-    console.log("User ID: " + userID);
     console.log(currentDate);
 
     if(prolificID !== null) {
-        console.log("This has a study ID!");
-        console.log("API KEY: " + process.env.REACT_APP_API_KEY_DEV);
+        userID = prolificID;
+        console.log("Study Participant");
     }
      
     const AddData = async() => {
