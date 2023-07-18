@@ -14,6 +14,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [button2style, setButton2Style] = useState('');
     const [button3style, setButton3Style] = useState('');
     const [button4style, setButton4Style] = useState('');
+    const [clicked, setClicked] = useState(false);
 
     const storeData = () => {
         storeVis(correct);
@@ -255,52 +256,72 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
 
     const button1 = () => {
-        if(correctAnswer === 0) {
-            setCorrect(correct + 1);
-            setButton1Style(buttonCorrect);
-        } else {
-            setButton1Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 0) {
+                setCorrect(correct + 1);
+                setButton1Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton1Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton1Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton1Style('');
-        }, 500);
     };
     const button2 = () => {
-        if(correctAnswer === 1) {
-            setCorrect(correct + 1);
-            setButton2Style(buttonCorrect);
-        } else {
-            setButton2Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 1) {
+                setCorrect(correct + 1);
+                setButton2Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton2Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton2Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton2Style('');
-        }, 500);
     };
     const button3 = () => {
-        if(correctAnswer === 2) {
-            setCorrect(correct + 1);
-            setButton3Style(buttonCorrect);
-        } else {
-            setButton3Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 2) {
+                setCorrect(correct + 1);
+                setButton3Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton3Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton3Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton3Style('');
-        }, 500);
     };
     const button4 = () => {
-        if(correctAnswer === 3) {
-            setCorrect(correct + 1);
-            setButton4Style(buttonCorrect);
-        } else {
-            setButton4Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 3) {
+                setCorrect(correct + 1);
+                setButton4Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton4Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton4Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton4Style('');
-        }, 500);
     };
 
 
