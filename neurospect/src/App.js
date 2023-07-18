@@ -134,7 +134,21 @@ const App = () => {
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
-    const userID = queryParams.get("userID");
+
+    const generateRandomString = (length) => {
+        let result = '';
+        const characters =
+          'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    };
+
+    let userID = generateRandomString(12);
+
+    userID = queryParams.get("userID");
 
     console.log(userID);
 
