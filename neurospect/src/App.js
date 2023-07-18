@@ -140,6 +140,10 @@ const App = () => {
     console.log("Prolific ID: " + prolificID);
     console.log("User ID: " + userID);
     console.log(currentDate);
+
+    if(prolificID !== null) {
+        console.log("This has a study ID!");
+    }
      
     const AddData = async() => {
         setStage('end');
