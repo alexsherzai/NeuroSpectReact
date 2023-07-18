@@ -49,8 +49,6 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
-    
-    console.log(process.env.REACT_APP_API_KEY);
 
     const attentionShapes = [
 		<svg width="100" height="100">
