@@ -13,4 +13,4 @@ const firebaseConfigDev = {
 
 const appDev = initializeApp(firebaseConfigDev);
 
-export const storage = getFirestore(appDev);
+export const storage = getFirestore(appDev); 
