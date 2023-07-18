@@ -128,8 +128,6 @@ const App = () => {
 		</svg>,
 	];
 
-    console.log(process.env.REACT_APP_API_KEY);
-
     const nextStage = (stageName) => {
         setStage(stageName);
     }
