@@ -2,7 +2,7 @@ import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 
-const DisplayScore = ({ attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
 
@@ -63,6 +63,12 @@ const DisplayScore = ({ attScoreColors, attScoreShapes, speedColors, speedShapes
                     </th>
                 </tr>
             </table>
+
+            {id !== null && 
+            
+            <h3>Enter this code into Prolific to confirm you finished: COQ89QD3</h3>
+
+            }
 
             <ReactModal
 					isOpen={isOpen}

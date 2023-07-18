@@ -190,7 +190,7 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
             {stage === 'end' && 
-                <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );
