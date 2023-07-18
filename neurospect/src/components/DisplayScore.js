@@ -1,12 +1,14 @@
 import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
-import Visuospatial from './Visuospatial';
 
 const DisplayScore = ({ attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
+    const [isOpen, setIsOpen] = useState(true);
+
 	return (
 		<div>
+            
 			<table style={{alignContent:'center', width:'100%'}}>
                 <tr>
                     <th>
