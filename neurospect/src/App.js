@@ -132,8 +132,6 @@ const App = () => {
         setStage(stageName);
     }
 
-    console.log(process.env.REACT_APP_API_KEY_DEV);
-
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
