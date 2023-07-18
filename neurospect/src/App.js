@@ -137,8 +137,8 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
-    console.log(prolificID);
-    console.log(userID);
+    console.log("Prolific ID: " + prolificID);
+    console.log("User ID: " + userID);
     console.log(currentDate);
      
     const AddData = async() => {
