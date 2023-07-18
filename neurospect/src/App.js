@@ -137,7 +137,7 @@ const App = () => {
 
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
-     
+    
     const AddData = async() => {
         setStage('end');
 
