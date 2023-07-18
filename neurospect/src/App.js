@@ -145,6 +145,8 @@ const App = () => {
         docName = prolificID;
         console.log("Study Participant");
     }
+
+    console.log(docName);
      
     const AddData = async() => {
         setStage('end');
