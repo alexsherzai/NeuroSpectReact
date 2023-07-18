@@ -51,7 +51,7 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 				</div>
 
 				<div className='buttonCont'>
-					<button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+					<button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
 				</div>
 
 				<div className='modal'>
@@ -60,8 +60,11 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 					contentLabel="Example Modal"
 				>
 					<img style={{position: 'absolute', top: '0px', right:'0px', width:'100%'}} src='./PopUpBrain.png'/>
-					<img style={{marginTop:'100%', width: '100%'}} src='./AttentionGamers.png' />
-					<button onClick={understood} className='buttonNext'><img style={{position: 'absolute', bottom: '0px', right:'0px', width:'100%'}} src='./Understood.png' /></button>
+					<img onClick={understood} style={{position:'absolute', zIndex: 1000, right:'20px'}} src='./Outlined.svg' />
+					<img style={{marginTop:'75%', marginBottom: '20%', width: '100%'}} src='./AttentionGamers.png' />
+					<div className='buttonCont'>
+						<button onClick={understood} className='buttonNextModal'>Understood!</button>
+					</div>
 				</ReactModal>
 				</div>
 			</div>

@@ -19,7 +19,9 @@ const EncodingInstructions = ({onTimeEnd}) => {
                 <div>Let's test your memory! You're about to see <span class='highlight'>8 words</span>. Try to <span class='highlight'>memorize</span> each one. You'll be asked to recall them later.
                 </div>
             </div>
-            <button className="buttonNext" onClick={handleClick}><img src="/StartPlaying.png"/></button>
+            <div className='buttonCont'>
+            <button className="buttonNext" onClick={handleClick}>Start Playing</button>
+            </div>
         </div>
     );
 };

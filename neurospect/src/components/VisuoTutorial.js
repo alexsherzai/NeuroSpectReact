@@ -322,8 +322,12 @@ const VisuoTutorial = ({onTimeEnd }) => {
                         <div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
                             Great! Now you are ready to play the game! Don't forget that in the game, you will have 90 seconds!
                         </div>
-                        <button className="buttonNext" onClick={() => reset()}><img src="/TutorialAgain.png"/></button>
-                        <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+                        <div className="buttonCont">
+                            <button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
+                        </div>
+                        <div className="buttonCont">
+                            <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
+                        </div>
                     </div>
                 </div>
             }

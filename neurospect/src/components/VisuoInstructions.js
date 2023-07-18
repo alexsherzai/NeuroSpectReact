@@ -15,9 +15,11 @@ const VisuoInstructions = ({tutButton, onTimeEnd}) => {
             <div className='instructions-content'>
                 Look at the reference shape and choose the shape that is the rotated version of the reference shape.
             </div>
-            <div>
-                    <button className="buttonNext" onClick={tutButton}><img src="/TutorialButton.png"/></button>
-                    <button className="buttonNext" onClick={onTimeEnd}><img src="/StartPlaying.png"/></button>
+            <div className='buttonCont'>
+                    <button className="buttonSecondary" onClick={tutButton}>How To Play</button>
+            </div>
+            <div className='buttonCont'>
+                    <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
             </div>
         </div>
     );

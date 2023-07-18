@@ -8,6 +8,13 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [correctAnswer, setCorrectAnswer] = useState(0);
     const [timeLeft, setTimeLeft] = useState(90);
 
+    const buttonWrong = '2px solid #CD3843';
+    const buttonCorrect = '2px solid #2E8970';
+    const [button1style, setButton1Style] = useState('');
+    const [button2style, setButton2Style] = useState('');
+    const [button3style, setButton3Style] = useState('');
+    const [button4style, setButton4Style] = useState('');
+
     const storeData = () => {
         storeVis(correct);
     }
@@ -250,26 +257,50 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const button1 = () => {
         if(correctAnswer === 0) {
             setCorrect(correct + 1);
+            setButton1Style(buttonCorrect);
+        } else {
+            setButton1Style(buttonWrong);
         }
-        setIter(iter + 1);
+        setTimeout(function() {
+            setIter(iter + 1);
+            setButton1Style('');
+        }, 500);
     };
     const button2 = () => {
         if(correctAnswer === 1) {
             setCorrect(correct + 1);
+            setButton2Style(buttonCorrect);
+        } else {
+            setButton2Style(buttonWrong);
         }
-        setIter(iter + 1);
+        setTimeout(function() {
+            setIter(iter + 1);
+            setButton2Style('');
+        }, 500);
     };
     const button3 = () => {
         if(correctAnswer === 2) {
             setCorrect(correct + 1);
+            setButton3Style(buttonCorrect);
+        } else {
+            setButton3Style(buttonWrong);
         }
-        setIter(iter + 1);
+        setTimeout(function() {
+            setIter(iter + 1);
+            setButton3Style('');
+        }, 500);
     };
     const button4 = () => {
         if(correctAnswer === 3) {
             setCorrect(correct + 1);
+            setButton4Style(buttonCorrect);
+        } else {
+            setButton4Style(buttonWrong);
         }
-        setIter(iter + 1);
+        setTimeout(function() {
+            setIter(iter + 1);
+            setButton4Style('');
+        }, 500);
     };
 
 
@@ -286,16 +317,16 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                     <div>{mainShape}</div>
                 </div>
-                <button className="visuoButton" onClick={button1}>
+                <button style={{border: button1style}} className="visuoButton" onClick={button1}>
                     <div>{optionShapes[0]}</div>
                 </button>
-                <button className="visuoButton" onClick={button2}>
+                <button style={{border: button2style}} className="visuoButton" onClick={button2}>
                     <div>{optionShapes[1]}</div>
                 </button>
-                <button className="visuoButton" onClick={button3}>
+                <button style={{border: button3style}} className="visuoButton" onClick={button3}>
                     <div>{optionShapes[2]}</div>
                 </button>
-                <button className="visuoButton" onClick={button4}>
+                <button style={{border: button4style}} className="visuoButton" onClick={button4}>
                     <div>{optionShapes[3]}</div>
                 </button>
             </div>
