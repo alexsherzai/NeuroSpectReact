@@ -19,12 +19,12 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins-Regular', sans-serif;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
 }
 .header {
     width: 100%;
     height: 15vh;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@ body {
 .footer {
     width: 100%;
     height: 20vh;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +53,7 @@ body {
     justify-content: center;
 }
 .logo-header {
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     width: 100%;
 }
 .instructions-back {
@@ -102,7 +102,7 @@ h4 {
     width: 100%;
     height: 70vh;
     align-items: center;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
 }
 .word {
     width: 40%;
@@ -128,7 +128,7 @@ h4 {
 .attentionButton {
     z-index: inherit;
     border: none;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
 }
 .button-container {
     display: flex;
@@ -177,7 +177,7 @@ h4 {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     color: #5A89F5;
     border: 1px solid #5A89F5;
     stroke-width: 1pxd;
@@ -192,7 +192,7 @@ h4 {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     color: black;
     border: 1px solid black;
     font-weight: bold;
@@ -259,9 +259,37 @@ h4 {
     height: 48px;
     padding: 10.5px 116px;
     gap: 10px;
-    color: #F6F4FA;
+    color: #F4F6FA;
     font-size: 18px;
     text-align: center;
+}
+
+.buttonSmall {
+    display: flex;
+    padding: 10.5px 116.5px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    border-radius: 100px;
+    border: 1px solid var(--primary-blue, #5A89F5);
+    color: #5A89F5;
+    font-size: 18px;
+    font-family: 'Poppins-Regular';
+}
+
+.buttonSmallClicked {
+    display: flex;
+    padding: 10.5px 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 100px;
+    background: var(--primary-blue, #5A89F5);
+    color: #F4F6FA;
+    font-size: 18px;
+    font-family: 'Poppins-Regular';
 }
 
 .buttonSecondary {
@@ -294,7 +322,7 @@ h4 {
     height: 48px;
     padding: 10.5px 90px;
     gap: 10px;
-    color: #F6F4FA;
+    color: #F4F6FA;
     font-size: 18px;
 }
 
@@ -331,7 +359,7 @@ h4 {
     margin-bottom: 36;
 }
 .intro {
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     height:100vh;
     justify-content: center;
     align-items: center;
@@ -371,7 +399,7 @@ h4 {
 }
 @keyframes highlightedEffect {
     0% {
-        background-color: #F6F4FA;
+        background-color: #F4F6FA;
     }
     10% {
         background-color: #FF9417;
@@ -380,7 +408,7 @@ h4 {
         background-color: #FF9417;
     }
     100% {
-        background-color: #F6F4FA;
+        background-color: #F4F6FA;
     }
 }
 .tutorialCover {
@@ -482,7 +510,7 @@ input:focus {
 /* Visuo Tutorial */
 .vis-main-shape {
     z-index: 1002;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -494,7 +522,7 @@ input:focus {
 }
 .vis-main-shape2 {
     z-index: 0;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -506,7 +534,7 @@ input:focus {
 }
 .vis-button-container {
     z-index: 1002;
-    background-color: #F6F4FA;
+    background-color: #F4F6FA;
 }
 .tut-intro-fade {
     animation: opacityEffect 1.5s linear;
