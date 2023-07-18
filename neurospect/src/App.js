@@ -143,7 +143,7 @@ const App = () => {
 
     if(prolificID !== null) {
         console.log("This has a study ID!");
-        console.log(progress.env.REACT_APP_API_KEY_DEV);
+        console.log("API KEY: " + progress.env.REACT_APP_API_KEY_DEV);
     }
      
     const AddData = async() => {
