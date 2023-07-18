@@ -134,12 +134,7 @@ const App = () => {
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
-
-    userID = queryParams.get("userID");
-
-    if(prolificID !== null) {
-        userID = prolificID;
-    }
+    const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
     console.log(prolificID);
