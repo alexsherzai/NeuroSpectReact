@@ -142,6 +142,7 @@ const App = () => {
     }
 
     let currentDate = new Date().toLocaleString() + "";
+    console.log(userID);
     console.log(currentDate);
      
     const AddData = async() => {
