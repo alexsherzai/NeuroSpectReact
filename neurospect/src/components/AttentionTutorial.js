@@ -182,6 +182,10 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 					<div style={{marginLeft:'3%'}}className="shape">{shapes[shapeIndex[1]]}</div>
 				</div>
 
+				<div className="tut-intro-fade" style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", justifyContent:'center', alignItems:'center', marginBottom:'100%'}}>
+					<Text style={{margin: "10px"}}>Tap to move forward</Text>
+				</div>
+
 				<div className="tut-intro-fade" style={{position: "absolute", zIndex:1100, marginLeft: '60%', marginTop: '1%'}}>
 					<img src="/TutorialIcons/Arrow1.png"/>
 				</div>
