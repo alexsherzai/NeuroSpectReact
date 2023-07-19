@@ -10,7 +10,7 @@ const EncodingInstructions = ({onTimeEnd}) => {
 
     
     return (
-        <div className='instructions-back'>
+        <div className='fullGameMargin instructions-back'>
             <div style={{height:'6vh'}}></div>
             <div className='instructions-header'>
                 <strong>Word Memorization</strong>

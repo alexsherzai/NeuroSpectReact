@@ -11,8 +11,10 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
 	}
 
 	return (
-		<div>
+		<div className='fullGameMargin'>
             
+            <div style={{height:'37vh'}}></div>
+
 			<table style={{alignContent:'center', width:'100%'}}>
                 <tr>
                     <th>

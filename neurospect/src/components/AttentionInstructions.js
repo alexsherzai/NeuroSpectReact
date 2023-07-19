@@ -4,7 +4,7 @@ import './stylesheet.css';
 const AttentionInstructions = ({tutButton, onTimeEnd}) => {
 
     return (
-        <div>
+        <div className='fullGameMargin'>
             <div className='instructions-back'>
                 <div style={{height:'6vh'}}></div>
                 <div className='instructions-header'>
