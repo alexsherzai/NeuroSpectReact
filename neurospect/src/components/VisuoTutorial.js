@@ -114,7 +114,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
                             <Text style={{margin: "10px"}}>This is the <strong>original</strong> shape.</Text>
                         </div>
                     </div>
-                    <div>
+                    <div className='fullGameMargin'>
                         <button className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
@@ -176,10 +176,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
                         
                         </div>
 
-                        <div className="vis-button-container">
-                            
-
-
+                        <div className="fullGameMargin vis-button-container">
                             <button className="visuoButton">
                                 <svg width="150" height="150">
                                     <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
@@ -231,7 +228,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
                             <polygon points="125,100 125,150 175,150 175,100" strokeWidth="0" fill="orange" />
                         </svg>
                     </div>
-                    <div>
+                    <div className='fullGameMargin'>
                         <button style={{border: button1style}} onClick={button1} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
@@ -280,7 +277,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
                             <polygon points="75,100 75,150 125,150 125,100" strokeWidth="0" fill="orange" />
                         </svg>
                     </div>
-                    <div>
+                    <div className='fullGameMargin'>
                         <button style={{border: button1style}} onClick={button1} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
@@ -317,7 +314,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
 
             {iter === 5 &&
-                <div style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+                <div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
                     <div>
                         <div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
                             Great! Now you are ready to play the game! Don't forget that in the game, you will have 90 seconds!
