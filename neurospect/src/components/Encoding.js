@@ -38,8 +38,8 @@ const Encoding = ({onTimeEnd }) => {
     }
     
     return (
-        <div>
-            <h1 className="timer">Time left: {timeLeft} seconds</h1>
+        <div className='fullGameMargin'>
+            <h1 className="timer">Time left: {timeLeft} sec</h1>
             <div className="encoding-content">
                 {words && words.map((word, index) => (
                     <p key={index} className={`word ${index % 2 === 0 ? 'word-left' : 'word-right'} ${highlightedIndex === index ? 'highlighted' : ''}`}>{word}</p>
