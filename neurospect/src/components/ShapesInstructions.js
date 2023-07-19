@@ -5,7 +5,7 @@ const ShapesInstructions = ({tutButton, onTimeEnd}) => {
 
     return (
         <div>
-            <div className='instructions-back'>
+            <div className='fullGameMargin instructions-back'>
                 <div style={{height:'6vh'}}></div>
                 <div className='instructions-header'>
                     <strong>Attention</strong>
