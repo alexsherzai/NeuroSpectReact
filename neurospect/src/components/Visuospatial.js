@@ -334,7 +334,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             </div>
             
 
-            <div className="vis-button-container">
+            <div className="fullGameMargin vis-button-container">
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                     <div>{mainShape}</div>
                 </div>
@@ -352,7 +352,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 </button>
             </div>
 
-            <h1 className="timer">Time left: {timeLeft} seconds</h1>
+            <h1 className="timer">Time left: {timeLeft} sec</h1>
         </div>
 	);
 }
