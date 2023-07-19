@@ -6,7 +6,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
     const [correct, setCorrect] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(90);
+    const [timeLeft, setTimeLeft] = useState(60);
 
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';

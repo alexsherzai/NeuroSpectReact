@@ -317,7 +317,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
                 <div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
                     <div>
                         <div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
-                            Great! Now you are ready to play the game! Don't forget that in the game, you will have 90 seconds!
+                            Great! Now you are ready to play the game! Don't forget that in the game, you will have 60 seconds!
                         </div>
                         <div className="buttonCont">
                             <button className="buttonSecondary" onClick={() => reset()}>How To Play</button>

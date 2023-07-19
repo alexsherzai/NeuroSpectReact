@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './stylesheet.css';
 
 const Encoding = ({onTimeEnd }) => {
-    const [timeLeft, setTimeLeft] = useState(30);
+    const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
 
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
@@ -28,12 +28,14 @@ const Encoding = ({onTimeEnd }) => {
     });
 
     const calculateIndex = () => {
-        let value = (Math.floor((30 - timeLeft) / 3) * 2);
-        if(value > 6) {
-            setHighlightedIndex(value - 7);
-        } else {
-            setHighlightedIndex(value);
-        }
+        let value = 20 - timeLeft;
+        if(value % 2 === 0) {
+            if(value > 6) {
+                setHighlightedIndex(value - 7);
+            } else {
+                setHighlightedIndex(value);
+            }
+        }        
         console.log(highlightedIndex);
     }
     

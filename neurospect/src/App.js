@@ -164,7 +164,8 @@ const App = () => {
                 processingSpeedColors: psc,
                 processingSpeedShapes: pss,
                 visuospatial: visSc,
-                recall: recSc
+                recall: recSc,
+                gameVersion: 2
             })
         } catch(err) {
             console.log(err);
