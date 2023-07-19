@@ -16,7 +16,7 @@ const EncodingInstructions = ({onTimeEnd}) => {
                 <strong>Word Memorization</strong>
             </div>
             <div className='instructions-content'>
-                <div>Let's test your memory! You're about to see <span class='highlight'>8 words</span>. Try to <span class='highlight'>memorize</span> each one. You'll be asked to recall them later.
+                <div>Let's test your memory! You're about to see <span class='highlight'>8 words</span>. Try to <span class='highlight'>memorize</span> each one. You'll be asked to recall them later. <strong>Do not</strong> write down the words!
                 </div>
             </div>
             <div className='buttonCont'>
