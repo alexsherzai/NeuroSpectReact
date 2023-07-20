@@ -49,7 +49,7 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 								<div className='level-name'>{levelNum}</div>
 							</div>
 						))}
-					<div className="listCont">
+					<div className={`listCont${level === 3 ? "Last" : ""}`}>
 						<span className='levels-curr'>{level + 1}</span> 
 						<div className='level-name-curr'>{currentLevel}</div>
 					</div>
