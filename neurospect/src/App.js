@@ -16,9 +16,7 @@ import Countdown from './components/Countdown';
 import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
-import { setDoc, addDoc, collection, doc } from 'firebase/firestore';
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
