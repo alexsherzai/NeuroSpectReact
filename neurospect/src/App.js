@@ -16,7 +16,7 @@ import Countdown from './components/Countdown';
 import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
-import { setDoc, addDoc, collection, doc } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
@@ -137,13 +137,17 @@ const App = () => {
 
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
-    
+
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
+     
     const AddData = async() => {
         setStage('end');
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = doc(storage, "neurospect", userID);
+        const reviewRef = doc(storage, "neurospect", docName);
 
         try {
             await setDoc(reviewRef, {
@@ -154,7 +158,8 @@ const App = () => {
                 processingSpeedColors: psc,
                 processingSpeedShapes: pss,
                 visuospatial: visSc,
-                recall: recSc
+                recall: recSc,
+                gameVersion: 2
             })
         } catch(err) {
             console.log(err);
@@ -186,7 +191,7 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
             {stage === 'end' && 
-                <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );

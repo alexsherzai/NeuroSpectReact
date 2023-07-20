@@ -430,7 +430,7 @@ h4 {
     font-size: 15px;
 }
 .highlighted {
-    animation: highlightedEffect 3s linear infinite;
+    animation: highlightedEffect 2s linear infinite;
 }
 @keyframes highlightedEffect {
     0% {
