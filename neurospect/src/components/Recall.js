@@ -74,8 +74,8 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const correct = 0;
     
     return (
-        <div>
-            <h1 className='timer'>Time left: {timeLeft} seconds</h1>
+        <div className='fullGameMargin'>
+            <h1 className='timer'>Time left: {timeLeft} sec</h1>
             <div>
                 <div className="encoding-content">
                     <p className='word word-left'>{answeredWords[1]}</p>
@@ -90,7 +90,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     <input
                         className='textField'
                         type="text"
-                        placeholder="Click this field and type remembered words..."
+                        placeholder="Click here and type remembered words..."
                         style={{borderRadius:'10px'}}
                         onKeyDown={(e) => {
                             if (e.key === "Enter") {

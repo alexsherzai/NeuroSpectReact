@@ -16,7 +16,7 @@ import Countdown from './components/Countdown';
 import DisplayScore from './components/DisplayScore';
 import './components/stylesheet.css';
 
-import { setDoc, addDoc, collection, doc } from 'firebase/firestore';
+import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
@@ -49,7 +49,6 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
-    
 
     const attentionShapes = [
 		<svg width="100" height="100">
@@ -134,14 +133,11 @@ const App = () => {
     }
 
     const queryParams = new URLSearchParams(window.location.search)
-    const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
-
-    console.log(userID);
 
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
-    
+     
     const AddData = async() => {
         setStage('end');
 
@@ -152,14 +148,14 @@ const App = () => {
         try {
             await setDoc(reviewRef, {
                 lastUpdated: currentDate,
-                testID: prolificID,
                 userID: userID,
                 attentionScoreColors: acs,
                 attentionScoreShapes: AttShS,
                 processingSpeedColors: psc,
                 processingSpeedShapes: pss,
                 visuospatial: visSc,
-                recall: recSc
+                recall: recSc,
+                gameVersion: 2
             })
         } catch(err) {
             console.log(err);
@@ -174,11 +170,11 @@ const App = () => {
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('countdown-att1')} />}
             {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('countdown-att1')} />}
             {stage === 'countdown-att1' && <Countdown onTimeEnd={() => setStage('attentionColors')}/>}
             {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('countdown-att2')} />}
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('countdown-att2')} />}
             {stage === 'countdown-att2' && <Countdown onTimeEnd={() => setStage('attentionShapes')}/>}
             {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}

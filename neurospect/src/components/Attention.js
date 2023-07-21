@@ -215,8 +215,8 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-                <button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+				<button className='yesNoButton attentionButton' onClick={onClickDiff}>No</button>
+                <button className='yesNoButton attentionButton' onClick={onClickSame}>Yes</button>
             </div>
 		</div>
 	);

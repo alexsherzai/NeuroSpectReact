@@ -6,7 +6,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
     const [correct, setCorrect] = useState(0);
     const [correctAnswer, setCorrectAnswer] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(90);
+    const [timeLeft, setTimeLeft] = useState(60);
 
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';
@@ -14,6 +14,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [button2style, setButton2Style] = useState('');
     const [button3style, setButton3Style] = useState('');
     const [button4style, setButton4Style] = useState('');
+    const [clicked, setClicked] = useState(false);
 
     const storeData = () => {
         storeVis(correct);
@@ -255,52 +256,72 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
 
     const button1 = () => {
-        if(correctAnswer === 0) {
-            setCorrect(correct + 1);
-            setButton1Style(buttonCorrect);
-        } else {
-            setButton1Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 0) {
+                setCorrect(correct + 1);
+                setButton1Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton1Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton1Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton1Style('');
-        }, 500);
     };
     const button2 = () => {
-        if(correctAnswer === 1) {
-            setCorrect(correct + 1);
-            setButton2Style(buttonCorrect);
-        } else {
-            setButton2Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 1) {
+                setCorrect(correct + 1);
+                setButton2Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton2Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton2Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton2Style('');
-        }, 500);
     };
     const button3 = () => {
-        if(correctAnswer === 2) {
-            setCorrect(correct + 1);
-            setButton3Style(buttonCorrect);
-        } else {
-            setButton3Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 2) {
+                setCorrect(correct + 1);
+                setButton3Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton3Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton3Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton3Style('');
-        }, 500);
     };
     const button4 = () => {
-        if(correctAnswer === 3) {
-            setCorrect(correct + 1);
-            setButton4Style(buttonCorrect);
-        } else {
-            setButton4Style(buttonWrong);
+        if(!clicked) {
+            if(correctAnswer === 3) {
+                setCorrect(correct + 1);
+                setButton4Style(buttonCorrect);
+                setClicked(true);
+            } else {
+                setButton4Style(buttonWrong);
+                setClicked(true);
+            }
+            setTimeout(function() {
+                setIter(iter + 1);
+                setButton4Style('');
+                setClicked(false);
+            }, 500);
         }
-        setTimeout(function() {
-            setIter(iter + 1);
-            setButton4Style('');
-        }, 500);
     };
 
 
@@ -313,7 +334,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             </div>
             
 
-            <div className="vis-button-container">
+            <div className="fullGameMargin vis-button-container">
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
                     <div>{mainShape}</div>
                 </div>
@@ -331,7 +352,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 </button>
             </div>
 
-            <h1 className="timer">Time left: {timeLeft} seconds</h1>
+            <h1 className="timer">Time left: {timeLeft} sec</h1>
         </div>
 	);
 }

@@ -2,6 +2,13 @@ import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 
+import Timeline from '@mui/lab/Timeline';
+import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
+import TimelineDot from '@mui/lab/TimelineDot';
+
 const LevelDisplay = ({ level, onTimeEnd }) => {
 
 	const levels = ['Word Memory', 'Attention', 'Visuospatial', 'Recall'];
@@ -27,11 +34,14 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 
 
 	return (
-		<div>
+		<div className='fullGameMargin'>
 			<div>
 				<div style={{height:'5vh'}}>
 					
 				</div>
+
+				
+
 				<div className='level-content'>
 						{completedLevels && completedLevels.map((levelNum, index) => (
 							<div className="listCont">
@@ -39,11 +49,12 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 								<div className='level-name'>{levelNum}</div>
 							</div>
 						))}
-					<div className="listCont">
-						<span className='levels-curr'>{level + 1}</span> <div className='level-name-curr'>{currentLevel}</div>
+					<div className={`listCont${level === 3 ? "Last" : ""}`}>
+						<span className='levels-curr'>{level + 1}</span> 
+						<div className='level-name-curr'>{currentLevel}</div>
 					</div>
 						{remainingLevels && remainingLevels.map((levelNum, index) => (
-							<div className="listCont">
+							<div className={`listCont${level + index === 2 ? "Last" : ""}`}>
 								<span className='levels-incomp'>{level + index + 2}</span> 
 								<div className='level-name-incomp'>{levelNum}</div>
 							</div>

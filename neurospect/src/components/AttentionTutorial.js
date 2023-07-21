@@ -170,8 +170,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 				</div>
 
 				<div className="footer">
-					<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-					<button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+					<button className='attentionButton' onClick={onClickDiff}>No</button>
+					<button className='attentionButton' onClick={onClickSame}>Yes</button>
 				</div>
 			</div>
 
@@ -211,8 +211,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 				</div>
 
 				<div className="footer">
-					<button className='button-highlight attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-					<button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+					<button className='button-highlight attentionButton' onClick={onClickDiff}>No</button>
+					<button className='attentionButton' onClick={onClickSame}>Yes</button>
 				</div>
 
 				
@@ -254,8 +254,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 				</div>
 
 				<div className="footer">
-					<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-					<button className='button-highlight attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+					<button className='attentionButton' onClick={onClickDiff}>No</button>
+					<button className='button-highlight attentionButton' onClick={onClickSame}>Yes</button>
 				</div>
 
 				
@@ -304,8 +304,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-                <button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+				<button className='attentionButton' onClick={onClickDiff}>No</button>
+                <button className='attentionButton' onClick={onClickSame}>Yes</button>
             </div>
 		</div>
 		
@@ -334,8 +334,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-                <button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+				<button className='attentionButton' onClick={onClickDiff}>No</button>
+                <button className='attentionButton' onClick={onClickSame}>Yes</button>
             </div>
 		</div>
 		
@@ -364,15 +364,15 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}><img src="/NoButton.png"/></button>
-                <button className='attentionButton' onClick={onClickSame}><img src="/YesButton.png"/></button>
+				<button className='attentionButton' onClick={onClickDiff}>No</button>
+                <button className='attentionButton' onClick={onClickSame}>Yes</button>
             </div>
 		</div>
 		
 		}
 
 		{iter === 7 &&
-			<div style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+			<div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
 				<div>
 					<div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
 						Great! Now you are ready to play the game! Remember, in the game the shapes will appear and disappear very quickly!

@@ -7,7 +7,7 @@ const VisuoInstructions = ({tutButton, onTimeEnd}) => {
 
     
     return (
-        <div className='instructions-back'>
+        <div className='fullGameMargin instructions-back'>
             <div style={{height:'6vh'}}></div>
             <div className='instructions-header'>
                 <strong>Visuospatial</strong>
