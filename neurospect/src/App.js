@@ -137,17 +137,13 @@ const App = () => {
 
     let currentDate = new Date().toLocaleString() + "";
     console.log(currentDate);
-
-    if(prolificID !== null) {
-        docName = prolificID;
-    }
      
     const AddData = async() => {
         setStage('end');
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = doc(storage, "neurospect", docName);
+        const reviewRef = doc(storage, "neurospect", userID);
 
         try {
             await setDoc(reviewRef, {
@@ -191,7 +187,7 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
             {stage === 'end' && 
-                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );
