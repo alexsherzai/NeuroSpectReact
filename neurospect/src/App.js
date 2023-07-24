@@ -136,7 +136,6 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
-    console.log(currentDate);
      
     const AddData = async() => {
         setStage('end');
