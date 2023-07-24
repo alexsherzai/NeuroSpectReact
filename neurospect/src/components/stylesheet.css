@@ -10,6 +10,11 @@
     font-family: Poppins-Bold;
     src: url(../fonts/Poppins-Bold.ttf);
 }
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url(../fonts/Poppins-SemiBold.ttf);
+}
+
 h1 {
     font-family: Poppins-Bold;
     text-align: center;
