@@ -136,7 +136,7 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
-    console.log(currentDate);
+    console.log("Dev Branch");
      
     const AddData = async() => {
         setStage('end');
