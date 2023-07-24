@@ -133,21 +133,28 @@ const App = () => {
     }
 
     const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
     console.log("Dev Branch");
+
+    var docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
      
     const AddData = async() => {
         setStage('end');
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = doc(storage, "neurospect", userID);
+        const reviewRef = doc(storage, "neurospect", docName);
 
         try {
             await setDoc(reviewRef, {
                 lastUpdated: currentDate,
+                testID: prolificID,
                 userID: userID,
                 attentionScoreColors: acs,
                 attentionScoreShapes: AttShS,
