@@ -146,8 +146,8 @@ h4 {
     align-items: center;
     border-radius: 100px;
     border: 1px solid var(--primary-blue, #5A89F5);
-    font-family: 'Poppins-Regular';
-    font-size: 20px;
+    font-family: 'Poppins-SemiBold';
+    font-size: 22px;
     margin: 5px;
     color: #5A89F5;
 }
@@ -290,18 +290,20 @@ h4 {
     border: none;
     background-color: #5A89F5;
     border-radius: 100px;
-    font-family: 'Poppins-Regular';
+    font-family: 'Poppins-SemiBold';
     bottom: 0;
     left:0;
     width:100%;
     display: flex;
     width: 350px;
     height: 48px;
-    padding: 10.5px 116px;
+    padding: 8.5px 100px;
     gap: 10px;
     color: #F4F6FA;
-    font-size: 18px;
+    font-size: 22px;
     text-align: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .buttonSmall {
@@ -337,34 +339,36 @@ h4 {
     border: 1px solid #5A89F5;
     background-color: #F4F6FA;
     border-radius: 100px;
-    font-family: 'Poppins-Regular';
+    font-family: 'Poppins-SemiBold';
     bottom: 0;
     left:0;
     width:100%;
     display: flex;
     width: 350px;
     height: 48px;
-    padding: 10.5px 116px;
+    padding: 8px 105px;
     gap: 10px;
     color: #5A89F5;
-    font-size: 18px;
+    font-size: 22px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .buttonNextModal {
     border: none;
     background-color: #5A89F5;
     border-radius: 100px;
-    font-family: 'Poppins-Regular';
+    font-family: 'Poppins-SemiBold';
     bottom: 0;
     left:0;
     width:100%;
     display: flex;
     width: 295px;
     height: 48px;
-    padding: 10.5px 90px;
+    padding: 8.5px 78px;
     gap: 10px;
     color: #F4F6FA;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .buttonCont {
