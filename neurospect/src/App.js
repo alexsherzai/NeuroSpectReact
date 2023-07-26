@@ -20,7 +20,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro'); 
+    const [stage, setStage] = useState('intro');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
@@ -29,7 +29,6 @@ const App = () => {
     const [pss, setPss] = useState(0);
     const [visSc, setVisSc] = useState(0);
     const [recSc, setRecSc] = useState(0);
-
 
     const storeAttentionColors = (score) => {
         setAcs(score);
@@ -194,7 +193,7 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
             {stage === 'end' && 
-                <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );

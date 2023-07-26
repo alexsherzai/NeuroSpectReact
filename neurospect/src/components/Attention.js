@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './stylesheet.css';
 
 const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
-	const [counter, setCounter] = useState(0);
 	const [displaySvgs, setDisplaySvgs] = useState([null, null]);
 	const [svgIndeces, setSvgIndeces] = useState([null, null]);
 	const [iter, setIter] = useState(0);
@@ -12,8 +11,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [buttonClicked, setButtonClicked] = useState(false);
 	const [preButtonClick, setPreButtonClick] = useState(0);
 	const [buttonClickTimes, setButtonClickTimes] = useState([]);
-
-	let svgDets = [];
+	var iterInfo = {
+		
+	};
 
 	let timeOfAppearance = 1000;
 
@@ -62,7 +62,11 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		return shape;
 	}
 
-	const getRandomSvgs = () => {
+	const updateDict = (key, val) => {
+		iterInfo[key] = val;
+	}
+
+	const getRandomSvgs = (iterNum) => {
 		let randomSvgs = [];
 		let svgDet = [];
 
@@ -71,6 +75,8 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 		randomSvgs.push(shapes[index1]);
 		randomSvgs.push(shapes[index2]);
+
+		updateDict(iterNum, (":" + getColor(index1) + "," + getShape(index1) + "," + getColor(index2) + "," + getShape(index2)));
 
 		svgDet.push(index1);
 		svgDet.push(index2);
@@ -92,14 +98,14 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		const interval = setInterval(() => {
 			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
-			setCounter((iter) => {
+			setIter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
 					storeData();
 					onTimeEnd();
 					return iter;
 				} else {
-					setDisplaySvgs(getRandomSvgs());
+					setDisplaySvgs(getRandomSvgs(iter));
 
 					timeOfAppearance = 1000 - (107.5 * Math.floor(iter / 3));
 					console.log(timeOfAppearance);
@@ -109,7 +115,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 					}, timeOfAppearance);
 
 					setButtonClicked(false);
-					
+										
 					return iter + 1;
 				}
 			});
@@ -138,18 +144,26 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
+					updateDict(iter, ",Correct," + timeToClick.toString());
+					console.log(iter);
+					console.log(iterInfo);
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+					updateDict(iter, ",Wrong," + timeToClick.toString());
+					console.log(iter);
+					console.log(iterInfo);
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
+					updateDict(iter, ",Correct," + timeToClick.toString());
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+					updateDict(iter, ",Wrong," + timeToClick.toString());
 				}
 			}
 		}
@@ -172,19 +186,23 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val1 === val2) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+					updateDict(iter, ",Correct," + timeToClick.toString());
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
+					updateDict(iter, ",Wrong," + timeToClick.toString());
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+					updateDict(iter, ",Correct," + timeToClick.toString());
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
+					updateDict(iter, ",Wrong," + timeToClick.toString());
 				}
 			}
 		}
@@ -196,6 +214,8 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 		pSpeed += ((30 - buttonClickTimes.length) * 1500);
 		pSpeed /= 30;
+
+		console.log(iterInfo);
 
 		storeAtt(correct.length);
 		storeSpeed(Math.round(pSpeed));
