@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 import { speedDialActionClasses } from '@mui/material';
 
-const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScore = ({ attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
 
@@ -13,12 +13,6 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
 
 	return (
 		<div className=''>
-
-            {id !== null && 
-                        
-            <div>Enter this code into Prolific to confirm you finished: COQ89QD3</div>
-
-            }
             
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Visuospatial</div>
