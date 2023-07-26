@@ -1,6 +1,7 @@
 import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
+import { speedDialActionClasses } from '@mui/material';
 
 const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
@@ -11,66 +12,53 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
 	}
 
 	return (
-		<div className='fullGameMargin'>
-            
-            <div style={{height:'37vh'}}></div>
-
-			<table style={{alignContent:'center', width:'100%'}}>
-                <tr>
-                    <th>
-                        Attention (Colors):
-                    </th>
-                    <th>
-                        {attScoreColors}
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        Attention (Shapes):
-                    </th>
-                    <th>
-                        {attScoreShapes}
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        Processing Speed (Colors):
-                    </th>
-                    <th>
-                        {speedColors}
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        Processing Speed (Shapes):
-                    </th>
-                    <th>
-                        {speedShapes}
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        Visuospatial:
-                    </th>
-                    <th>
-                        {visuo}
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        Recall:
-                    </th>
-                    <th>
-                        {recall}
-                    </th>
-                </tr>
-            </table>
+		<div className=''>
 
             {id !== null && 
-            
-            <h3>Enter this code into Prolific to confirm you finished: COQ89QD3</h3>
+                        
+            <div>Enter this code into Prolific to confirm you finished: COQ89QD3</div>
 
             }
+            
+            <div className='scoreSection'>
+                <div className='scoreBoxHeader'>Visuospatial</div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Score</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{visuo}</div>
+                </div>
+            </div>
+
+            <div className='scoreSection'>
+                <div className='scoreBoxHeader'>Colors</div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Attention Score</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{attScoreColors}</div>
+                </div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Processing Speed</div>
+                    <div style={{fontSize: '26px', color: '#FF9417'}}>{speedColors}</div>
+                </div>
+            </div>
+
+            <div className='scoreSection'>
+                <div className='scoreBoxHeader'>Shapes</div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Attention Score</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{attScoreShapes}</div>
+                </div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Processing Speed</div>
+                    <div style={{fontSize: '26px', color: '#FF9417'}}>{speedShapes}</div>
+                </div>
+            </div>
+
+            <div className='scoreSection'>
+                <div className='scoreBoxHeader'>Recall</div>
+                <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
+                    <div style={{fontSize: '20px', width: '80vw'}}>Score</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{recall}</div>
+                </div>
+            </div>
 
             <ReactModal
 					isOpen={isOpen}
