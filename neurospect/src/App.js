@@ -144,7 +144,7 @@ const App = () => {
     }
      
     const AddData = async() => {
-        setStage('end');
+        setStage('int1');
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
@@ -155,13 +155,6 @@ const App = () => {
                 lastUpdated: currentDate,
                 testID: prolificID,
                 userID: userID,
-                attentionScoreColors: acs,
-                attentionScoreShapes: AttShS,
-                processingSpeedColors: psc,
-                processingSpeedShapes: pss,
-                visuospatial: visSc,
-                recall: recSc,
-                gameVersion: 2
             })
         } catch(err) {
             console.log(err);
@@ -171,7 +164,7 @@ const App = () => {
 
     return (
         <div>
-            {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
+            {stage === 'intro' && <Intro onTimeEnd={AddData} />}
             {stage === 'int1' && <LevelDisplay level={0} onTimeEnd={() => nextStage('enc-instr')} />}
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
@@ -191,7 +184,7 @@ const App = () => {
             {stage === 'visuo' && <Visuospatial storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
+            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
             {stage === 'end' && 
                 <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }

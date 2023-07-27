@@ -1,12 +1,35 @@
 import React, { useEffect, useState } from 'react';
 
 import './stylesheet.css';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Encoding = ({onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
 
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    var docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
+
+    const AddData = async() => {
+        const reviewRef = doc(storage, "neurospect", docName);
+
+        try {
+            await updateDoc(reviewRef, {
+                gameVersion: "study"
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
     
     useEffect(() => {
 
@@ -15,6 +38,7 @@ const Encoding = ({onTimeEnd }) => {
                 if (oldTime <= 1) {
                     clearInterval(timer);
                     onTimeEnd();
+                    AddData();
                 }
                 return oldTime - 1;
             });

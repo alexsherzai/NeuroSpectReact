@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './stylesheet.css';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
+	const [counter, setCounter] = useState(0);
 	const [displaySvgs, setDisplaySvgs] = useState([null, null]);
 	const [svgIndeces, setSvgIndeces] = useState([null, null]);
 	const [iter, setIter] = useState(0);
@@ -11,9 +14,18 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [buttonClicked, setButtonClicked] = useState(false);
 	const [preButtonClick, setPreButtonClick] = useState(0);
 	const [buttonClickTimes, setButtonClickTimes] = useState([]);
-	var iterInfo = {
-		
-	};
+	const [shapeList, setShapeList] = useState([]);
+
+	const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    var docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
+
+	let svgDets = [];
 
 	let timeOfAppearance = 1000;
 
@@ -62,21 +74,49 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		return shape;
 	}
 
-	const updateDict = (key, val) => {
-		iterInfo[key] = val;
-	}
-
-	const getRandomSvgs = (iterNum) => {
+	const getRandomSvgs = () => {
 		let randomSvgs = [];
 		let svgDet = [];
 
 		let index1 = Math.floor(Math.random() * shapes.length);
-		let index2 = Math.floor(Math.random() * shapes.length);
+
+		let randomVal = Math.round(Math.random() * 1000);
+		var newArr = [];
+
+		if(randomVal > 500) {
+			for(var i = 0; i < 25; i++) {
+				if(answer === "Color") {
+					if(i % 5 === index1 % 5) {
+						newArr.push(i);
+					}
+				} else {
+					if(Math.floor(i / 5) === Math.floor(index1 / 5)) {
+						newArr.push(i);
+					}
+				}
+			}
+		} else {
+			for(var i = 0; i < 25; i++) {
+				if(answer === "Color") {
+					if(i % 5 !== index1 % 5) {
+						newArr.push(i);
+					}
+				} else {
+					if(Math.floor(i / 5) !== Math.floor(index1 / 5)) {
+						newArr.push(i);
+					}
+				}
+			}
+		}
+
+		let index2 = newArr[Math.floor(Math.random() * newArr.length)];
+
+		console.log(index1 + ", " + index2 + ", " + randomVal);
+
+		shapeList.push(getColor(index1) + "," + getShape(index1) + "," + getColor(index2) + "," + getShape(index2));
 
 		randomSvgs.push(shapes[index1]);
 		randomSvgs.push(shapes[index2]);
-
-		updateDict(iterNum, (":" + getColor(index1) + "," + getShape(index1) + "," + getColor(index2) + "," + getShape(index2)));
 
 		svgDet.push(index1);
 		svgDet.push(index2);
@@ -85,8 +125,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 		return randomSvgs;
 	};
-
-
 	
 
 	useEffect(() => {
@@ -98,14 +136,18 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		const interval = setInterval(() => {
 			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
-			setIter((iter) => {
+
+			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
-					storeData();
+					AddData();
 					onTimeEnd();
 					return iter;
 				} else {
-					setDisplaySvgs(getRandomSvgs(iter));
+					setDisplaySvgs(getRandomSvgs());
+
+					buttonClickTimes.push(1501);
+					correct.push(0);
 
 					timeOfAppearance = 1000 - (107.5 * Math.floor(iter / 3));
 					console.log(timeOfAppearance);
@@ -144,26 +186,20 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
-					updateDict(iter, ",Correct," + timeToClick.toString());
-					console.log(iter);
-					console.log(iterInfo);
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-					updateDict(iter, ",Wrong," + timeToClick.toString());
-					console.log(iter);
-					console.log(iterInfo);
+					correct.push(2);
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
-					updateDict(iter, ",Correct," + timeToClick.toString());
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-					updateDict(iter, ",Wrong," + timeToClick.toString());
+					correct.push(2);
 				}
 			}
 		}
@@ -186,39 +222,89 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val1 === val2) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-					updateDict(iter, ",Correct," + timeToClick.toString());
+					correct.push(2);
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
-					updateDict(iter, ",Wrong," + timeToClick.toString());
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-					updateDict(iter, ",Correct," + timeToClick.toString());
+					correct.push(2);
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
 					correct.push(1);
-					updateDict(iter, ",Wrong," + timeToClick.toString());
 				}
 			}
 		}
 	}
 
 
-	const storeData = () => {
-		let pSpeed = buttonClickTimes.reduce((partialSum, a) => partialSum + a, 0);
+	const AddData = async() => {
+		//0 is separater, 1 is correct, 2 is wrong
+		//1500 is separater for speed
 
-		pSpeed += ((30 - buttonClickTimes.length) * 1500);
-		pSpeed /= 30;
+		for(var i = 0; i < correct.length - 1; i++) {
+			if(buttonClickTimes[i] === 1501 && buttonClickTimes[i + 1] < 1501) {
+				buttonClickTimes.splice(i, 1);
+			}
 
-		console.log(iterInfo);
+			if(correct[i] === 0 && correct[i + 1] !== 0) {
+				correct.splice(i, 1);
+			}
+		}
 
-		storeAtt(correct.length);
-		storeSpeed(Math.round(pSpeed));
+
+		let correctNum = 0;
+		correct.forEach(e => {if(e === 1) {correctNum++}});
+
+
+
+		console.log(buttonClickTimes);
+		console.log(correct);
+
+		console.log(correctNum);
+
+		const average = array => array.reduce((a, b) => a + b) / array.length;
+
+		let pSpeed = Math.round(average(buttonClickTimes))
+
+		console.log();
+		console.log(shapeList);
+
+		storeAtt(correctNum);
+		storeSpeed(pSpeed);
+
+		const reviewRef = doc(storage, "neurospect", docName);
+
+		if(answer === "Color") {
+			try {
+				await updateDoc(reviewRef, {
+					attentionScoreColors: correctNum,
+					processingSpeedColors: pSpeed,
+					attentionColorsList: correct,
+					processingSpeedColorsList: buttonClickTimes,
+					shapeListColors: shapeList
+				})
+			} catch(err) {
+				console.log(err);
+			}
+		} else if(answer === "Shape") {
+			try {
+				await updateDoc(reviewRef, {
+					attentionScoreShapes: correctNum,
+					processingSpeedShapes: pSpeed,
+					attentionShapesList: correct,
+					processingSpeedShapesList: buttonClickTimes,
+					shapeListShapes: shapeList
+				})
+			} catch(err) {
+				console.log(err);
+			}
+		}
     };
 
 	return (

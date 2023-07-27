@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [iter, setIter] = useState(0);
     const [mainShape, setMainShape] = useState(null);
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
-    const [correct, setCorrect] = useState(0);
+    const [correct, setCorrect] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState(0);
     const [timeLeft, setTimeLeft] = useState(60);
+    const [preButtonClick, setPreButtonClick] = useState(Date.now());
+    const [buttonClickTimes, setButtonClickTimes] = useState([]);
 
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';
@@ -16,8 +20,32 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [button4style, setButton4Style] = useState('');
     const [clicked, setClicked] = useState(false);
 
-    const storeData = () => {
-        storeVis(correct);
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    var docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
+
+    const AddData = async() => {
+        const reviewRef = doc(storage, "neurospect", docName);
+
+        let correctNum = 0;
+		correct.forEach(e => {if(e === 1) {correctNum++}});
+
+        storeVis(correctNum);
+
+        try {
+            await updateDoc(reviewRef, {
+                visuospatial: correctNum,
+                visuospatialAnswers: correct,
+                visuospatialSpeed: buttonClickTimes
+            })
+        } catch(err) {
+            console.log(err);
+        }
     }
 
     const turn = (pts, dir, size) => {
@@ -237,7 +265,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         setCorrectAnswer(correctIndex);
 
 		if(iter >= 15) {
-            storeData();
+            AddData();
             onTimeEnd();
         }
 
@@ -257,11 +285,17 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     const button1 = () => {
         if(!clicked) {
+            console.log(iter);
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            
+            setPreButtonClick(Date.now());
+            console.log(buttonClickTimes);
             if(correctAnswer === 0) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton1Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton1Style(buttonWrong);
                 setClicked(true);
             }
@@ -274,11 +308,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     };
     const button2 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 1) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton2Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton2Style(buttonWrong);
                 setClicked(true);
             }
@@ -291,11 +328,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     };
     const button3 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 2) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton3Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton3Style(buttonWrong);
                 setClicked(true);
             }
@@ -308,11 +348,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     };
     const button4 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 3) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton4Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton4Style(buttonWrong);
                 setClicked(true);
             }

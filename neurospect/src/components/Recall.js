@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
@@ -8,9 +10,33 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [warning, setWarning] = useState('');
     
 
-    const storeData = () => {
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    var docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    }
+
+    const AddData = async() => {
+        const reviewRef = doc(storage, "neurospect", docName);
         storeRec(answeredWords.length - 1);
-    };
+
+        var tempArr = [];
+        for(var i = 1; i < answeredWords.length; i++) {
+            tempArr.push(answeredWords[i]);
+        }
+
+        try {
+            await updateDoc(reviewRef, {
+                recall: answeredWords.length - 1,
+                recalledWords: tempArr
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
 
     useEffect(() => {
         if(inputWords.length === 0) {
@@ -61,12 +87,12 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         };
 
         if(answeredWords.length === 9) {
-            storeData();
+            AddData();
             onTimeEnd();
         }
 
         checkWords();
-        storeData();
+        AddData();
 
         return () => clearInterval(timer);
     }, [onTimeEnd, inputWords, words]);
