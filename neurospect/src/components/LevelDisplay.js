@@ -69,10 +69,31 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 				<ReactModal
 					isOpen={isOpen}
 					contentLabel="Example Modal"
+					style={{
+						overlay: {
+							
+						},
+						content: {
+						  borderRadius: '7px',
+						  height: '525px'
+						}
+					  }}
 				>
 					<img style={{position: 'absolute', top: '0px', right:'0px', width:'100%'}} src='./PopUpBrain.png'/>
 					<img onClick={understood} style={{position:'absolute', zIndex: 1000, right:'20px'}} src='./Outlined.svg' />
-					<img style={{marginTop:'75%', marginBottom: '20%', width: '100%'}} src='./AttentionGamers.png' />
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#24292E', fontWeight: '600', fontSize: '24px', marginTop: '75%'}}>ONE SHOT MONTHLY!</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#6A737D', fontWeight: '400', fontSize: '18px', paddingTop: '5%'}}>
+							Attention gamers! You get just one shot per month to play. Be fully present, prepare in advance, and make it count!
+						</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#24292E', fontWeight: '400', fontSize: '18px', paddingTop: '5%', paddingBottom: '10%'}}>
+						Good luck and enjoy the challenge! 🚀🎮
+						</div>
+					</div>
 					<div className='buttonCont'>
 						<button onClick={understood} className='buttonNextModal'>Understood!</button>
 					</div>

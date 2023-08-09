@@ -136,6 +136,7 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
+    currentDate = currentDate.split(",")[0];
     console.log("Dev Branch");
 
     var docName = userID;

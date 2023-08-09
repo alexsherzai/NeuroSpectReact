@@ -65,7 +65,10 @@ const Encoding = ({onTimeEnd }) => {
     
     return (
         <div className='fullGameMargin'>
-            <h1 className="timer">Time left: {timeLeft} sec</h1>
+            <h1 className="timer">{timeLeft} sec</h1>
+            <div style={{margin: '10px', fontFamily: 'Poppins-Bold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
+                Memorize These Words
+            </div>
             <div className="encoding-content">
                 {words && words.map((word, index) => (
                     <p key={index} className={`word ${index % 2 === 0 ? 'word-left' : 'word-right'} ${highlightedIndex === index ? 'highlighted' : ''}`}>{word}</p>

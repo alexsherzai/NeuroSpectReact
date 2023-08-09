@@ -60,17 +60,40 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
                 </div>
             </div>
 
-            <ReactModal
+            <div className='modal'>
+				<ReactModal
 					isOpen={isOpen}
 					contentLabel="Example Modal"
+					style={{
+						overlay: {
+							
+						},
+						content: {
+						  borderRadius: '7px',
+						  height: '580px'
+						}
+					  }}
 				>
-					<img style={{position: 'absolute', top: '0px', right:'15%', width:'70%'}} src='https://s3-alpha-sig.figma.com/img/68f9/8670/aef47cb4b9c3658b87bf14495ed3ce45?Expires=1690761600&Signature=q8evpzSYrQcZ2FrvUS5sw4bP12UTqBkQjrB-C2TqrXd7GAwKMJKWOuF2q1IzHvjCHMQeGr~fSTZJkbFl8OFNc7kSbZ-CnG4DPGuAEetlEPmkLYMtfsc5nINF7oKeGxUKoKpL4~WHzUyiQ6GcsQKWLepjL8fBtP7nNNJwKHqP0BVoA1UMnOmhDQWwaJgR3hFpfxFVHaHHH8WXj0~IeEFEsGEdPYFw6D55dZSinLiOhyw4uh2MCZCyp7e6ATT3lOtDFhJoWR7aZzmobav9vf3cegvEOeB5Nx1ccpZo7utG8IMLhG20J1qm985jAYsmrsFdtd-YCXElfP64tZ60uHPerg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'/>
+					<img style={{position: 'absolute', top: '0px', right:'0px', width:'100%'}} src='./PopUpBrain.png'/>
 					<img onClick={understood} style={{position:'absolute', zIndex: 1000, right:'20px'}} src='./Outlined.svg' />
-					<img style={{marginTop:'75%', marginBottom: '20%', width: '100%'}} src='./Congrats.png' />
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#24292E', fontWeight: '600', fontSize: '24px', marginTop: '75%'}}>YOU DID GREAT!</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#6A737D', fontWeight: '400', fontSize: '18px', paddingTop: '5%'}}>
+                        You've conquered all the games! Bravo! Stay tuned for future challenges. Your gaming journey continues to unfold. Keep up the great work! 🎮✨
+						</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#2E8970', fontWeight: '400', fontSize: '18px', paddingTop: '5%', paddingBottom: '10%'}}>
+						All of your scores have been saved and will be visible to you in the app
+						</div>
+					</div>
 					<div className='buttonCont'>
-						<button onClick={understood} className='buttonNextModal'>Continue</button>
+						<button onClick={understood} className='buttonNextModal'>Understood!</button>
 					</div>
 				</ReactModal>
+				</div>
 		</div>
 	);
 };

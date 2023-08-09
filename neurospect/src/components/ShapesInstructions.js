@@ -7,11 +7,15 @@ const ShapesInstructions = ({tutButton, onTimeEnd}) => {
         <div>
             <div className='fullGameMargin instructions-back'>
                 <div style={{height:'6vh'}}></div>
-                <div className='instructions-header'>
-                    <strong>Attention</strong>
+                <div>
+                    <div style={{fontFamily:'Poppins-Bold', fontSize:'22px'}}>Attention</div>
+                    <div style={{fontFamily:'Poppins-Regular', fontSize:'16px'}}>This game will measure how good you are at paying attention to things.</div>
                 </div>
-                <div className='instructions-content'>
-                    <div>Ready for the next part? Now check if the <span className='highlight'>shapes</span> themselves are the <span className='highlight'>same</span>.</div>
+                <div style={{height:'15vh'}}></div>
+                <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
+                    <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'400'}}>You did great!</div>
+                    <div style={{fontFamily:'Poppins-Regular', fontWeight:'600', fontSize:'30px', marginBottom: '10%'}}> Now we will show you <span className='highlight'>pairs of shapes</span>. You need to decide if the <span className='highlight'>shapes</span> are the <span className='highlight'>same</span> or not
+                    </div>
                 </div>
                 <div className='buttonCont'>
                     <button className="buttonSecondary" onClick={tutButton}>How To Play</button>

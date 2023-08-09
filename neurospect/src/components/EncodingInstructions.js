@@ -12,13 +12,17 @@ const EncodingInstructions = ({onTimeEnd}) => {
     return (
         <div className='fullGameMargin instructions-back'>
             <div style={{height:'6vh'}}></div>
-            <div className='instructions-header'>
-                <strong>Word Memorization</strong>
-            </div>
-            <div className='instructions-content'>
-                <div>Let's test your memory! You're about to see <span class='highlight'>8 words</span>. Try to <span class='highlight'>memorize</span> each one. You'll be asked to recall them later. <strong>Do not</strong> write down the words!
+                <div>
+                    <div style={{fontFamily:'Poppins-Bold', fontSize:'22px'}}>Attention</div>
+                    <div style={{fontFamily:'Poppins-Regular', fontSize:'16px'}}>This game will measure how good you are at paying attention to things.</div>
                 </div>
-            </div>
+                <div style={{height:'15vh'}}></div>
+                <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
+                    <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'400'}}>Ready for an attention test?</div>
+                    <div style={{fontFamily:'Poppins-Regular', fontWeight:'600', fontSize:'30px', marginBottom: '10%'}}> Check if the <span className='highlight'>shapes</span> are of the same <span className='highlight'>color</span>.
+                    </div>
+                </div>
+            
             <div className='buttonCont'>
             <button className="buttonNext" onClick={handleClick}>Start Playing</button>
             </div>

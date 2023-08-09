@@ -48,7 +48,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         }
     }
 
-    const turn = (pts, dir, size) => {
+    const turn = (pts, dir, size, rotation) => {
         var totalString = "";
 
         var array = pts.split(' ');
@@ -172,9 +172,23 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir1[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(randomDir1[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir1[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir1[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir1[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             randomDir1.push(newVal);
@@ -182,9 +196,23 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir2[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(randomDir2[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             randomDir2.push(newVal);
@@ -192,9 +220,23 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir3[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(randomDir3[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir3[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir3[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir3[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             randomDir3.push(newVal);
@@ -244,9 +286,23 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(dir[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(dir[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             dir.push(newVal);
@@ -395,7 +451,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 </button>
             </div>
 
-            <h1 className="timer">Time left: {timeLeft} sec</h1>
+            <h1 className="timer">{timeLeft} sec</h1>
         </div>
 	);
 }
