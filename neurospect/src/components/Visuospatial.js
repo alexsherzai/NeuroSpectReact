@@ -14,10 +14,10 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';
-    const [button1style, setButton1Style] = useState('');
-    const [button2style, setButton2Style] = useState('');
-    const [button3style, setButton3Style] = useState('');
-    const [button4style, setButton4Style] = useState('');
+    const [button1style, setButton1Style] = useState('2px solid #F6F4FA');
+    const [button2style, setButton2Style] = useState('2px solid #F6F4FA');
+    const [button3style, setButton3Style] = useState('2px solid #F6F4FA');
+    const [button4style, setButton4Style] = useState('2px solid #F6F4FA');
     const [clicked, setClicked] = useState(false);
 
     const queryParams = new URLSearchParams(window.location.search)
@@ -357,7 +357,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton1Style('');
+                setButton1Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
@@ -377,7 +377,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton2Style('');
+                setButton2Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
@@ -397,7 +397,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton3Style('');
+                setButton3Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
@@ -417,7 +417,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton4Style('');
+                setButton4Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }

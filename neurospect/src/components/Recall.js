@@ -101,7 +101,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     
     return (
         <div className='fullGameMargin'>
-            <h1 className='timer'>Time left: {timeLeft} sec</h1>
+            <h1 className='timer'>{timeLeft} sec</h1>
             <div>
                 <div className="encoding-content">
                     <p className='word word-left'>{answeredWords[1]}</p>
@@ -112,22 +112,23 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     <p className='word word-right'>{answeredWords[6]}</p>
                     <p className='word word-right'>{answeredWords[7]}</p>
                     <p className='word word-right'>{answeredWords[8]}</p>
-
-                    <input
-                        className='textField'
-                        type="text"
-                        placeholder="Click here and type remembered words..."
-                        style={{borderRadius:'10px'}}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                                console.log("test");
-                                setWarning("Not a valid word!");
-                            }
-                        }}
-                        value={inputWords}
-                        onChange={e => setInputWords(e.target.value)} 
-                    />
                 </div>
+            </div>
+
+            <div style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+                <input
+                    className='textField'
+                    type="text"
+                    placeholder="Enter the words"
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            console.log("test");
+                            setWarning("Not a valid word!");
+                        }
+                    }}
+                    value={inputWords}
+                    onChange={e => setInputWords(e.target.value)} 
+                />
             </div>
 
             <div style={{textAlign:'center', fontFamily:'Poppins-Regular'}}>

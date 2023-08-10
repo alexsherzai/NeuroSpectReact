@@ -42,6 +42,7 @@ body {
     color: black;
     font-size: 2em;
     font-family: Poppins-Bold;
+    font-size: 20px;
 }
 .footer {
     width: 100%;
@@ -153,6 +154,23 @@ h4 {
     margin: 5px;
     color: #5A89F5;
 }
+
+.attentionButtonClicked {
+    z-index: inherit;
+    border: none;
+    background-color: #5A89F5;
+    display: flex;
+    padding: 20px 71px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid var(--primary-blue, #5A89F5);
+    font-family: 'Poppins-SemiBold';
+    font-size: 22px;
+    margin: 5px;
+    color: white;
+}
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -164,6 +182,7 @@ h4 {
     width: 45%;
     margin: 2.5%;
     z-index: inherit;
+    border-radius: 7px;
 }
 .level-content {
     display: flex;
@@ -341,7 +360,7 @@ h4 {
 .buttonSecondary {
     border: none;
     border: 1px solid #5A89F5;
-    background-color: #F4F6FA;
+    background-color: rgba(0, 0, 0, 0);
     border-radius: 100px;
     font-family: 'Poppins-SemiBold';
     bottom: 0;
@@ -380,6 +399,7 @@ h4 {
     text-align: center;
     align-items: center;
     display: flex;
+    bottom: 0;
 }
 .correct {
     font-family: 'Poppins-Bold';
@@ -397,9 +417,24 @@ h4 {
     justify-content: center;
 }
 .textField {
-    width: 90%;
+    width: 82%;
     height: 5%;
     font-family: 'Poppins-Regular';
+    border-radius: 6px;
+    border: 1px solid var(--grey-300, #D1D5DA);
+    background: var(--absolutes-white, #FFF);
+    padding: 13px 16px;
+    font-size: 18px;
+}
+.textField:focus{
+    width: 82%;
+    height: 5%;
+    font-family: 'Poppins-Regular';
+    border-radius: 6px;
+    border: 1px solid var(--grey-300, #18D4E8);
+    background: var(--absolutes-white, #FFF);
+    padding: 13px 16px;
+    font-size: 18px;
 }
 .button-container {
     flex: 1;
@@ -469,6 +504,7 @@ h4 {
     width: 100%;
     height: 100%;
 }
+
 .tutorialCoverNoFade {
     position: absolute;
     z-index: 500;
@@ -477,6 +513,7 @@ h4 {
     width: 100%;
     height: 100%;
 }
+
 @keyframes opacityEffect {
     0% {
         opacity: 0;

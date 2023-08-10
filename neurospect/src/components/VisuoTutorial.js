@@ -7,10 +7,10 @@ const VisuoTutorial = ({onTimeEnd }) => {
     const [iter, setIter] = useState(1);
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';
-    const [button1style, setButton1Style] = useState('');
-    const [button2style, setButton2Style] = useState('');
-    const [button3style, setButton3Style] = useState('');
-    const [button4style, setButton4Style] = useState('');
+    const [button1style, setButton1Style] = useState('2px solid #F6F4FA');
+    const [button2style, setButton2Style] = useState('2px solid #F6F4FA');
+    const [button3style, setButton3Style] = useState('2px solid #F6F4FA');
+    const [button4style, setButton4Style] = useState('2px solid #F6F4FA');
 
     useEffect(() => {
     });
@@ -26,57 +26,57 @@ const VisuoTutorial = ({onTimeEnd }) => {
     const button1 = () => {
         if(iter === 3) {
             setButton1Style(buttonWrong);
-            setButton2Style('');
-            setButton3Style('');
-            setButton4Style('');
+            setButton2Style('2px solid #F6F4FA');
+            setButton3Style('2px solid #F6F4FA');
+            setButton4Style('2px solid #F6F4FA');
         } else if(iter === 4) {
             setButton1Style(buttonWrong);
-            setButton2Style('');
-            setButton3Style('');
-            setButton4Style('');
+            setButton2Style('2px solid #F6F4FA');
+            setButton3Style('2px solid #F6F4FA');
+            setButton4Style('2px solid #F6F4FA');
         }
     }
     const button2 = () => {
         if(iter === 3) {
-            setButton1Style('');
+            setButton1Style('2px solid #F6F4FA');
             setButton2Style(buttonWrong);
-            setButton3Style('');
-            setButton4Style('');
+            setButton3Style('2px solid #F6F4FA');
+            setButton4Style('2px solid #F6F4FA');
         } else if(iter === 4) {
-            setButton1Style('');
+            setButton1Style('2px solid #F6F4FA');
             setButton2Style(buttonWrong);
-            setButton3Style('');
-            setButton4Style('');
+            setButton3Style('2px solid #F6F4FA');
+            setButton4Style('2px solid #F6F4FA');
         }
     }
     const button3 = () => {
         if(iter === 3) {
-            setButton1Style('');
-            setButton2Style('');
+            setButton1Style('2px solid #F6F4FA');
+            setButton2Style('2px solid #F6F4FA');
             setButton3Style(buttonCorrect);
-            setButton4Style('');
+            setButton4Style('2px solid #F6F4FA');
 
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton3Style('');
+                setButton3Style('2px solid #F6F4FA');
             }, 500);
         } else if(iter === 4) {
-            setButton1Style('');
-            setButton2Style('');
+            setButton1Style('2px solid #F6F4FA');
+            setButton2Style('2px solid #F6F4FA');
             setButton3Style(buttonWrong);
-            setButton4Style('');
+            setButton4Style('2px solid #F6F4FA');
         }
     }
     const button4 = () => {
         if(iter === 3) {
-            setButton1Style('');
-            setButton2Style('');
-            setButton3Style('');
+            setButton1Style('2px solid #F6F4FA');
+            setButton2Style('2px solid #F6F4FA');
+            setButton3Style('2px solid #F6F4FA');
             setButton4Style(buttonWrong);
         } else if(iter === 4) {
-            setButton1Style('');
-            setButton2Style('');
-            setButton3Style('');
+            setButton1Style('2px solid #F6F4FA');
+            setButton2Style('2px solid #F6F4FA');
+            setButton3Style('2px solid #F6F4FA');
             setButton4Style(buttonCorrect);
 
             setTimeout(function() {
@@ -88,7 +88,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
     const reset = () => {
         setIter(1);
-        setButton4Style('');
+        setButton4Style('2px solid #F6F4FA');
     }
 
     return (
@@ -97,6 +97,10 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
             <div onClick={onClickResponse}>
                 <div>
+                <div style={{position: 'absolute', top: '3%', left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', zIndex: 1004, color: 'white', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>
+						Tap on the screen to move forward
+			    </div>
+
                     <div style={{position: "absolute"}}>
                     <div style={{justifyContent: "center", alignItems:"center", textAlign:"center", margin:"10px"}}>
                         <h3 style={{fontFamily:"Poppins-Regular"}}>1/1</h3>
@@ -115,28 +119,28 @@ const VisuoTutorial = ({onTimeEnd }) => {
                         </div>
                     </div>
                     <div className='fullGameMargin'>
-                        <button className="visuoButton">
+                        <button style={{border: button1style}} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                 <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="red" />
                                 <polygon points="75,40 75,70 105,70 105,40" strokeWidth="0" fill="orange" />
                             </svg>
                         </button>
-                        <button className="visuoButton">
+                        <button style={{border: button2style}} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                 <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="red" />
                                 <polygon points="75,40 75,70 105,70 105,40" strokeWidth="0" fill="blue" />
                             </svg>
                         </button>
-                        <button className="visuoButton">
+                        <button style={{border: button3style}} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="blue" />
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="red" />
                                 <polygon points="45,40 45,70 75,70 75,40" strokeWidth="0" fill="orange" />
                             </svg>
                         </button>
-                        <button className="visuoButton">
+                        <button style={{border: button4style}} className="visuoButton">
                             <svg width="150" height="150">
                                 <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                 <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="blue" />
@@ -153,6 +157,9 @@ const VisuoTutorial = ({onTimeEnd }) => {
             {iter === 2 &&
                 <div onClick={onClickResponse}>
                     <div>
+                    <div style={{position: 'absolute', top: '3%', left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', zIndex: 1004, color: 'white', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>
+						Tap on the screen to move forward
+			        </div>
                         <div>
                         <div style={{justifyContent: "center", alignItems:"center", textAlign:"center", margin:"10px"}}>
                             <h3 style={{fontFamily:"Poppins-Regular"}}>1/1</h3>
@@ -177,28 +184,28 @@ const VisuoTutorial = ({onTimeEnd }) => {
                         </div>
 
                         <div className="fullGameMargin vis-button-container">
-                            <button className="visuoButton">
+                            <button style={{border: button1style}} className="visuoButton">
                                 <svg width="150" height="150">
                                     <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                     <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="red" />
                                     <polygon points="75,40 75,70 105,70 105,40" strokeWidth="0" fill="orange" />
                                 </svg>
                             </button>
-                            <button className="visuoButton">
+                            <button style={{border: button2style}} className="visuoButton">
                                 <svg width="150" height="150">
                                     <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                     <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="red" />
                                     <polygon points="75,40 75,70 105,70 105,40" strokeWidth="0" fill="blue" />
                                 </svg>
                             </button>
-                            <button className="visuoButton">
+                            <button style={{border: button3style}} className="visuoButton">
                                 <svg width="150" height="150">
                                     <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="blue" />
                                     <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="red" />
                                     <polygon points="45,40 45,70 75,70 75,40" strokeWidth="0" fill="orange" />
                                 </svg>
                             </button>
-                            <button className="visuoButton">
+                            <button style={{border: button4style}} className="visuoButton">
                                 <svg width="150" height="150">
                                     <polygon points="45,70 45,100 75,100 75,70" strokeWidth="0" fill="blue" />
                                     <polygon points="75,70 75,100 105,100 105,70" strokeWidth="0" fill="blue" />
@@ -314,16 +321,19 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
 
             {iter === 5 &&
-                <div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
-                    <div>
-                        <div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
-                            Great! Now you are ready to play the game! Don't forget that in the game, you will have 60 seconds!
-                        </div>
-                        <div className="buttonCont">
-                            <button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
-                        </div>
-                        <div className="buttonCont">
-                            <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
+                <div style={{width:'100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.9)', position: 'absolute'}}>
+
+                    <div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+                        <div>
+                            <div style={{fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
+                                Tutorial Over!
+                            </div>
+                            <div className="buttonCont">
+                                <button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
+                            </div>
+                            <div className="buttonCont">
+                                <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
+                            </div>
                         </div>
                     </div>
                 </div>

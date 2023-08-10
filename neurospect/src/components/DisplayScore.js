@@ -24,7 +24,7 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
                 <div className='scoreBoxHeader'>Visuospatial</div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Score</div>
-                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{visuo}</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5', fontWeight: 600}}>{visuo}</div>
                 </div>
             </div>
 
@@ -32,11 +32,11 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
                 <div className='scoreBoxHeader'>Colors</div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Attention Score</div>
-                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{attScoreColors}</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5', fontWeight: 600}}>{attScoreColors}</div>
                 </div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Processing Speed</div>
-                    <div style={{fontSize: '26px', color: '#FF9417'}}>{speedColors}</div>
+                    <div style={{fontSize: '26px', color: '#FF9417', fontWeight: 600}}>{speedColors}</div>
                 </div>
             </div>
 
@@ -44,11 +44,11 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
                 <div className='scoreBoxHeader'>Shapes</div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Attention Score</div>
-                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{attScoreShapes}</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5', fontWeight: 600}}>{attScoreShapes}</div>
                 </div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Processing Speed</div>
-                    <div style={{fontSize: '26px', color: '#FF9417'}}>{speedShapes}</div>
+                    <div style={{fontSize: '26px', color: '#FF9417', fontWeight: 600}}>{speedShapes}</div>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
                 <div className='scoreBoxHeader'>Recall</div>
                 <div style={{justifyContent:'center', display:'flex', alignItems:'center'}}>
                     <div style={{fontSize: '20px', width: '80vw'}}>Score</div>
-                    <div style={{fontSize: '26px', color: '#5A89F5'}}>{recall}</div>
+                    <div style={{fontSize: '26px', color: '#5A89F5', fontWeight: 600}}>{recall}</div>
                 </div>
             </div>
 

@@ -16,6 +16,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [buttonClickTimes, setButtonClickTimes] = useState([]);
 	const [shapeList, setShapeList] = useState([]);
 
+	const [noClicked, setNoClicked] = useState(false);
+	const [yesClicked, setYesClicked] = useState(false);
+
 	const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
@@ -173,6 +176,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let val4 = getShape(svgIndeces[1]);
 
 		if(!buttonClicked) {
+			setYesClicked(true);
+			setNoClicked(false);
+
 			setButtonClicked(true);
 			let timeToClick = 0;
 			if(preButtonClick > 0) {
@@ -213,6 +219,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let val4 = getShape(svgIndeces[1]);
 
 		if(!buttonClicked) {
+			setYesClicked(false);
+			setNoClicked(true);
+
 			setButtonClicked(true);
 			let timeToClick = Date.now() - preButtonClick;
 			buttonClickTimes.push(timeToClick);
@@ -321,8 +330,12 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='yesNoButton attentionButton' onClick={onClickDiff}>No</button>
-                <button className='yesNoButton attentionButton' onClick={onClickSame}>Yes</button>
+				<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+						setNoClicked(false);
+					}, 500);}}>No</button>
+                <button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+						setYesClicked(false);
+					}, 500);}}>Yes</button>
             </div>
 		</div>
 	);
