@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
+import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
 const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
@@ -8,11 +9,24 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
-    
+
+    const [mic, setMic] = useState(false);
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
+
+    const {transcript, browserSupportsSpeechRecognition} = useSpeechRecognition();
+    const startListening = () => {
+        SpeechRecognition.startListening({continuous: true, language: 'en-US'});
+        setMic(true);
+    };
+
+    const stopListening = () => {
+        SpeechRecognition.stopListening();
+        setInputWords('');
+        setMic(false);
+    }
 
     var docName = userID;
     if(prolificID !== null) {
@@ -86,16 +100,29 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             setCorrectWords(count);
         };
 
-        if(answeredWords.length === 9) {
+        if(answeredWords.length === 11) {
             AddData();
             onTimeEnd();
         }
 
-        checkWords();
+        if (!mic) {
+            checkWords();
+        } else {
+            if (transcript) {
+                const spokenWords = transcript.trim().split(' ');
+                const newInputWord = spokenWords[spokenWords.length - 1];
+                setInputWords(newInputWord);
+                console.log(newInputWord);
+                checkWords();
+            }
+        }
+
         AddData();
 
         return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords, words]);
+    }, [onTimeEnd, inputWords, words, mic, transcript]);
+
+    
     
     const correct = 0;
     
@@ -112,23 +139,36 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     <p className='word word-right'>{answeredWords[6]}</p>
                     <p className='word word-right'>{answeredWords[7]}</p>
                     <p className='word word-right'>{answeredWords[8]}</p>
+                    <p className='word word-right'>{answeredWords[9]}</p>
+                    <p className='word word-right'>{answeredWords[10]}</p>
                 </div>
             </div>
 
-            <div style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-                <input
-                    className='textField'
-                    type="text"
-                    placeholder="Enter the words"
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            console.log("test");
-                            setWarning("Not a valid word!");
-                        }
-                    }}
-                    value={inputWords}
-                    onChange={e => setInputWords(e.target.value)} 
-                />
+            <div style={{height: "10vh"}}>
+
+            </div>
+
+            <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                {!mic ? (
+                    <input
+                        className='textField'
+                        type="text"
+                        placeholder="Enter the words"
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                console.log("test");
+                                setWarning("Not a valid word!");
+                            }
+                        }}
+                        value={inputWords}
+                        onChange={e => setInputWords(e.target.value)} 
+                    />
+                ) : (
+                    <button onClick={stopListening}>Stop Listening</button>
+                )}
+            </div>
+            <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                <button onClick={startListening}>Start Listening</button>
             </div>
 
             <div style={{textAlign:'center', fontFamily:'Poppins-Regular'}}>

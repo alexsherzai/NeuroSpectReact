@@ -4,11 +4,9 @@ import './stylesheet.css';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 
-const Encoding = ({onTimeEnd }) => {
+const Encoding = ({onTimeEnd, words}) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
-
-    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
@@ -54,8 +52,8 @@ const Encoding = ({onTimeEnd }) => {
     const calculateIndex = () => {
         let value = 20 - timeLeft;
         if(value % 2 === 0) {
-            if(value > 6) {
-                setHighlightedIndex(value - 7);
+            if(value >= 10) {
+                setHighlightedIndex(value - 9);
             } else {
                 setHighlightedIndex(value);
             }

@@ -20,8 +20,8 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
-    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
+    const [stage, setStage] = useState('recall');
+    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
@@ -139,7 +139,7 @@ const App = () => {
     currentDate = currentDate.split(",")[0];
     console.log("Dev Branch");
 
-    var docName = userID;
+    var docName = "NoID";
     if(prolificID !== null) {
         docName = prolificID;
     }

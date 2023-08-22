@@ -2,10 +2,13 @@ import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 import { speedDialActionClasses } from '@mui/material';
+import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
 const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
+    const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
+    const {transcript, browserSupportsSpeechRecognition} = useSpeechRecognition();
 
     const understood = () => {
 		setIsOpen(false);
