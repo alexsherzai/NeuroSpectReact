@@ -166,33 +166,9 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
         }
 
-        var randomDir1 = [];
+        var randomDir1 = flippedDir.slice();
         var randomDir2 = [];
-        var randomDir3 = [];
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
-            if(i > 0) {
-                if(randomDir1[i - 1] === 0) {
-                    while(newVal === 1) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir1[i - 1] === 1) {
-                    while(newVal === 0) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir1[i - 1] === 2) {
-                    while(newVal === 3) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir1[i - 1] === 3) {
-                    while(newVal === 2) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                }
-            }
 
-            randomDir1.push(newVal);
-        }
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
@@ -217,42 +193,95 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
             randomDir2.push(newVal);
         }
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
-            if(i > 0) {
-                if(randomDir3[i - 1] === 0) {
-                    while(newVal === 1) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir3[i - 1] === 1) {
-                    while(newVal === 0) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir3[i - 1] === 2) {
-                    while(newVal === 3) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                } else if(randomDir3[i - 1] === 3) {
-                    while(newVal === 2) {
-                        newVal = Math.floor(Math.random() * 4);
-                    }
-                }
-            }
-
-            randomDir3.push(newVal);
-        }
 
 
         const colors = ["red", "blue", "green", "orange"];
-        let diffColArray = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
-        let diffColArray2 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
-        let diffColArray3 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
+        let diffColArray = corCol.slice();
 
+        if(iter < 6) {
+            var index = Math.floor(Math.random() * 3);
+            var temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            var options = [];
+
+            if(randomDir1[0] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[0] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[0] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[0] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[1] === flippedDir[1]) {
+                randomDir1[1] = options[Math.floor(Math.random() * 3)];
+            }
+        } else if(iter >= 6 && iter < 12) {
+            var index = Math.floor(Math.random() * 4);
+            var temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            var options = [];
+
+            if(randomDir1[1] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[1] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[1] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[1] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[2] === flippedDir[2]) {
+                randomDir1[2] = options[Math.floor(Math.random() * 3)];
+            }
+
+            console.log(flippedDir);
+            console.log(randomDir1);
+
+        } else if(iter >= 12) {
+            var index = Math.floor(Math.random() * 5);
+            var temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            var options = [];
+
+            if(randomDir1[2] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[2] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[2] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[2] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[3] === flippedDir[3]) {
+                randomDir1[3] = options[Math.floor(Math.random() * 3)];
+            }
+
+            console.log(flippedDir);
+            console.log(randomDir1);
+        }
+
+        let diffColArray2 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
 
         const main = generateShape(flippedDir, 25, 65, 65, corCol)[0];
-        const option1 = generateShape(randomDir1, 25, 65, 65, diffColArray)[0];
-        const option2 = generateShape(randomDir2, 25, 65, 65, diffColArray2)[0];
-        const option3 = generateShape(randomDir3, 25, 65, 65, diffColArray3)[0];
+        const option1 = generateShape(flippedDir, 25, 65, 65, diffColArray)[0];
+        const option2 = generateShape(randomDir1, 25, 65, 65, corCol)[0];
+        const option3 = generateShape(randomDir2, 25, 65, 65, diffColArray2)[0];
 
         var optionsTemp = [];
 
@@ -428,8 +457,9 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     return (
 		<div>
-            <div style={{textAlign:'center'}}>
-                <h3 style={{fontFamily:'Poppins-Regular'}}>{iter}/15</h3>
+            <div style={{textAlign:'center', height: '15vh'}}>
+                <h3 style={{fontFamily:'Poppins-Regular', marginBottom: 0}}>{iter + 1}/15</h3>
+                <h1 className="timer">{timeLeft} sec</h1>
             </div>
             
 
@@ -450,8 +480,6 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                     <div>{optionShapes[3]}</div>
                 </button>
             </div>
-
-            <h1 className="timer">{timeLeft} sec</h1>
         </div>
 	);
 }
