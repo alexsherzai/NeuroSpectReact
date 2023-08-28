@@ -7,6 +7,7 @@ import { storage } from '../config/firebase';
 const Encoding = ({onTimeEnd, words}) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
+    const [end, setEnd] = useState(false);
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
@@ -35,7 +36,7 @@ const Encoding = ({onTimeEnd, words}) => {
             setTimeLeft(oldTime => {
                 if (oldTime <= 1) {
                     clearInterval(timer);
-                    onTimeEnd();
+                    setEnd(true);
                     AddData();
                 }
                 return oldTime - 1;
@@ -62,9 +63,11 @@ const Encoding = ({onTimeEnd, words}) => {
     }
     
     return (
+        <div>
+        {!end &&
         <div className='fullGameMargin'>
             <h1 className="timer">{timeLeft} sec</h1>
-            <div style={{margin: '10px', fontFamily: 'Poppins-Bold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
+            <div style={{margin: '10px', fontFamily: 'Poppins-SemiBold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
                 Memorize These Words
             </div>
             <div className="encoding-content">
@@ -72,6 +75,23 @@ const Encoding = ({onTimeEnd, words}) => {
                     <p key={index} className={`word ${index % 2 === 0 ? 'word-left' : 'word-right'} ${highlightedIndex === index ? 'highlighted' : ''}`}>{word}</p>
                 ))}
             </div>
+        </div>
+        }
+
+        {end && 
+        
+        <div className='fullGameMargin'>
+            <h1 className="timer">0 sec</h1>
+            <div style={{margin: '10px', fontFamily: 'Poppins-SemiBold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
+                Time's Up!
+            </div>
+            <div style={{fontFamily: 'Poppins-Regular', fontSize: '18px', textAlign: 'center'}}>Your time to memorize has expired. Brace yourselves for the upcoming test of your memory. Stay sharp, stay focused! The challenge awaits.💡</div>
+            <div className='buttonCont'>
+                <button className="buttonNext" onClick={onTimeEnd}>Next</button>
+            </div>
+        </div>
+    
+        }
         </div>
     );
 };

@@ -49,12 +49,12 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 								<div className='level-name'>{levelNum}</div>
 							</div>
 						))}
-					<div className={`listCont${level === 3 ? "Last" : ""}`}>
+					<div className={`${level === 3 ? "listContLast" : "listContCurr"}`}>
 						<span className='levels-curr'>{level + 1}</span> 
 						<div className='level-name-curr'>{currentLevel}</div>
 					</div>
 						{remainingLevels && remainingLevels.map((levelNum, index) => (
-							<div className={`listCont${level + index === 2 ? "Last" : ""}`}>
+							<div className={`${level + index === 2 ? "listContLast" : "listContInactive"}`}>
 								<span className='levels-incomp'>{level + index + 2}</span> 
 								<div className='level-name-incomp'>{levelNum}</div>
 							</div>
@@ -71,11 +71,16 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 					contentLabel="Example Modal"
 					style={{
 						overlay: {
-							
+							backgroundColor: 'rgba(20, 25, 31, 0.8)'
 						},
 						content: {
-						  borderRadius: '7px',
-						  height: '525px'
+							borderRadius: '7px',
+							height: '525px',
+							width: '275px',
+							position: 'absolute',
+							top: '50%',
+							left: '50%',
+							transform: 'translate(-50%, -50%)'
 						}
 					  }}
 				>
@@ -94,7 +99,7 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 						Good luck and enjoy the challenge! 🚀🎮
 						</div>
 					</div>
-					<div className='buttonCont'>
+					<div className='buttonContModal'>
 						<button onClick={understood} className='buttonNextModal'>Understood!</button>
 					</div>
 				</ReactModal>

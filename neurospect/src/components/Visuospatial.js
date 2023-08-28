@@ -457,9 +457,8 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     return (
 		<div>
-            <div style={{textAlign:'center', height: '15vh'}}>
+            <div style={{textAlign:'center', height: '2vh'}}>
                 <h3 style={{fontFamily:'Poppins-Regular', marginBottom: 0}}>{iter + 1}/15</h3>
-                <h1 className="timer">{timeLeft} sec</h1>
             </div>
             
 
@@ -480,6 +479,8 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                     <div>{optionShapes[3]}</div>
                 </button>
             </div>
+
+            <h1 className="timer">{timeLeft} sec</h1>
         </div>
 	);
 }

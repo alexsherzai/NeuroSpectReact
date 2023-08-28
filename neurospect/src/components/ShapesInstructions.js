@@ -19,8 +19,6 @@ const ShapesInstructions = ({tutButton, onTimeEnd}) => {
                 </div>
                 <div className='buttonCont'>
                     <button className="buttonSecondary" onClick={tutButton}>How To Play</button>
-                </div>
-                <div className='buttonCont'>
                     <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
                 </div>
             </div>

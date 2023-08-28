@@ -10,6 +10,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 	const [tutorialMode, setTutorialMode] = useState(true);
 	const [iter, setIter] = useState(1);
 	const [shapeIndex, setShapeIndex] = useState([0, 0]);
+	const [timeLeft, setTimeLeft] = useState(4);
+	const [countdownText, setCountdownText] = useState("Ready?");
 
 	const [noClicked, setNoClicked] = useState(false);
 	const [yesClicked, setYesClicked] = useState(false);
@@ -27,6 +29,35 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<rect width="100" height="100" strokeWidth="0" fill="orange" />
 		</svg>
 	];
+
+	useEffect(() => {
+
+        const timer = setInterval(() => {
+            setTimeLeft(oldTime => {
+                if (oldTime <= 2) {
+                    clearInterval(timer);
+                    onTimeEnd();
+                }
+
+				if(oldTime === 4) {
+					setCountdownText("Set!");
+				} else if(oldTime === 3) {
+					setCountdownText("Go!");
+				}
+
+				console.log(oldTime);
+				
+				if(iter === 8) {
+					return oldTime - 1;
+				} else {
+					return oldTime;
+				}
+
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [onTimeEnd, iter]);
 
 	
 
@@ -207,8 +238,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 				<div className="tut-intro-fade" style={{position: "absolute", zIndex:1100, marginLeft: '60%', marginTop: '1%'}}>
 					<img src="/TutorialIcons/Arrow1.png"/>
 				</div>
-				<div className="tut-intro-fade" style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginTop: '12%'}}>
-					<Text style={{margin: "10px"}}>Check if the <strong>{answer.toLowerCase()}s</strong> are <strong>different</strong>.</Text>
+				<div className="tut-intro-fade" style={{zIndex:1004, paddingTop: '10px', paddingBottom: '10px', position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginTop: '12%', opacity: 1}}>
+					<Text style={{margin: "10px", fontSize: '16px'}}>Check if the <strong>{answer.toLowerCase()}s</strong> are <strong>different</strong>.</Text>
 				</div>
 			</div>
 
@@ -247,8 +278,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<div className="tutorialCoverNoFade">
 				<div style={{height:"65vh"}}></div>
 
-				<div style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
-					<Text style={{margin: "10px"}}>Click <strong>'no'</strong> if the {answer.toLowerCase()}s are <strong>different</strong>.</Text>
+				<div style={{zIndex:1004, paddingTop:'10px', paddingBottom:'10px', position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
+					<Text style={{margin: "10px", fontSize: '16px'}}>Click <strong>'no'</strong> if the {answer.toLowerCase()}s are <strong>different</strong>.</Text>
 				</div>
 
 				<div style={{position: "absolute", zIndex:1100, marginLeft: '30%', marginTop:'10%'}}>
@@ -294,8 +325,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<div className="tutorialCoverNoFade">
 				<div style={{height:"65vh"}}></div>
 
-				<div style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
-					<Text style={{margin: "20px"}}>Click <strong>'yes'</strong> if the {answer.toLowerCase()}s are the <strong>same</strong>.</Text>
+				<div style={{zIndex:1004, position:"absolute", paddingTop:'10px', paddingBottom:'10px',fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
+					<Text style={{margin: "20px", fontSize: '16px'}}>Click <strong>'yes'</strong> if the {answer.toLowerCase()}s are the <strong>same</strong>.</Text>
 				</div>
 
 				<div style={{position: "absolute", zIndex:1100, marginLeft: '65%', marginTop:'10%'}}>
@@ -415,22 +446,96 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 
 		{iter === 7 &&
 
-				<div style={{width:'100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.9)', position: 'absolute'}}>
+				<div>
 
-					<div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+					<div style={{position:'absolute'}}>
+						<div className="header">Same {answer}?</div>
+						<div className="content">
+							<div className="shape">
+							<svg width="100" height="100">
+								<circle cx="50" cy="50" r="50" strokeWidth="0" fill="blue" />
+							</svg>
+							</div>
+							<div className="shape">
+							<svg width="100" height="100">
+								<rect width="100" height="100" strokeWidth="0" fill="orange" />
+							</svg>
+							</div>
+						</div>
+						<div className='response'>
+							<div style = {{color: textColor}}className='correct'>{text}</div>
+						</div>
+
+						
+
+						<div className="footer">
+							<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+									setNoClicked(false);
+								}, 500);}}>No</button>
+							<button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+									setYesClicked(false);
+								}, 500);}}>Yes</button>
+						</div>
+					</div>
+
+				<div style={{width:'100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.8)', backdropFilter: 'blur(10px)', position: 'absolute', zIndex: 1}}>
+
+					<div className='fullGameMargin' style={{marginTop:"60vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
 						<div>
+							<div className="buttonCont">
 							<div style={{fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
 								Tutorial Over!
 							</div>
-							<div className="buttonCont">
 								<button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
-							</div>
-							<div className="buttonCont">
-								<button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
+								<button className="buttonNext" onClick={onClickIter}>Start Playing</button>
 							</div>
 						</div>
 					</div>
 				</div>
+
+				</div>
+		}
+
+		{iter === 8 && 
+
+		<div>
+
+					<div style={{position:'absolute'}}>
+						<div className="header">Same {answer}?</div>
+						<div className="content">
+							<div className="shape">
+							<svg width="100" height="100">
+								<circle cx="50" cy="50" r="50" strokeWidth="0" fill="blue" />
+							</svg>
+							</div>
+							<div className="shape">
+							<svg width="100" height="100">
+								<rect width="100" height="100" strokeWidth="0" fill="orange" />
+							</svg>
+							</div>
+						</div>
+						<div className='response'>
+							<div style = {{color: textColor}}className='correct'>{text}</div>
+						</div>
+
+						
+
+						<div className="footer">
+							<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+									setNoClicked(false);
+								}, 500);}}>No</button>
+							<button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+									setYesClicked(false);
+								}, 500);}}>Yes</button>
+						</div>
+					</div>
+
+				<div className='countdownText'>
+					<div style={{fontFamily: 'Poppins-SemiBold', fontSize: '50px', textAlign: 'center'}}>{countdownText}</div>
+				</div>
+
+				</div>
+
 		}
 
 
