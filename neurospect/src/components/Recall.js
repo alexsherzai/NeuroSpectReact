@@ -17,16 +17,16 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const userID = queryParams.get("userID");
 
     const {transcript, browserSupportsSpeechRecognition} = useSpeechRecognition();
-    const startListening = () => {
-        SpeechRecognition.startListening({continuous: true, language: 'en-US'});
-        setMic(true);
+    const listeningButton = () => {
+        if(!mic) {
+            SpeechRecognition.startListening({continuous: true, language: 'en-US'});
+            setMic(true);
+        } else {
+            SpeechRecognition.stopListening();
+            setMic(false);
+        }
+        
     };
-
-    const stopListening = () => {
-        SpeechRecognition.stopListening();
-        setInputWords('');
-        setMic(false);
-    }
 
     var docName = userID;
     if(prolificID !== null) {
@@ -149,27 +149,33 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             </div>
 
             <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                {!mic ? (
-                    <input
-                        className='textField'
-                        type="text"
-                        placeholder="Enter the words"
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                                console.log("test");
-                                setWarning("Not a valid word!");
-                            }
-                        }}
-                        value={inputWords}
-                        onChange={e => setInputWords(e.target.value)} 
-                    />
-                ) : (
-                    <button onClick={stopListening}>Stop Listening</button>
-                )}
+                { mic === false ? 
+                (<input
+                    className='textField'
+                    type="text"
+                    placeholder="Enter the words"
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            console.log("test");
+                            setWarning("Not a valid word!");
+                        }
+                    }}
+                    value={inputWords}
+                    onChange={e => setInputWords(e.target.value)} 
+                />) : 
+                (
+                    <div></div>
+                )
+                }
+                <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
+                    { mic === false ?
+                    (<button style={{borderRadius: '150px', backgroundColor: '#5A89F5', border: 'none', padding: '10px', fontSize: '25px'}} onClick={listeningButton}>🎙️</button>)
+                    :
+                    (<button style={{borderRadius: '150px', backgroundColor: '#18D4E8', border: 'none', padding: '10px', fontSize: '25px'}} onClick={listeningButton}>⏸</button>)
+                    }
+                </div>
             </div>
-            <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
-                <button onClick={startListening}>Start Listening</button>
-            </div>
+            
 
             <div style={{textAlign:'center', fontFamily:'Poppins-Regular'}}>
                 <h3 style={{color: '#CD3843'}}>{warning}</h3>
