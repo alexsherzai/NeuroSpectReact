@@ -480,12 +480,12 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 
 				<div style={{width:'100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.8)', backdropFilter: 'blur(10px)', position: 'absolute', zIndex: 1}}>
 
-					<div className='fullGameMargin' style={{marginTop:"60vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+					<div className='fullGameMargin' style={{zIndex:"99"}}>
 						<div>
-							<div className="buttonCont">
-							<div style={{fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
-								Tutorial Over!
-							</div>
+							<div className="buttonContTut">
+								<div style={{textAlign: 'center', fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
+									Tutorial Over!
+								</div>
 								<button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
 								<button className="buttonNext" onClick={onClickIter}>Start Playing</button>
 							</div>

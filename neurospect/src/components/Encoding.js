@@ -4,6 +4,8 @@ import './stylesheet.css';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 
+import voiceover from '../WordsAudio/AllWords.wav';
+
 const Encoding = ({onTimeEnd, words}) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
@@ -12,6 +14,8 @@ const Encoding = ({onTimeEnd, words}) => {
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
+
+    const audio = new Audio(voiceover);
 
     var docName = userID;
     if(prolificID !== null) {
@@ -31,6 +35,8 @@ const Encoding = ({onTimeEnd, words}) => {
     }
     
     useEffect(() => {
+
+        audio.play();
 
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {

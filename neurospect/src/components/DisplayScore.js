@@ -71,7 +71,7 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
 					contentLabel="Example Modal"
 					style={{
 						overlay: {
-							
+							backgroundColor: 'rgba(20, 25, 31, 0.8)'
 						},
 						content: {
                             borderRadius: '7px',
