@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
+import MicrophoneWaveform from './MicrophoneWaveform';
+
 
 const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
@@ -164,14 +166,16 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     onChange={e => setInputWords(e.target.value)} 
                 />) : 
                 (
-                    <div></div>
+                    <div>
+                        <MicrophoneWaveform />
+                    </div>
                 )
                 }
                 <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
                     { mic === false ?
-                    (<button style={{borderRadius: '150px', backgroundColor: '#5A89F5', border: 'none', padding: '10px', fontSize: '25px'}} onClick={listeningButton}>🎙️</button>)
+                    (<button style={{width: '40px', height: '40px', borderRadius: '150px', backgroundColor: '#5A89F5', border: 'none', fontSize: '25px', padding: '15px', justifyContent: 'center', alignItems: 'center', textAlign: 'center', display: 'flex'}} onClick={listeningButton}><img src='mic.svg'/></button>)
                     :
-                    (<button style={{borderRadius: '150px', backgroundColor: '#18D4E8', border: 'none', padding: '10px', fontSize: '25px'}} onClick={listeningButton}>⏸</button>)
+                    (<button style={{width: '40px', height: '40px', borderRadius: '150px', backgroundColor: '#18D4E8', border: 'none', justifyContent: 'center', padding: '15px', alignItems: 'center', textAlign: 'center', display: 'flex', fontSize: '25px'}} onClick={listeningButton}><img src='pause.svg'/></button>)
                     }
                 </div>
             </div>
