@@ -167,7 +167,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                 />) : 
                 (
                     <div>
-                        <MicrophoneWaveform />
+                        <MicrophoneWaveform/>
                     </div>
                 )
                 }

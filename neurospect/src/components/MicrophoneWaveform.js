@@ -20,20 +20,16 @@ const MicrophoneWaveform = () => {
 			const bufferLength = analyser.frequencyBinCount;
 			const dataArray = new Uint8Array(bufferLength);
 
-			console.log(canvas.width);
-
 
 			const numLines = Math.floor(canvas.width / 4);
-
-			const leftMost = 20;
 
 			const draw = () => {
 				analyser.getByteFrequencyData(dataArray);
 
-				context.clearRect(leftMost, 0, canvas.width, canvas.height);
+				context.clearRect(10, 0, canvas.width, canvas.height);
 
 				const sliceWidth = Math.ceil(bufferLength / numLines);
-				let x = leftMost;
+				let x = 10;
 
 				for (let i = 0; i < numLines; i++) {
 					let sum = 0;
@@ -41,10 +37,22 @@ const MicrophoneWaveform = () => {
 						sum += dataArray[j];
 					}
 					const average = sum / sliceWidth;
-					const barHeight = (average / 300) * canvas.height;
+					let barHeight = ((average / 200) * canvas.height);
+
+					if(i < 10) {
+						barHeight /= 2;
+					} else if (i > 10 && i < 20) {
+						barHeight /= 1.5;
+					} else if (i > 20 && i < 30) {
+						
+					} else if (i > 30) {
+						barHeight *= 2
+					}
+
+					barHeight += 7;
 
 					context.fillStyle = '#959DA5';
-					context.fillRect(x, canvas.height - barHeight / 2 - 75, 1, barHeight + 7);
+					context.fillRect(x, (canvas.height - barHeight) / 2, 1, barHeight);
 
 					x += 4;
 				}
@@ -64,7 +72,7 @@ const MicrophoneWaveform = () => {
 
 	return (
 		<div>
-		<canvas ref={canvasRef} width={600} height={150}></canvas>
+		<canvas ref={canvasRef} width={300} height={65}></canvas>
 		</div>
 	);
 };
