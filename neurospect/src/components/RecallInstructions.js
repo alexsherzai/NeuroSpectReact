@@ -16,7 +16,7 @@ const RecallInstructions = ({onTimeEnd}) => {
                     <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'400'}}>Let's see if you can remember the 8 words!</div>
                     <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> <span className='highlight'>Type</span> as many as you can <span className='highlight'>recall</span> in a space.
                     </div>
-                    <div style={{fontFamily:'Poppins-Regular', fontWeight:'600', fontSize:'26px', marginBottom: '10%'}}> You have <span className='highlight'>60 seconds</span>!
+                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'26px', marginBottom: '10%'}}> You have <span className='highlight'>60 seconds</span>!
                     </div>
                 </div>
             <div className='buttonCont'>
