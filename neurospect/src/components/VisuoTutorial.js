@@ -521,7 +521,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
                 </div>
             
-                <div style={{width:'100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.8)', backdropFilter: 'blur(10px)', position: 'absolute', zIndex: 99}}>
+                <div className='countdownText'>
 
                     <div>
                         <div>
