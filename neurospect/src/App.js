@@ -20,7 +20,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('visuo');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
@@ -48,6 +48,8 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
+
+    console.log(visSc);
 
     const attentionShapes = [
 		<svg width="100" height="100">
