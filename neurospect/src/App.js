@@ -49,7 +49,8 @@ const App = () => {
         setRecSc(score);
     };
 
-    console.log(visSc);
+    console.log("Visuospatial", visSc);
+    console.log("Recall", recSc);
 
     const attentionShapes = [
 		<svg width="100" height="100">

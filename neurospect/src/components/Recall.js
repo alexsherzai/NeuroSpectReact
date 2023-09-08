@@ -37,6 +37,9 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
 
     const AddData = async() => {
         const reviewRef = doc(storage, "neurospect", docName);
+
+        console.log(answeredWords.length - 1);
+        
         storeRec(answeredWords.length - 1);
 
         var tempArr = [];
