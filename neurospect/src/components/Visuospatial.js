@@ -35,7 +35,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         let correctNum = 0;
 		correct.forEach(e => {if(e === 1) {correctNum++}});
 
-        console.log(correctNum);
+        console.log("Score", correctNum);
 
         storeVis(correctNum);
 
