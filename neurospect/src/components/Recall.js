@@ -39,7 +39,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         const reviewRef = doc(storage, "neurospect", docName);
 
         console.log(answeredWords.length - 1);
-        
+
         storeRec(answeredWords.length - 1);
 
         var tempArr = [];
@@ -126,10 +126,6 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
 
         return () => clearInterval(timer);
     }, [onTimeEnd, inputWords, words, mic, transcript]);
-
-    
-    
-    const correct = 0;
     
     return (
         <div className='fullGameMargin'>
