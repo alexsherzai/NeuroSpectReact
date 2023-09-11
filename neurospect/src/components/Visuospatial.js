@@ -65,17 +65,17 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                     totalString += newVal.toString() + " ";
                     break;
                 case 1:
-                    let newVal = parseInt(coords[1], 10) + size;
+                    newVal = parseInt(coords[1], 10) + size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
                 case 2:
-                    let newVal = parseInt(coords[0], 10) + size;
+                    newVal = parseInt(coords[0], 10) + size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
                 case 3:
-                    let newVal = parseInt(coords[0], 10) - size;
+                    newVal = parseInt(coords[0], 10) - size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
@@ -287,14 +287,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
         let optionsTemp = [];
 
-        let correctIndex = 0;
-        let options = [];
+        var correctIndex = 0;
+        var options = [];
 
-        let indArray = [0, 1, 2, 3];
+        var indArray = [0, 1, 2, 3];
 
         indArray = shuffle(indArray);
 
-        for(let i = 0; i < indArray.length; i++) {
+        for(var i = 0; i < indArray.length; i++) {
             if(indArray[i] === 0) {
                 options.push(main);
                 correctIndex = i;
@@ -313,9 +313,9 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     
 
     useEffect(() => {
-        let dir = [];
-        for(let i = 0; i < 4; i++) {
-            let newVal = Math.floor(Math.random() * 4);
+        var dir = [];
+        for(var i = 0; i < 4; i++) {
+            var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
                 if(dir[i - 1] === 0) {
                     while(newVal === 1) {
