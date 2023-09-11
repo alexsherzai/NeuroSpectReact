@@ -17,7 +17,7 @@ const Encoding = ({onTimeEnd, words}) => {
 
     const audio = new Audio(voiceover);
 
-    var docName = userID;
+    let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
     }

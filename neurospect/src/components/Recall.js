@@ -30,7 +30,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         
     };
 
-    var docName = userID;
+    let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
     }
@@ -42,8 +42,8 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
 
         storeRec(answeredWords.length - 1);
 
-        var tempArr = [];
-        for(var i = 1; i < answeredWords.length; i++) {
+        let tempArr = [];
+        for(let i = 1; i < answeredWords.length; i++) {
             tempArr.push(answeredWords[i]);
         }
 
@@ -82,11 +82,11 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
 
             let included = false;
 
-            for(var i = 0; i < words.length; i ++ ) {
+            for(let i = 0; i < words.length; i ++ ) {
                 
                 if (words[i].toLowerCase() === inputWords.toLowerCase()) {
 
-                    for(var j = 0; j < answeredWords.length; j++) {
+                    for(let j = 0; j < answeredWords.length; j++) {
                         if(answeredWords[j].toLowerCase() === inputWords.toLowerCase()) {
                             included = true;
                             break;
