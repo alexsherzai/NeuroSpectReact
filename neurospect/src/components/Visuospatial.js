@@ -24,7 +24,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
-    var docName = userID;
+    let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
     }
@@ -51,31 +51,31 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     }
 
     const turn = (pts, dir, size, rotation) => {
-        var totalString = "";
+        let totalString = "";
 
-        var array = pts.split(' ');
+        let array = pts.split(' ');
 
-        for(var i = 0; i < array.length; i++) {
-            var coords = array[i].split(',');
+        for(let i = 0; i < array.length; i++) {
+            let coords = array[i].split(',');
 
             switch(dir) {
                 case 0:
-                    var newVal = parseInt(coords[1], 10) - size;
+                    let newVal = parseInt(coords[1], 10) - size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
                 case 1:
-                    var newVal = parseInt(coords[1], 10) + size;
+                    let newVal = parseInt(coords[1], 10) + size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
                 case 2:
-                    var newVal = parseInt(coords[0], 10) + size;
+                    let newVal = parseInt(coords[0], 10) + size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
                 case 3:
-                    var newVal = parseInt(coords[0], 10) - size;
+                    let newVal = parseInt(coords[0], 10) - size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
@@ -87,10 +87,10 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     }
 
     const generateShape = (dir, size, leftCornerX, leftCornerY, colors) => {
-        var totalDirX = 0;
-        var totalDirY = 0;
+        let totalDirX = 0;
+        let totalDirY = 0;
 
-        for(var i = 0; i < 2 + Math.floor(iter / 6); i++) {
+        for(let i = 0; i < 2 + Math.floor(iter / 6); i++) {
             switch(dir[i]) {
                 case 0:
                     totalDirY = totalDirY - 1;
@@ -115,10 +115,10 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
         let firstPoint = leftCornerX.toString() + "," + leftCornerY.toString() + " " + otherCornerX.toString() + "," + leftCornerY.toString() + " " + otherCornerX.toString() + "," + otherCornerY.toString() + " " + leftCornerX.toString() + "," + otherCornerY.toString();
 
-        var ptsList = [];
+        let ptsList = [];
         ptsList.push(firstPoint);
 
-        for(var i = 0; i < 2 + Math.floor(iter / 6); i++) {
+        for(let i = 0; i < 2 + Math.floor(iter / 6); i++) {
             ptsList.push(turn(ptsList[i], dir[i], size)); 
         }
 
@@ -150,8 +150,8 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     const generateOptions = (corDir, corCol) => {
 
-        var flippedDir = [];
-        for(var i = 0; i < corDir.length; i++) {
+        let flippedDir = [];
+        for(let i = 0; i < corDir.length; i++) {
             switch(corDir[i]) {
                 case 0:
                     flippedDir.push(1);
@@ -168,11 +168,11 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
         }
 
-        var randomDir1 = flippedDir.slice();
-        var randomDir2 = [];
+        let randomDir1 = flippedDir.slice();
+        let randomDir2 = [];
 
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
+        for(let i = 0; i < 4; i++) {
+            let newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
                 if(randomDir2[i - 1] === 0) {
                     while(newVal === 1) {
@@ -201,14 +201,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         let diffColArray = corCol.slice();
 
         if(iter < 6) {
-            var index = Math.floor(Math.random() * 3);
-            var temp = corCol[index];
+            let index = Math.floor(Math.random() * 3);
+            let temp = corCol[index];
 
             while(diffColArray[index] === temp) {
                 diffColArray[index] = colors[Math.floor(Math.random() * 4)];
             }
 
-            var options = [];
+            let options = [];
 
             if(randomDir1[0] === 0) {
                 options = [0, 2, 3];
@@ -224,14 +224,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 randomDir1[1] = options[Math.floor(Math.random() * 3)];
             }
         } else if(iter >= 6 && iter < 12) {
-            var index = Math.floor(Math.random() * 4);
-            var temp = corCol[index];
+            let index = Math.floor(Math.random() * 4);
+            let temp = corCol[index];
 
             while(diffColArray[index] === temp) {
                 diffColArray[index] = colors[Math.floor(Math.random() * 4)];
             }
 
-            var options = [];
+            let options = [];
 
             if(randomDir1[1] === 0) {
                 options = [0, 2, 3];
@@ -251,14 +251,14 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             console.log(randomDir1);
 
         } else if(iter >= 12) {
-            var index = Math.floor(Math.random() * 5);
-            var temp = corCol[index];
+            let index = Math.floor(Math.random() * 5);
+            let temp = corCol[index];
 
             while(diffColArray[index] === temp) {
                 diffColArray[index] = colors[Math.floor(Math.random() * 4)];
             }
 
-            var options = [];
+            let options = [];
 
             if(randomDir1[2] === 0) {
                 options = [0, 2, 3];
@@ -285,16 +285,16 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         const option2 = generateShape(randomDir1, 25, 65, 65, corCol)[0];
         const option3 = generateShape(randomDir2, 25, 65, 65, diffColArray2)[0];
 
-        var optionsTemp = [];
+        let optionsTemp = [];
 
-        var correctIndex = 0;
-        var options = [];
+        let correctIndex = 0;
+        let options = [];
 
-        var indArray = [0, 1, 2, 3];
+        let indArray = [0, 1, 2, 3];
 
         indArray = shuffle(indArray);
 
-        for(var i = 0; i < indArray.length; i++) {
+        for(let i = 0; i < indArray.length; i++) {
             if(indArray[i] === 0) {
                 options.push(main);
                 correctIndex = i;
@@ -313,9 +313,9 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     
 
     useEffect(() => {
-        var dir = [];
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
+        let dir = [];
+        for(let i = 0; i < 4; i++) {
+            let newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
                 if(dir[i - 1] === 0) {
                     while(newVal === 1) {

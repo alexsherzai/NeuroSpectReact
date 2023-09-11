@@ -23,7 +23,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
-    var docName = userID;
+    let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
     }
@@ -84,10 +84,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let index1 = Math.floor(Math.random() * shapes.length);
 
 		let randomVal = Math.round(Math.random() * 1000);
-		var newArr = [];
+		let newArr = [];
 
 		if(randomVal > 500) {
-			for(var i = 0; i < 25; i++) {
+			for(let i = 0; i < 25; i++) {
 				if(answer === "Color") {
 					if(i % 5 === index1 % 5) {
 						newArr.push(i);
@@ -99,7 +99,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				}
 			}
 		} else {
-			for(var i = 0; i < 25; i++) {
+			for(let i = 0; i < 25; i++) {
 				if(answer === "Color") {
 					if(i % 5 !== index1 % 5) {
 						newArr.push(i);
@@ -256,7 +256,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		//0 is separater, 1 is correct, 2 is wrong
 		//1500 is separater for speed
 
-		for(var i = 0; i < correct.length - 1; i++) {
+		for(let i = 0; i < correct.length - 1; i++) {
 			if(buttonClickTimes[i] === 1501 && buttonClickTimes[i + 1] < 1501) {
 				buttonClickTimes.splice(i, 1);
 			}

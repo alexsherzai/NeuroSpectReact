@@ -142,7 +142,7 @@ const App = () => {
     currentDate = currentDate.split(",")[0];
     console.log("Dev Branch");
 
-    var docName = userID;
+    let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
     }
