@@ -20,6 +20,8 @@ const Encoding = ({onTimeEnd, words}) => {
     let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
     }
 
     const AddData = async() => {

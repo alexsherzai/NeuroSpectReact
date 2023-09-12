@@ -26,6 +26,8 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
     let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
     }
 
 	let svgDets = [];
