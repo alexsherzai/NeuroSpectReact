@@ -11,6 +11,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
+    const [wordsDict, setWordsDict] = useState({"Elephant": false, "Banana" : false, "Australia" : false, "Orange" : false, "Tennis" : false, "Guitar" : false, "Truck" : false, "History" : false, "Lily" : false, "Valley" : false});
 
     const [mic, setMic] = useState(false);
 
@@ -59,10 +60,19 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         }
     }
 
+    const enterWord = () => {
+        if(!(inputWords in wordsDict)) {
+            setWarning("Wrong Word!");
+        } else if(wordsDict[inputWords] === true) {
+            setWarning("You already answered this word!");
+        } else if(wordsDict[inputWords] === false) {
+            wordsDict[inputWords] = true;
+            setInputWords('');
+        } 
+    }
+
     useEffect(() => {
-        if(inputWords.length === 0) {
-            setWarning('');
-        }
+        setWarning('');
 
 
         const timer = setInterval(() => {
@@ -79,6 +89,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             setInputWords(inputWords.slice(0, -1));
         }
 
+        /*
         const checkWords = () => {
             let count = 0;
 
@@ -111,39 +122,42 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             AddData();
             onTimeEnd();
         }
+        */
 
-        if (!mic) {
-            checkWords();
-        } else {
-            if (transcript) {
-                const spokenWords = transcript.trim().split(' ');
-                const newInputWord = spokenWords[spokenWords.length - 1];
-                setInputWords(newInputWord);
-                console.log(newInputWord);
-                checkWords();
-            }
+        if (mic && transcript) {
+            const spokenWords = transcript.trim().split(' ');
+            const newInputWord = spokenWords[spokenWords.length - 1];
+            setInputWords(newInputWord);
+            console.log(newInputWord);
+            enterWord();
         }
 
         AddData();
 
+        let complete = true;
+        for(let word in wordsDict) {
+            if(wordsDict[word] === false) {
+                complete = false;
+            }
+        }
+
+        if(complete) {
+            onTimeEnd();
+        }
+
         return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords, words, mic, transcript]);
+    }, [onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>
             <h1 className='timer'>{timeLeft} sec</h1>
             <div>
                 <div className="encoding-content">
-                    <p className='word word-left'>{answeredWords[1]}</p>
-                    <p className='word word-left'>{answeredWords[2]}</p>
-                    <p className='word word-left'>{answeredWords[3]}</p>
-                    <p className='word word-left'>{answeredWords[4]}</p>
-                    <p className='word word-right'>{answeredWords[5]}</p>
-                    <p className='word word-right'>{answeredWords[6]}</p>
-                    <p className='word word-right'>{answeredWords[7]}</p>
-                    <p className='word word-right'>{answeredWords[8]}</p>
-                    <p className='word word-right'>{answeredWords[9]}</p>
-                    <p className='word word-right'>{answeredWords[10]}</p>
+                    {Object.entries(wordsDict).map(([word, answered]) => 
+                    
+                    <p className="word">{!answered ? "" : word}</p>
+                    
+                    )}
                 </div>
             </div>
 
@@ -157,12 +171,6 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                     className='textField'
                     type="text"
                     placeholder="Enter the words"
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            console.log("test");
-                            setWarning("Not a valid word!");
-                        }
-                    }}
                     value={inputWords}
                     onChange={e => setInputWords(e.target.value)} 
                 />) : 
@@ -173,10 +181,14 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                 )
                 }
                 <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
-                    { mic === false ?
-                    (<button style={{width: '40px', height: '40px', borderRadius: '150px', backgroundColor: '#5A89F5', border: 'none', fontSize: '25px', padding: '15px', justifyContent: 'center', alignItems: 'center', textAlign: 'center', display: 'flex'}} onClick={listeningButton}><img src='mic.svg'/></button>)
-                    :
-                    (<button style={{width: '40px', height: '40px', borderRadius: '150px', backgroundColor: '#18D4E8', border: 'none', justifyContent: 'center', padding: '15px', alignItems: 'center', textAlign: 'center', display: 'flex', fontSize: '25px'}} onClick={listeningButton}><img src='pause.svg'/></button>)
+                    { mic ? 
+                        (<button className='pause' onClick={listeningButton}><img src='pause.svg'/></button>)
+                        :
+                        (inputWords.length === 0 ? 
+                            (<button className='mic' onClick={listeningButton}><img src='mic.svg'/></button>) 
+                            :
+                            (<button className='enterButton' onClick={enterWord}><img src='send.svg'/></button>)
+                        ) 
                     }
                 </div>
             </div>
