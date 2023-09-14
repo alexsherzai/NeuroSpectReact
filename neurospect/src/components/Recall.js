@@ -41,19 +41,22 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const AddData = async() => {
         const reviewRef = doc(storage, "neurospect", docName);
 
-        console.log(answeredWords.length - 1);
+        let recScore = 0;
 
-        storeRec(answeredWords.length - 1);
-
-        let tempArr = [];
-        for(let i = 1; i < answeredWords.length; i++) {
-            tempArr.push(answeredWords[i]);
+        for (const [key, value] of Object.entries(wordsDict)) {
+            if(value) {
+                recScore++;
+            }
         }
+
+        console.log(recScore);
+
+        storeRec(recScore);
 
         try {
             await updateDoc(reviewRef, {
-                recall: answeredWords.length - 1,
-                recalledWords: tempArr
+                recall: recScore,
+                recalledWords: wordsDict
             })
         } catch(err) {
             console.log(err);
