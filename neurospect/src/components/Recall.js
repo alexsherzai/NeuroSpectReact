@@ -11,7 +11,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
-    const [wordsDict, setWordsDict] = useState({"Elephant": false, "Banana" : false, "Australia" : false, "Orange" : false, "Tennis" : false, "Guitar" : false, "Truck" : false, "History" : false, "Lily" : false, "Valley" : false});
+    const [wordsDict, setWordsDict] = useState({"elephant": false, "banana" : false, "australia" : false, "orange" : false, "tennis" : false, "guitar" : false, "truck" : false, "history" : false, "lily" : false, "valley" : false});
 
     const [mic, setMic] = useState(false);
 
@@ -64,12 +64,12 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     }
 
     const enterWord = () => {
-        if(!(inputWords in wordsDict)) {
+        if(!(inputWords.toLowerCase() in wordsDict)) {
             setWarning("Wrong Word!");
-        } else if(wordsDict[inputWords] === true) {
+        } else if(wordsDict[inputWords.toLowerCase()] === true) {
             setWarning("You already answered this word!");
-        } else if(wordsDict[inputWords] === false) {
-            wordsDict[inputWords] = true;
+        } else if(wordsDict[inputWords.toLowerCase()] === false) {
+            wordsDict[inputWords.toLowerCase()] = true;
             setInputWords('');
         } 
     }
@@ -158,7 +158,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                 <div className="encoding-content">
                     {Object.entries(wordsDict).map(([word, answered]) => 
                     
-                    <p className="word">{!answered ? "" : word}</p>
+                    <p className="word">{!answered ? "" : word.charAt(0).toUpperCase() + word.substring(1)}</p>
                     
                     )}
                 </div>
