@@ -22,6 +22,8 @@ import { storage } from './config/firebase';
 const App = () => {
     const [stage, setStage] = useState('intro');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
+    const words2 = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"]
+    const words3 = ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
