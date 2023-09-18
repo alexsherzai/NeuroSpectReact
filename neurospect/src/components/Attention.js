@@ -141,6 +141,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		const interval = setInterval(() => {
 			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
+
 			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
@@ -161,7 +162,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 					}, timeOfAppearance);
 
 					setButtonClicked(false);
-					
+										
 					return iter + 1;
 				}
 			});
