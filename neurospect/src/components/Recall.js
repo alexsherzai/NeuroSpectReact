@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
+import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
+import MicrophoneWaveform from './MicrophoneWaveform';
+
 
 const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
@@ -6,16 +11,71 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
-    
+    const [wordsDict, setWordsDict] = useState({"elephant": false, "banana" : false, "australia" : false, "orange" : false, "tennis" : false, "guitar" : false, "truck" : false, "history" : false, "lily" : false, "valley" : false});
 
-    const storeData = () => {
-        storeRec(answeredWords.length - 1);
+    const [mic, setMic] = useState(false);
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    const {transcript, browserSupportsSpeechRecognition} = useSpeechRecognition();
+    const listeningButton = () => {
+        if(!mic) {
+            SpeechRecognition.startListening({continuous: true, language: 'en-US'});
+            setMic(true);
+        } else {
+            SpeechRecognition.stopListening();
+            setMic(false);
+        }
+        
     };
 
-    useEffect(() => {
-        if(inputWords.length === 0) {
-            setWarning('');
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
+    }
+
+    const AddData = async() => {
+        const reviewRef = doc(storage, "neurospect", docName);
+
+        let recScore = 0;
+
+        for (const [key, value] of Object.entries(wordsDict)) {
+            if(value) {
+                recScore++;
+            }
         }
+
+        console.log(recScore);
+
+        storeRec(recScore);
+
+        try {
+            await updateDoc(reviewRef, {
+                recall: recScore,
+                recalledWords: wordsDict
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    const enterWord = () => {
+        if(!(inputWords.toLowerCase() in wordsDict)) {
+            setWarning("Wrong Word!");
+        } else if(wordsDict[inputWords.toLowerCase()] === true) {
+            setWarning("You already answered this word!");
+        } else if(wordsDict[inputWords.toLowerCase()] === false) {
+            wordsDict[inputWords.toLowerCase()] = true;
+            setInputWords('');
+        } 
+    }
+
+    useEffect(() => {
+        setWarning('');
 
 
         const timer = setInterval(() => {
@@ -32,16 +92,17 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             setInputWords(inputWords.slice(0, -1));
         }
 
+        /*
         const checkWords = () => {
             let count = 0;
 
             let included = false;
 
-            for(var i = 0; i < words.length; i ++ ) {
+            for(let i = 0; i < words.length; i ++ ) {
                 
                 if (words[i].toLowerCase() === inputWords.toLowerCase()) {
 
-                    for(var j = 0; j < answeredWords.length; j++) {
+                    for(let j = 0; j < answeredWords.length; j++) {
                         if(answeredWords[j].toLowerCase() === inputWords.toLowerCase()) {
                             included = true;
                             break;
@@ -60,49 +121,81 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             setCorrectWords(count);
         };
 
-        if(answeredWords.length === 9) {
-            storeData();
+        if(answeredWords.length === 11) {
+            AddData();
+            onTimeEnd();
+        }
+        */
+
+        if (mic && transcript) {
+            const spokenWords = transcript.trim().split(' ');
+            const newInputWord = spokenWords[spokenWords.length - 1];
+            setInputWords(newInputWord);
+            console.log(newInputWord);
+            enterWord();
+        }
+
+        AddData();
+
+        let complete = true;
+        for(let word in wordsDict) {
+            if(wordsDict[word] === false) {
+                complete = false;
+            }
+        }
+
+        if(complete) {
             onTimeEnd();
         }
 
-        checkWords();
-        storeData();
-
         return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords, words]);
-    
-    const correct = 0;
+    }, [onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>
-            <h1 className='timer'>Time left: {timeLeft} sec</h1>
+            <h1 className='timer'>{timeLeft} sec</h1>
             <div>
                 <div className="encoding-content">
-                    <p className='word word-left'>{answeredWords[1]}</p>
-                    <p className='word word-left'>{answeredWords[2]}</p>
-                    <p className='word word-left'>{answeredWords[3]}</p>
-                    <p className='word word-left'>{answeredWords[4]}</p>
-                    <p className='word word-right'>{answeredWords[5]}</p>
-                    <p className='word word-right'>{answeredWords[6]}</p>
-                    <p className='word word-right'>{answeredWords[7]}</p>
-                    <p className='word word-right'>{answeredWords[8]}</p>
-
-                    <input
-                        className='textField'
-                        type="text"
-                        placeholder="Click here and type remembered words..."
-                        style={{borderRadius:'10px'}}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                                console.log("test");
-                                setWarning("Not a valid word!");
-                            }
-                        }}
-                        value={inputWords}
-                        onChange={e => setInputWords(e.target.value)} 
-                    />
+                    {Object.entries(wordsDict).map(([word, answered]) => 
+                    
+                    <p className="word">{!answered ? "" : word.charAt(0).toUpperCase() + word.substring(1)}</p>
+                    
+                    )}
                 </div>
             </div>
+
+            <div style={{height: "10vh"}}>
+
+            </div>
+
+            <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+                { mic === false ? 
+                (<input
+                    className='textField'
+                    type="text"
+                    placeholder="Enter the words"
+                    value={inputWords}
+                    onChange={e => setInputWords(e.target.value)} 
+                />) : 
+                (
+                    <div>
+                        <MicrophoneWaveform/>
+                    </div>
+                )
+                }
+                <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
+                    { mic ? 
+                        (<button className='pause' onClick={listeningButton}><img src='pause.svg'/></button>)
+                        :
+                        (inputWords.length === 0 ? 
+                            (<button className='mic' onClick={listeningButton}><img src='mic.svg'/></button>) 
+                            :
+                            (<button className='enterButton' onClick={enterWord}><img src='send.svg'/></button>)
+                        ) 
+                    }
+                </div>
+            </div>
+            
 
             <div style={{textAlign:'center', fontFamily:'Poppins-Regular'}}>
                 <h3 style={{color: '#CD3843'}}>{warning}</h3>

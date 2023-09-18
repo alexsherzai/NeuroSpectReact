@@ -42,6 +42,7 @@ body {
     color: black;
     font-size: 2em;
     font-family: Poppins-Bold;
+    font-size: 20px;
 }
 .footer {
     width: 100%;
@@ -84,7 +85,7 @@ h4 {
     font-size: 13px;
 }
 .highlight {
-    font-family: 'Poppins-Bold';
+    font-family: 'Poppins-SemiBold';
     color:#FF9417;
 }
 .instructions-content {
@@ -111,21 +112,20 @@ h4 {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     align-items: center;
     background-color: #F4F6FA;
 }
 .word {
     width: 40%;
-    height: 5%;
     text-align: center;
-    vertical-align: center;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px black;
+    border-radius: 6px;
+    border: 2px solid white;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
     font-family: 'Poppins-Regular';
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 13px;
+    padding-bottom: 13px;
 }
 .word-left {
     order: 1;
@@ -135,6 +135,8 @@ h4 {
 }
 .timer {
     color: #FF9417;
+    font-size: 50px;
+    font-family: 'Poppins-SemiBold';
 }
 .attentionButton {
     z-index: inherit;
@@ -151,6 +153,23 @@ h4 {
     margin: 5px;
     color: #5A89F5;
 }
+
+.attentionButtonClicked {
+    z-index: inherit;
+    border: none;
+    background-color: #5A89F5;
+    display: flex;
+    padding: 20px 71px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 1px solid var(--primary-blue, #5A89F5);
+    font-family: 'Poppins-SemiBold';
+    font-size: 22px;
+    margin: 5px;
+    color: white;
+}
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -162,6 +181,8 @@ h4 {
     width: 45%;
     margin: 2.5%;
     z-index: inherit;
+    border-radius: 7px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
 }
 .level-content {
     display: flex;
@@ -172,6 +193,22 @@ h4 {
     height: 70vh;
 }
 .listCont {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-bottom: 15%;
+}
+.listContCurr {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin-bottom: 15%;
+}
+.listContInactive {
     position: relative;
     display: flex;
     align-items: center;
@@ -191,75 +228,90 @@ h4 {
 .listCont::before {
     content: "";
     position: absolute;
-    top: 72%;
-    left: 12.5px; 
-    border: 1px dashed var(--grey-300, #D1D5DA);
-    height: 85px;
+    top: 75%;
+    left: 15px; 
+    border: 1px dashed #5A89F5;
+    height: 80px;
+}
+.listContCurr::before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    left: 15px; 
+    border: 1px dashed #D1D5DA;
+    height: 80px;
+}
+.listContInactive::before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    left: 15px; 
+    border: 1px dashed #D1D5DA;
+    height: 80px;
 }
 
 .levels {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #5A89F5;
     color: white;
-    font-weight: bold;
-    font-size: 14px;
+    font-family: 'Poppins-SemiBold';
+    font-size: 18px;
     margin-right: 10px;
 }
 .levels-curr {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #F4F6FA;
     color: #5A89F5;
     border: 1px solid #5A89F5;
     stroke-width: 1pxd;
-    font-weight: bold;
-    font-size: 14px;
+    font-family: 'Poppins-SemiBold';
+    font-size: 18px;
     margin-right: 10px;
 }
 .levels-incomp {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #F4F6FA;
     color: black;
-    border: 1px solid black;
-    font-weight: bold;
-    font-size: 14px;
+    border: 1px solid #D1D5DA;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins-SemiBold';
+    font-size: 18px;
     margin-right: 10px;
     opacity: 40%;
 }
 .level-name {
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 16px;
     height: 30px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
     font-family: 'Poppins-Regular';
     padding-top: 5%;
     padding-bottom: 5%;
     color: #24292E;
-    font-size: 25px;
+    font-size: 20px;
 }
 .level-name-curr {
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 16px;
     height: 30px;
     background-color: white;
     border-radius: 10px;
@@ -270,18 +322,19 @@ h4 {
     stroke: #5A89F5;
     stroke-width: 1px;
     color: #24292E;
-    font-size: 25px;
+    font-size: 20px;
 }
 .level-name-incomp {
     flex-grow: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 16px;
     height: 30px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    color: #6A737D;
     font-family: 'Poppins-Regular';
+    font-size: 20px;
     padding-top: 5%;
     padding-bottom: 5%;
     opacity: 40%;
@@ -293,17 +346,23 @@ h4 {
     font-family: 'Poppins-SemiBold';
     bottom: 0;
     left:0;
-    width:100%;
     display: flex;
     width: 350px;
-    height: 48px;
-    padding: 8.5px 100px;
-    gap: 10px;
+    padding-top: 8.5px;
+    padding-bottom: 8.5px;
+    left: 0;
     color: #F4F6FA;
     font-size: 22px;
     text-align: center;
     margin-top: 4px;
     margin-bottom: 4px;
+    align-items: center; 
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .buttonSmall {
@@ -337,7 +396,7 @@ h4 {
 .buttonSecondary {
     border: none;
     border: 1px solid #5A89F5;
-    background-color: #F4F6FA;
+    background-color: rgba(0, 0, 0, 0);
     border-radius: 100px;
     font-family: 'Poppins-SemiBold';
     bottom: 0;
@@ -352,6 +411,11 @@ h4 {
     font-size: 22px;
     margin-top: 4px;
     margin-bottom: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 .buttonNextModal {
@@ -364,7 +428,6 @@ h4 {
     width:100%;
     display: flex;
     width: 295px;
-    height: 48px;
     padding: 8.5px 78px;
     gap: 10px;
     color: #F4F6FA;
@@ -373,9 +436,35 @@ h4 {
 
 .buttonCont {
     justify-content: center;
+    align-items: center;
+    bottom: 34px;
+    text-align: center;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    
+}
+
+.buttonContTut {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 33%;
+    
+}
+
+.buttonContModal {
+    justify-content: center;
     text-align: center;
     align-items: center;
     display: flex;
+    bottom: 0;
 }
 .correct {
     font-family: 'Poppins-Bold';
@@ -393,9 +482,24 @@ h4 {
     justify-content: center;
 }
 .textField {
-    width: 90%;
+    width: 82%;
     height: 5%;
     font-family: 'Poppins-Regular';
+    border-radius: 6px;
+    border: 1px solid var(--grey-300, #D1D5DA);
+    background: var(--absolutes-white, #FFF);
+    padding: 13px 16px;
+    font-size: 18px;
+}
+.textField:focus{
+    width: 82%;
+    height: 5%;
+    font-family: 'Poppins-Regular';
+    border-radius: 6px;
+    border: 1px solid var(--grey-300, #18D4E8);
+    background: var(--absolutes-white, #FFF);
+    padding: 13px 16px;
+    font-size: 18px;
 }
 .button-container {
     flex: 1;
@@ -443,16 +547,16 @@ h4 {
 }
 @keyframes highlightedEffect {
     0% {
-        background-color: #F4F6FA;
+        border: 2px solid white;
     }
     10% {
-        background-color: #FF9417;
+        border: 2px solid var(--secondary-turquoise, #18D4E8);
     }
     90% {
-        background-color: #FF9417;
+        border: 2px solid var(--secondary-turquoise, #18D4E8);
     }
     100% {
-        background-color: #F4F6FA;
+        border: 2px solid white;
     }
 }
 .tutorialCover {
@@ -465,6 +569,7 @@ h4 {
     width: 100%;
     height: 100%;
 }
+
 .tutorialCoverNoFade {
     position: absolute;
     z-index: 500;
@@ -473,6 +578,7 @@ h4 {
     width: 100%;
     height: 100%;
 }
+
 @keyframes opacityEffect {
     0% {
         opacity: 0;
@@ -576,12 +682,15 @@ input:focus {
     text-align:'center';
     margin:'10px';
 }
-.vis-button-container {
+.vis-button-container-tut {
     z-index: 1002;
-    background-color: #F4F6FA;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
 }
+
 .tut-intro-fade {
-    animation: opacityEffect 1.5s linear;
+    animation: opacityEffectText 1.5s linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -605,4 +714,99 @@ input:focus {
 .scoreBoxHeader {
     font-size: 24px;
     font-family: 'Poppins-SemiBold';
+}
+
+.micButton {
+    margin: 10px;
+    padding: 15px;
+    font-size: 20px;
+    border: 1px solid #18D4E8;
+    border-radius: 6px;
+}
+
+
+@keyframes opacityEffectText {
+    0% {
+        opacity: 0;
+    }
+    66% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.countdownText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+
+.mic {
+    height: 40px;
+    border: none;
+    justify-content: center; 
+    padding: 15px; 
+    align-items: center; 
+    text-align: center; 
+    display: flex; 
+    -webkit-animation: enterToMic 0.1s linear forwards;
+    animation: enterToMic 0.1s linear forwards;
+}
+
+.pause {
+    width: 40px;
+    height: 40px;
+    border-radius: 150px;
+    background-color: #18D4E8;
+    border: none;
+    justify-content: center; 
+    padding: 15px; 
+    align-items: center; 
+    text-align: center; 
+    display: flex; 
+}
+
+.enterButton {
+    height: 40px;
+    border: none;
+    justify-content: center; 
+    margin: auto;
+    padding: 15px; 
+    align-items: center; 
+    text-align: center; 
+    display: flex; 
+    font-size: 16px;
+    font-family: 'Poppins-Regular';
+    -webkit-animation: micToEnter 0.1s linear forwards;
+    animation: micToEnter 0.1s linear forwards;
+}
+
+@-webkit-keyframes enterToMic {
+    0% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    100% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
+}
+@keyframes enterToMic {
+    0% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    100% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
+}
+
+@-webkit-keyframes micToEnter {
+    0% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
+    100% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+}
+@keyframes micToEnter {
+    0% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
+    100% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
 }

@@ -10,17 +10,13 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 	const [tutorialMode, setTutorialMode] = useState(true);
 	const [iter, setIter] = useState(1);
 	const [shapeIndex, setShapeIndex] = useState([0, 0]);
+	const [timeLeft, setTimeLeft] = useState(4);
+	const [countdownText, setCountdownText] = useState("Ready?");
 
-	const [shapeHighlight, setShapeHighlight] = useState('content-highlight');
-	const [shapeNotesHighlight, setShapeNotesHighlight] = useState('tutorialDis');
-	const [next, setNext] = useState('tutorialDis');
-	const [noHighlight, setNoHighlight] = useState('button-unhighlight');
-	const [yesHighlight, setYesHighlight] = useState('button-unhighlight');
-	const [noHighlightText, setNoHighlightText] = useState('tutorialDis');
-	const [yesHighlightText, setYesHighlightText] = useState('tutorialDis');
-	const [buttonZIndex, setButtonZIndex] = useState(1002);
+	const [noClicked, setNoClicked] = useState(false);
+	const [yesClicked, setYesClicked] = useState(false);
 
-	const [cover, setCover] = useState('');
+	const [correct, setCorrect] = useState(false);
 
 	const shapes = [
 		<svg width="100" height="100">
@@ -34,89 +30,139 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 		</svg>
 	];
 
+	useEffect(() => {
+
+        const timer = setInterval(() => {
+            setTimeLeft(oldTime => {
+                if (oldTime <= 2) {
+                    clearInterval(timer);
+                    onTimeEnd();
+                }
+
+				if(oldTime === 4) {
+					setCountdownText("Set!");
+				} else if(oldTime === 3) {
+					setCountdownText("Go!");
+				}
+
+				console.log(oldTime);
+				
+				if(iter === 8) {
+					return oldTime - 1;
+				} else {
+					return oldTime;
+				}
+
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [onTimeEnd, iter]);
+
 	
 
 	const onClickDiff = () => {
-		if(answer === "Color") {
-			if(iter === 4) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} if (iter === 5) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function() {
-					setTextColor('#F6F4FA');
-					setShapeIndex([1, 2]);
-					setIter(iter + 1);
-				}, 1000);
-			} if (iter === 6) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function(){
-					setTextColor('#F6F4FA');
-					setIter(iter + 1);
-					setTutorialMode(false);
-					setOpacityVal(100);
-				}, 1000);
-			}
-		} else if(answer === "Shape") {
-			if(iter === 4) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} if (iter === 5) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} if (iter === 6) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function(){
-					setTextColor('#F6F4FA');
-					setIter(iter + 1);
-					setTutorialMode(false);
-					setOpacityVal(100);
-				}, 1000);
+		if(!correct) {
+			setNoClicked(true);
+			setYesClicked(false);
+			if(answer === "Color") {
+				if(iter === 4) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} if (iter === 5) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function() {
+						setTextColor('#F6F4FA');
+						setShapeIndex([1, 2]);
+						setIter(iter + 1);
+						setCorrect(false);
+					}, 1000);
+				} if (iter === 6) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function(){
+						setTextColor('#F6F4FA');
+						setIter(iter + 1);
+						setTutorialMode(false);
+						setOpacityVal(100);
+						setCorrect(false);
+					}, 1000);
+				}
+			} else if(answer === "Shape") {
+				if(iter === 4) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} if (iter === 5) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} if (iter === 6) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function(){
+						setTextColor('#F6F4FA');
+						setIter(iter + 1);
+						setTutorialMode(false);
+						setOpacityVal(100);
+						setCorrect(false);
+					}, 1000);
+				}
 			}
 		}
 		
 	}
 
 	const onClickSame = () => {
-		if(answer === "Color") {
-			if(iter === 4) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function(){
-					setTextColor('#F6F4FA');
-					setShapeIndex([0, 1]);
-					setIter(iter + 1);
-				}, 1000);
-			} if (iter === 5) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			} if (iter === 6) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
-			}
-		} else if(answer === "Shape") {
-			if(iter === 4) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function(){
-					setTextColor('#F6F4FA');
-					setShapeIndex([0, 1]);
-					setIter(iter + 1);
-				}, 1000);
-			} if (iter === 5) {
-				setText('Correct!');
-				setTextColor("#2E8970");
-				setTimeout(function(){
-					setTextColor('#F6F4FA');
-					setShapeIndex([1, 2]);
-					setIter(iter + 1);
-				}, 1000);
-			} if (iter === 6) {
-				setText("Wrong!")
-				setTextColor("#CD3843");
+		if(!correct) {
+			setYesClicked(true);
+			setNoClicked(false);
+			if(answer === "Color") {
+				if(iter === 4) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function(){
+						setTextColor('#F6F4FA');
+						setShapeIndex([0, 1]);
+						setIter(iter + 1);
+						setYesClicked(false);
+						setCorrect(false);
+					}, 1000);
+				} if (iter === 5) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				} if (iter === 6) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				}
+			} else if(answer === "Shape") {
+				if(iter === 4) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function(){
+						setTextColor('#F6F4FA');
+						setShapeIndex([0, 1]);
+						setIter(iter + 1);
+						setCorrect(false);
+					}, 1000);
+				} if (iter === 5) {
+					setText('Correct!');
+					setTextColor("#2E8970");
+					setCorrect(true);
+					setTimeout(function(){
+						setTextColor('#F6F4FA');
+						setShapeIndex([1, 2]);
+						setIter(iter + 1);
+						setCorrect(false);
+					}, 1000);
+				} if (iter === 6) {
+					setText("Wrong!")
+					setTextColor("#CD3843");
+				}
 			}
 		}
 		
@@ -155,19 +201,25 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 
 			<div onClick={onClickIter}>
 
+			<div style={{position: 'absolute', top: '15%', left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', zIndex: 1004, color: 'white', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>
+						Tap on the screen to move forward
+			</div>
+
 
 			<div style={{position:'absolute', width:'100%'}}>
 				<div className="header">Same {answer}?</div>
 				
-				<div className='response'>
-					<div style = {{color: textColor}}className='correct'>{text}</div>
-				</div>
 
-				<div style={{height:'50vh'}} className='content'>
+				<div style={{height:'50vh', zIndex:1000}} className='content'>
 					
 						<div className="shape">{shapes[shapeIndex[0]]}</div>
 						<div className="shape">{shapes[shapeIndex[1]]}</div>
 				</div>
+
+				<div className='response'>
+					<div style = {{color: textColor}}className='correct'>{text}</div>
+				</div>
+
 
 				<div className="footer">
 					<button className='attentionButton' onClick={onClickDiff}>No</button>
@@ -176,17 +228,18 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			</div>
 
 			<div className="tutorialCover">
-				<div style={{height:"20vh"}}></div>
+				<div style={{height:"12vh"}}>
+				</div>
+				
 				<div style={{backgroundColor:'white', zIndex:1000}} className="content-highlight">
-					<div style={{marginRight:'3%'}} className="shape">{shapes[shapeIndex[0]]}</div>
-					<div style={{marginLeft:'3%'}}className="shape">{shapes[shapeIndex[1]]}</div>
+					
 				</div>
 
 				<div className="tut-intro-fade" style={{position: "absolute", zIndex:1100, marginLeft: '60%', marginTop: '1%'}}>
 					<img src="/TutorialIcons/Arrow1.png"/>
 				</div>
-				<div className="tut-intro-fade" style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginTop: '12%'}}>
-					<Text style={{margin: "10px"}}>Check if the <strong>{answer.toLowerCase()}s</strong> are <strong>different</strong>.</Text>
+				<div className="tut-intro-fade" style={{zIndex:1004, paddingTop: '10px', paddingBottom: '10px', position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginTop: '12%', opacity: 1}}>
+					<Text style={{margin: "10px", fontSize: '16px'}}>Check if the <strong>{answer.toLowerCase()}s</strong> are <strong>different</strong>.</Text>
 				</div>
 			</div>
 
@@ -198,6 +251,10 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 		{iter === 2 &&
 
 			<div onClick={onClickIter}>
+
+			<div style={{position: 'absolute', top: '15%', left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', zIndex: 1004, color: 'white', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>
+						Tap on the screen to move forward
+			</div>
 
 
 			<div style={{position:'absolute', width:'100%'}}>
@@ -221,8 +278,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<div className="tutorialCoverNoFade">
 				<div style={{height:"65vh"}}></div>
 
-				<div style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
-					<Text style={{margin: "10px"}}>Click <strong>'no'</strong> if the {answer.toLowerCase()}s are <strong>different</strong>.</Text>
+				<div style={{zIndex:1004, paddingTop:'10px', paddingBottom:'10px', position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
+					<Text style={{margin: "10px", fontSize: '16px'}}>Click <strong>'no'</strong> if the {answer.toLowerCase()}s are <strong>different</strong>.</Text>
 				</div>
 
 				<div style={{position: "absolute", zIndex:1100, marginLeft: '30%', marginTop:'10%'}}>
@@ -242,9 +299,13 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 
 			<div onClick={onClickIter}>
 
+			<div style={{position: 'absolute', top: '15%', left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', zIndex: 1004, color: 'white', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>
+						Tap on the screen to move forward
+			</div>
+
 
 			<div style={{position:'absolute', width:'100%'}}>
-				<div className="header">Same {answer}?</div>
+				<div style={{fontSize: '20px'}} className="header">Same {answer}?</div>
 				<div className="content">
 					<div className="shape">{shapes[shapeIndex[0]]}</div>
 					<div className="shape">{shapes[shapeIndex[1]]}</div>
@@ -264,8 +325,8 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			<div className="tutorialCoverNoFade">
 				<div style={{height:"65vh"}}></div>
 
-				<div style={{zIndex:1004, position:"absolute", fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
-					<Text style={{margin: "10px"}}>Click <strong>'yes'</strong> if the {answer.toLowerCase()}s are the <strong>same</strong>.</Text>
+				<div style={{zIndex:1004, position:"absolute", paddingTop:'10px', paddingBottom:'10px',fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: '20%', marginBottom:'20%'}}>
+					<Text style={{margin: "20px", fontSize: '16px'}}>Click <strong>'yes'</strong> if the {answer.toLowerCase()}s are the <strong>same</strong>.</Text>
 				</div>
 
 				<div style={{position: "absolute", zIndex:1100, marginLeft: '65%', marginTop:'10%'}}>
@@ -304,8 +365,12 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}>No</button>
-                <button className='attentionButton' onClick={onClickSame}>Yes</button>
+				<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+						setNoClicked(false);
+					}, 500);}}>No</button>
+                <button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+						setYesClicked(false);
+					}, 500);}}>Yes</button>
             </div>
 		</div>
 		
@@ -334,8 +399,12 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}>No</button>
-                <button className='attentionButton' onClick={onClickSame}>Yes</button>
+				<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+						setNoClicked(false);
+					}, 500);}}>No</button>
+                <button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+						setYesClicked(false);
+					}, 500);}}>Yes</button>
             </div>
 		</div>
 		
@@ -364,27 +433,109 @@ const AttentionTutorial = ({ answer, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='attentionButton' onClick={onClickDiff}>No</button>
-                <button className='attentionButton' onClick={onClickSame}>Yes</button>
+				<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+						setNoClicked(false);
+					}, 500);}}>No</button>
+                <button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+						setYesClicked(false);
+					}, 500);}}>Yes</button>
             </div>
 		</div>
 		
 		}
 
 		{iter === 7 &&
-			<div className='fullGameMargin' style={{marginTop:"35vh", textAlign: "center", zIndex:"99", position:"absolute", display:"flex", alignItems: "center", justifyContent:"center"}}>
+
 				<div>
-					<div style={{fontFamily: "Poppins-Regular", margin: "15px"}}>
-						Great! Now you are ready to play the game! Remember, in the game the shapes will appear and disappear very quickly!
+
+					<div style={{position:'absolute'}}>
+						<div className="header">Same {answer}?</div>
+						<div className="content">
+							<div className="shape">
+							<svg width="100" height="100">
+								<circle cx="50" cy="50" r="50" strokeWidth="0" fill="blue" />
+							</svg>
+							</div>
+							<div className="shape">
+							<svg width="100" height="100">
+								<rect width="100" height="100" strokeWidth="0" fill="orange" />
+							</svg>
+							</div>
+						</div>
+						<div className='response'>
+							<div style = {{color: textColor}}className='correct'>{text}</div>
+						</div>
+
+						
+
+						<div className="footer">
+							<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+									setNoClicked(false);
+								}, 500);}}>No</button>
+							<button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+									setYesClicked(false);
+								}, 500);}}>Yes</button>
+						</div>
 					</div>
-					<div className="buttonCont">
-						<button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
-					</div>
-					<div className="buttonCont">
-						<button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
+
+				<div className="countdownText">
+
+					<div className='fullGameMargin' style={{zIndex:"99"}}>
+						<div>
+							<div className="buttonContTut">
+								<div style={{textAlign: 'center', fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
+									Tutorial Over!
+								</div>
+								<button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
+								<button className="buttonNext" onClick={onClickIter}>Start Playing</button>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+
+				</div>
+		}
+
+		{iter === 8 && 
+
+		<div>
+
+					<div style={{position:'absolute'}}>
+						<div className="header">Same {answer}?</div>
+						<div className="content">
+							<div className="shape">
+							<svg width="100" height="100">
+								<circle cx="50" cy="50" r="50" strokeWidth="0" fill="blue" />
+							</svg>
+							</div>
+							<div className="shape">
+							<svg width="100" height="100">
+								<rect width="100" height="100" strokeWidth="0" fill="orange" />
+							</svg>
+							</div>
+						</div>
+						<div className='response'>
+							<div style = {{color: textColor}}className='correct'>{text}</div>
+						</div>
+
+						
+
+						<div className="footer">
+							<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+									setNoClicked(false);
+								}, 500);}}>No</button>
+							<button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+									setYesClicked(false);
+								}, 500);}}>Yes</button>
+						</div>
+					</div>
+
+				<div className='countdownText'>
+					<div style={{fontFamily: 'Poppins-SemiBold', fontSize: '50px', textAlign: 'center'}}>{countdownText}</div>
+				</div>
+
+				</div>
+
 		}
 
 

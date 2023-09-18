@@ -20,8 +20,15 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
+<<<<<<< HEAD
     const [stage, setStage] = useState('intro'); 
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
+=======
+    const [stage, setStage] = useState('intro');
+    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
+    const words2 = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"]
+    const words3 = ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
@@ -49,6 +56,9 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
+
+    console.log("Visuospatial", visSc);
+    console.log("Recall", recSc);
 
     const attentionShapes = [
 		<svg width="100" height="100">
@@ -136,9 +146,21 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
+<<<<<<< HEAD
+=======
+    currentDate = currentDate.split(",")[0];
+    console.log("Dev Branch");
+
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
+    }
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
      
     const AddData = async() => {
-        setStage('end');
+        setStage('int1');
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
@@ -148,13 +170,6 @@ const App = () => {
             await setDoc(reviewRef, {
                 lastUpdated: currentDate,
                 userID: userID,
-                attentionScoreColors: acs,
-                attentionScoreShapes: AttShS,
-                processingSpeedColors: psc,
-                processingSpeedShapes: pss,
-                visuospatial: visSc,
-                recall: recSc,
-                gameVersion: 2
             })
         } catch(err) {
             console.log(err);
@@ -164,27 +179,24 @@ const App = () => {
 
     return (
         <div>
-            {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
+            {stage === 'intro' && <Intro onTimeEnd={AddData} />}
             {stage === 'int1' && <LevelDisplay level={0} onTimeEnd={() => nextStage('enc-instr')} />}
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('countdown-att1')} />}
-            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('countdown-att1')} />}
-            {stage === 'countdown-att1' && <Countdown onTimeEnd={() => setStage('attentionColors')}/>}
+            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('countdown-att2')} />}
-            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('countdown-att2')} />}
-            {stage === 'countdown-att2' && <Countdown onTimeEnd={() => setStage('attentionShapes')}/>}
+            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
-            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('countdown-vis')} />}
-            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('countdown-vis')} />}
-            {stage === 'countdown-vis' && <Countdown onTimeEnd={() => setStage('visuo')}/>}
+            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
             {stage === 'visuo' && <Visuospatial storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={AddData}/>}
+            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
             {stage === 'end' && 
                 <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }

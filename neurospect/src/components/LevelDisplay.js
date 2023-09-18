@@ -49,12 +49,12 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 								<div className='level-name'>{levelNum}</div>
 							</div>
 						))}
-					<div className={`listCont${level === 3 ? "Last" : ""}`}>
+					<div className={`${level === 3 ? "listContLast" : "listContCurr"}`}>
 						<span className='levels-curr'>{level + 1}</span> 
 						<div className='level-name-curr'>{currentLevel}</div>
 					</div>
 						{remainingLevels && remainingLevels.map((levelNum, index) => (
-							<div className={`listCont${level + index === 2 ? "Last" : ""}`}>
+							<div className={`${level + index === 2 ? "listContLast" : "listContInactive"}`}>
 								<span className='levels-incomp'>{level + index + 2}</span> 
 								<div className='level-name-incomp'>{levelNum}</div>
 							</div>
@@ -69,11 +69,37 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 				<ReactModal
 					isOpen={isOpen}
 					contentLabel="Example Modal"
+					style={{
+						overlay: {
+							backgroundColor: 'rgba(20, 25, 31, 0.8)'
+						},
+						content: {
+							borderRadius: '7px',
+							height: '525px',
+							width: '275px',
+							position: 'absolute',
+							top: '50%',
+							left: '50%',
+							transform: 'translate(-50%, -50%)'
+						}
+					  }}
 				>
 					<img style={{position: 'absolute', top: '0px', right:'0px', width:'100%'}} src='./PopUpBrain.png'/>
 					<img onClick={understood} style={{position:'absolute', zIndex: 1000, right:'20px'}} src='./Outlined.svg' />
-					<img style={{marginTop:'75%', marginBottom: '20%', width: '100%'}} src='./AttentionGamers.png' />
-					<div className='buttonCont'>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#24292E', fontWeight: '600', fontSize: '24px', marginTop: '75%'}}>ONE SHOT MONTHLY!</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#6A737D', fontWeight: '400', fontSize: '18px', paddingTop: '5%'}}>
+							Attention gamers! You get just one shot per month to play. Be fully present, prepare in advance, and make it count!
+						</div>
+					</div>
+					<div style={{justifyContent: "center", display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+						<div style={{fontFamily: 'Poppins-Regular', color: '#24292E', fontWeight: '400', fontSize: '18px', paddingTop: '5%', paddingBottom: '10%'}}>
+						Good luck and enjoy the challenge! 🚀🎮
+						</div>
+					</div>
+					<div className='buttonContModal'>
 						<button onClick={understood} className='buttonNextModal'>Understood!</button>
 					</div>
 				</ReactModal>

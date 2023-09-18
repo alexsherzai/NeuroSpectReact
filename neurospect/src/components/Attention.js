@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './stylesheet.css';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [counter, setCounter] = useState(0);
@@ -12,6 +14,24 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [buttonClicked, setButtonClicked] = useState(false);
 	const [preButtonClick, setPreButtonClick] = useState(0);
 	const [buttonClickTimes, setButtonClickTimes] = useState([]);
+<<<<<<< HEAD
+=======
+	const [shapeList, setShapeList] = useState([]);
+
+	const [noClicked, setNoClicked] = useState(false);
+	const [yesClicked, setYesClicked] = useState(false);
+
+	const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
+    }
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 
 	let svgDets = [];
 
@@ -67,7 +87,41 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let svgDet = [];
 
 		let index1 = Math.floor(Math.random() * shapes.length);
-		let index2 = Math.floor(Math.random() * shapes.length);
+
+		let randomVal = Math.round(Math.random() * 1000);
+		let newArr = [];
+
+		if(randomVal > 500) {
+			for(let i = 0; i < 25; i++) {
+				if(answer === "Color") {
+					if(i % 5 === index1 % 5) {
+						newArr.push(i);
+					}
+				} else {
+					if(Math.floor(i / 5) === Math.floor(index1 / 5)) {
+						newArr.push(i);
+					}
+				}
+			}
+		} else {
+			for(let i = 0; i < 25; i++) {
+				if(answer === "Color") {
+					if(i % 5 !== index1 % 5) {
+						newArr.push(i);
+					}
+				} else {
+					if(Math.floor(i / 5) !== Math.floor(index1 / 5)) {
+						newArr.push(i);
+					}
+				}
+			}
+		}
+
+		let index2 = newArr[Math.floor(Math.random() * newArr.length)];
+
+		console.log(index1 + ", " + index2 + ", " + randomVal);
+
+		shapeList.push(getColor(index1) + "," + getShape(index1) + "," + getColor(index2) + "," + getShape(index2));
 
 		randomSvgs.push(shapes[index1]);
 		randomSvgs.push(shapes[index2]);
@@ -79,8 +133,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 		return randomSvgs;
 	};
-
-
 	
 
 	useEffect(() => {
@@ -92,14 +144,24 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		const interval = setInterval(() => {
 			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
-					storeData();
+					AddData();
 					onTimeEnd();
 					return iter;
 				} else {
 					setDisplaySvgs(getRandomSvgs());
+<<<<<<< HEAD
+=======
+
+					buttonClickTimes.push(1501);
+					correct.push(0);
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 
 					timeOfAppearance = 1000 - (107.5 * Math.floor(iter / 3));
 					console.log(timeOfAppearance);
@@ -125,6 +187,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let val4 = getShape(svgIndeces[1]);
 
 		if(!buttonClicked) {
+			setYesClicked(true);
+			setNoClicked(false);
+
 			setButtonClicked(true);
 			let timeToClick = 0;
 			if(preButtonClick > 0) {
@@ -141,6 +206,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+<<<<<<< HEAD
+=======
+					correct.push(2);
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
@@ -150,6 +219,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+<<<<<<< HEAD
+=======
+					correct.push(2);
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				}
 			}
 		}
@@ -163,6 +236,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		let val4 = getShape(svgIndeces[1]);
 
 		if(!buttonClicked) {
+			setYesClicked(false);
+			setNoClicked(true);
+
 			setButtonClicked(true);
 			let timeToClick = Date.now() - preButtonClick;
 			buttonClickTimes.push(timeToClick);
@@ -172,6 +248,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val1 === val2) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+<<<<<<< HEAD
+=======
+					correct.push(2);
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
@@ -181,6 +261,10 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val3 === val4) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
+<<<<<<< HEAD
+=======
+					correct.push(2);
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
@@ -191,19 +275,78 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	}
 
 
-	const storeData = () => {
-		let pSpeed = buttonClickTimes.reduce((partialSum, a) => partialSum + a, 0);
+	const AddData = async() => {
+		//0 is separater, 1 is correct, 2 is wrong
+		//1500 is separater for speed
 
-		pSpeed += ((30 - buttonClickTimes.length) * 1500);
-		pSpeed /= 30;
+		for(let i = 0; i < correct.length - 1; i++) {
+			if(buttonClickTimes[i] === 1501 && buttonClickTimes[i + 1] < 1501) {
+				buttonClickTimes.splice(i, 1);
+			}
 
+<<<<<<< HEAD
 		storeAtt(correct.length);
 		storeSpeed(Math.round(pSpeed));
+=======
+			if(correct[i] === 0 && correct[i + 1] !== 0) {
+				correct.splice(i, 1);
+			}
+		}
+
+
+		let correctNum = 0;
+		correct.forEach(e => {if(e === 1) {correctNum++}});
+
+
+
+		console.log(buttonClickTimes);
+		console.log(correct);
+
+		console.log(correctNum);
+
+		const average = array => array.reduce((a, b) => a + b) / array.length;
+
+		let pSpeed = Math.round(average(buttonClickTimes))
+
+		console.log();
+		console.log(shapeList);
+
+		storeAtt(correctNum);
+		storeSpeed(pSpeed);
+
+		const reviewRef = doc(storage, "neurospect", docName);
+
+		if(answer === "Color") {
+			try {
+				await updateDoc(reviewRef, {
+					attentionScoreColors: correctNum,
+					processingSpeedColors: pSpeed,
+					attentionColorsList: correct,
+					processingSpeedColorsList: buttonClickTimes,
+					shapeListColors: shapeList
+				})
+			} catch(err) {
+				console.log(err);
+			}
+		} else if(answer === "Shape") {
+			try {
+				await updateDoc(reviewRef, {
+					attentionScoreShapes: correctNum,
+					processingSpeedShapes: pSpeed,
+					attentionShapesList: correct,
+					processingSpeedShapesList: buttonClickTimes,
+					shapeListShapes: shapeList
+				})
+			} catch(err) {
+				console.log(err);
+			}
+		}
+>>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
     };
 
 	return (
 		<div>
-			<div className="header">Same {answer}?</div>
+			<div className="header">Are the {answer.toLowerCase()}s the same?</div>
             <div className="content">
                 <div className="shape">{displaySvgs[0]}</div>
                 <div className="shape">{displaySvgs[1]}</div>
@@ -215,8 +358,12 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 			
 
             <div className="footer">
-				<button className='yesNoButton attentionButton' onClick={onClickDiff}>No</button>
-                <button className='yesNoButton attentionButton' onClick={onClickSame}>Yes</button>
+				<button className={`attentionButton${noClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickDiff} onMouseUp={() => {setTimeout(function(){
+						setNoClicked(false);
+					}, 500);}}>No</button>
+                <button className={`attentionButton${yesClicked === true ? 'Clicked' : ''}`} onMouseDown={onClickSame} onMouseUp={() => {setTimeout(function(){
+						setYesClicked(false);
+					}, 500);}}>Yes</button>
             </div>
 		</div>
 	);

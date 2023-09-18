@@ -1,51 +1,83 @@
 import React, { useState, useEffect } from 'react';
+import { updateDoc, doc } from 'firebase/firestore';
+import { storage } from '../config/firebase';
 
 const Visuospatial = ( { storeVis, onTimeEnd }) => {
     const [iter, setIter] = useState(0);
     const [mainShape, setMainShape] = useState(null);
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
-    const [correct, setCorrect] = useState(0);
+    const [correct, setCorrect] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState(0);
     const [timeLeft, setTimeLeft] = useState(60);
+    const [preButtonClick, setPreButtonClick] = useState(Date.now());
+    const [buttonClickTimes, setButtonClickTimes] = useState([]);
 
     const buttonWrong = '2px solid #CD3843';
     const buttonCorrect = '2px solid #2E8970';
-    const [button1style, setButton1Style] = useState('');
-    const [button2style, setButton2Style] = useState('');
-    const [button3style, setButton3Style] = useState('');
-    const [button4style, setButton4Style] = useState('');
+    const [button1style, setButton1Style] = useState('2px solid #F6F4FA');
+    const [button2style, setButton2Style] = useState('2px solid #F6F4FA');
+    const [button3style, setButton3Style] = useState('2px solid #F6F4FA');
+    const [button4style, setButton4Style] = useState('2px solid #F6F4FA');
     const [clicked, setClicked] = useState(false);
 
-    const storeData = () => {
-        storeVis(correct);
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
     }
 
-    const turn = (pts, dir, size) => {
-        var totalString = "";
+    const AddData = async() => {
+        const reviewRef = doc(storage, "neurospect", docName);
 
-        var array = pts.split(' ');
+        let correctNum = 0;
+		correct.forEach(e => {if(e === 1) {correctNum++}});
 
-        for(var i = 0; i < array.length; i++) {
-            var coords = array[i].split(',');
+        console.log("Score", correctNum);
+
+        storeVis(correctNum);
+
+        try {
+            await updateDoc(reviewRef, {
+                visuospatial: correctNum,
+                visuospatialAnswers: correct,
+                visuospatialSpeed: buttonClickTimes
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    const turn = (pts, dir, size, rotation) => {
+        let totalString = "";
+
+        let array = pts.split(' ');
+
+        for(let i = 0; i < array.length; i++) {
+            let coords = array[i].split(',');
 
             switch(dir) {
                 case 0:
-                    var newVal = parseInt(coords[1], 10) - size;
+                    let newVal = parseInt(coords[1], 10) - size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
                 case 1:
-                    var newVal = parseInt(coords[1], 10) + size;
+                    newVal = parseInt(coords[1], 10) + size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
                 case 2:
-                    var newVal = parseInt(coords[0], 10) + size;
+                    newVal = parseInt(coords[0], 10) + size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
                 case 3:
-                    var newVal = parseInt(coords[0], 10) - size;
+                    newVal = parseInt(coords[0], 10) - size;
                     totalString += newVal.toString() + ",";
                     totalString += coords[1].toString() + " ";
                     break;
@@ -57,10 +89,10 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
     }
 
     const generateShape = (dir, size, leftCornerX, leftCornerY, colors) => {
-        var totalDirX = 0;
-        var totalDirY = 0;
+        let totalDirX = 0;
+        let totalDirY = 0;
 
-        for(var i = 0; i < 2 + Math.floor(iter / 6); i++) {
+        for(let i = 0; i < 2 + Math.floor(iter / 6); i++) {
             switch(dir[i]) {
                 case 0:
                     totalDirY = totalDirY - 1;
@@ -85,10 +117,10 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
         let firstPoint = leftCornerX.toString() + "," + leftCornerY.toString() + " " + otherCornerX.toString() + "," + leftCornerY.toString() + " " + otherCornerX.toString() + "," + otherCornerY.toString() + " " + leftCornerX.toString() + "," + otherCornerY.toString();
 
-        var ptsList = [];
+        let ptsList = [];
         ptsList.push(firstPoint);
 
-        for(var i = 0; i < 2 + Math.floor(iter / 6); i++) {
+        for(let i = 0; i < 2 + Math.floor(iter / 6); i++) {
             ptsList.push(turn(ptsList[i], dir[i], size)); 
         }
 
@@ -120,8 +152,8 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     const generateOptions = (corDir, corCol) => {
 
-        var flippedDir = [];
-        for(var i = 0; i < corDir.length; i++) {
+        let flippedDir = [];
+        for(let i = 0; i < corDir.length; i++) {
             switch(corDir[i]) {
                 case 0:
                     flippedDir.push(1);
@@ -138,53 +170,124 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
             }
         }
 
-        var randomDir1 = [];
-        var randomDir2 = [];
-        var randomDir3 = [];
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
-            if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir1[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
-            }
+        let randomDir1 = flippedDir.slice();
+        let randomDir2 = [];
 
-            randomDir1.push(newVal);
-        }
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
+        for(let i = 0; i < 4; i++) {
+            let newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir2[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(randomDir2[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(randomDir2[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             randomDir2.push(newVal);
         }
-        for(var i = 0; i < 4; i++) {
-            var newVal = Math.floor(Math.random() * 4);
-            if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(randomDir3[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
-            }
-
-            randomDir3.push(newVal);
-        }
 
 
         const colors = ["red", "blue", "green", "orange"];
-        let diffColArray = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
-        let diffColArray2 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
-        let diffColArray3 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
+        let diffColArray = corCol.slice();
 
+        if(iter < 6) {
+            let index = Math.floor(Math.random() * 3);
+            let temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            let options = [];
+
+            if(randomDir1[0] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[0] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[0] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[0] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[1] === flippedDir[1]) {
+                randomDir1[1] = options[Math.floor(Math.random() * 3)];
+            }
+        } else if(iter >= 6 && iter < 12) {
+            let index = Math.floor(Math.random() * 4);
+            let temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            let options = [];
+
+            if(randomDir1[1] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[1] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[1] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[1] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[2] === flippedDir[2]) {
+                randomDir1[2] = options[Math.floor(Math.random() * 3)];
+            }
+
+            console.log(flippedDir);
+            console.log(randomDir1);
+
+        } else if(iter >= 12) {
+            let index = Math.floor(Math.random() * 5);
+            let temp = corCol[index];
+
+            while(diffColArray[index] === temp) {
+                diffColArray[index] = colors[Math.floor(Math.random() * 4)];
+            }
+
+            let options = [];
+
+            if(randomDir1[2] === 0) {
+                options = [0, 2, 3];
+            } else if(randomDir1[2] === 1) {
+                options = [1, 2, 3];
+            } else if(randomDir1[2] === 2) {
+                options = [0, 1, 2];
+            } else if(randomDir1[2] === 3) {
+                options = [0, 1, 3];
+            }
+
+            while(randomDir1[3] === flippedDir[3]) {
+                randomDir1[3] = options[Math.floor(Math.random() * 3)];
+            }
+
+            console.log(flippedDir);
+            console.log(randomDir1);
+        }
+
+        let diffColArray2 = [colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)], colors[Math.floor(Math.random() * 4)]]
 
         const main = generateShape(flippedDir, 25, 65, 65, corCol)[0];
-        const option1 = generateShape(randomDir1, 25, 65, 65, diffColArray)[0];
-        const option2 = generateShape(randomDir2, 25, 65, 65, diffColArray2)[0];
-        const option3 = generateShape(randomDir3, 25, 65, 65, diffColArray3)[0];
+        const option1 = generateShape(flippedDir, 25, 65, 65, diffColArray)[0];
+        const option2 = generateShape(randomDir1, 25, 65, 65, corCol)[0];
+        const option3 = generateShape(randomDir2, 25, 65, 65, diffColArray2)[0];
 
-        var optionsTemp = [];
+        let optionsTemp = [];
 
         var correctIndex = 0;
         var options = [];
@@ -216,9 +319,23 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(var i = 0; i < 4; i++) {
             var newVal = Math.floor(Math.random() * 4);
             if(i > 0) {
-                while(Math.floor(newVal / 2) === Math.floor(dir[i - 1] / 2)) {
-                    newVal = Math.floor(Math.random() * 4);
-                } 
+                if(dir[i - 1] === 0) {
+                    while(newVal === 1) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 1) {
+                    while(newVal === 0) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 2) {
+                    while(newVal === 3) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                } else if(dir[i - 1] === 3) {
+                    while(newVal === 2) {
+                        newVal = Math.floor(Math.random() * 4);
+                    }
+                }
             }
 
             dir.push(newVal);
@@ -237,7 +354,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         setCorrectAnswer(correctIndex);
 
 		if(iter >= 15) {
-            storeData();
+            AddData();
             onTimeEnd();
         }
 
@@ -257,68 +374,83 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     const button1 = () => {
         if(!clicked) {
+            console.log(iter);
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            
+            setPreButtonClick(Date.now());
+            console.log(buttonClickTimes);
             if(correctAnswer === 0) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton1Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton1Style(buttonWrong);
                 setClicked(true);
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton1Style('');
+                setButton1Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
     };
     const button2 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 1) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton2Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton2Style(buttonWrong);
                 setClicked(true);
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton2Style('');
+                setButton2Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
     };
     const button3 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 2) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton3Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton3Style(buttonWrong);
                 setClicked(true);
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton3Style('');
+                setButton3Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
     };
     const button4 = () => {
         if(!clicked) {
+            buttonClickTimes.push(Date.now() - preButtonClick);
+            setPreButtonClick(Date.now());
             if(correctAnswer === 3) {
-                setCorrect(correct + 1);
+                correct.push(1);
                 setButton4Style(buttonCorrect);
                 setClicked(true);
             } else {
+                correct.push(0);
                 setButton4Style(buttonWrong);
                 setClicked(true);
             }
             setTimeout(function() {
                 setIter(iter + 1);
-                setButton4Style('');
+                setButton4Style('2px solid #F6F4FA');
                 setClicked(false);
             }, 500);
         }
@@ -329,8 +461,8 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
     return (
 		<div>
-            <div style={{textAlign:'center'}}>
-                <h3 style={{fontFamily:'Poppins-Regular'}}>{iter}/15</h3>
+            <div style={{textAlign:'center', height: '2vh'}}>
+                <h3 style={{fontFamily:'Poppins-Regular', marginBottom: 0}}>{iter + 1}/15</h3>
             </div>
             
 
@@ -352,7 +484,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
                 </button>
             </div>
 
-            <h1 className="timer">Time left: {timeLeft} sec</h1>
+            <h1 className="timer">{timeLeft} sec</h1>
         </div>
 	);
 }
