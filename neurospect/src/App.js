@@ -32,7 +32,6 @@ const App = () => {
     const [visSc, setVisSc] = useState(0);
     const [recSc, setRecSc] = useState(0);
 
-
     const storeAttentionColors = (score) => {
         setAcs(score);
     };
@@ -138,6 +137,7 @@ const App = () => {
     }
 
     const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
@@ -156,11 +156,12 @@ const App = () => {
 
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
 
-        const reviewRef = doc(storage, "neurospect", userID);
+        const reviewRef = doc(storage, "neurospect", docName);
 
         try {
             await setDoc(reviewRef, {
                 lastUpdated: currentDate,
+                testID: prolificID,
                 userID: userID,
             })
         } catch(err) {
@@ -190,7 +191,7 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
             {stage === 'end' && 
-                <DisplayScore attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );
