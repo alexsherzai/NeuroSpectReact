@@ -14,8 +14,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [buttonClicked, setButtonClicked] = useState(false);
 	const [preButtonClick, setPreButtonClick] = useState(0);
 	const [buttonClickTimes, setButtonClickTimes] = useState([]);
-<<<<<<< HEAD
-=======
 	const [shapeList, setShapeList] = useState([]);
 
 	const [noClicked, setNoClicked] = useState(false);
@@ -31,7 +29,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
     } else if(userID === null && prolificID === null) {
         docName = "noID";
     }
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 
 	let svgDets = [];
 
@@ -144,10 +141,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		const interval = setInterval(() => {
 			setPreButtonClick(Date.now());
 			setTextColor("#F6F4FA");
-<<<<<<< HEAD
-=======
-
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 			setCounter((iter) => {
 				if (iter >= 30) {
 					clearInterval(interval);
@@ -156,12 +149,9 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 					return iter;
 				} else {
 					setDisplaySvgs(getRandomSvgs());
-<<<<<<< HEAD
-=======
 
 					buttonClickTimes.push(1501);
 					correct.push(0);
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 
 					timeOfAppearance = 1000 - (107.5 * Math.floor(iter / 3));
 					console.log(timeOfAppearance);
@@ -206,10 +196,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-<<<<<<< HEAD
-=======
 					correct.push(2);
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				}
 			} else if(answer === "Shape") {
 				if(val3 === val4) {
@@ -219,10 +206,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				} else {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-<<<<<<< HEAD
-=======
 					correct.push(2);
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				}
 			}
 		}
@@ -248,10 +232,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val1 === val2) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-<<<<<<< HEAD
-=======
 					correct.push(2);
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
@@ -261,10 +242,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				if(val3 === val4) {
 					setText("Wrong!")
 					setTextColor("#CD3843");
-<<<<<<< HEAD
-=======
 					correct.push(2);
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
 				} else {
 					setText('Correct!');
 					setTextColor("#2E8970");
@@ -284,10 +262,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				buttonClickTimes.splice(i, 1);
 			}
 
-<<<<<<< HEAD
-		storeAtt(correct.length);
-		storeSpeed(Math.round(pSpeed));
-=======
 			if(correct[i] === 0 && correct[i + 1] !== 0) {
 				correct.splice(i, 1);
 			}
@@ -341,7 +315,6 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 				console.log(err);
 			}
 		}
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
     };
 
 	return (

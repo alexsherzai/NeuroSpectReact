@@ -20,15 +20,10 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-<<<<<<< HEAD
-    const [stage, setStage] = useState('intro'); 
-    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History"];
-=======
     const [stage, setStage] = useState('intro');
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
     const words2 = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"]
     const words3 = ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
     const [selectedLevel, setSelectedLevel] = useState(0);
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
@@ -146,8 +141,6 @@ const App = () => {
     const userID = queryParams.get("userID");
 
     let currentDate = new Date().toLocaleString() + "";
-<<<<<<< HEAD
-=======
     currentDate = currentDate.split(",")[0];
     console.log("Dev Branch");
 
@@ -157,7 +150,6 @@ const App = () => {
     } else if(userID === null && prolificID === null) {
         docName = "noID";
     }
->>>>>>> 5805af3bbc1745bf83c773ca33950347bcb57cac
      
     const AddData = async() => {
         setStage('int1');
