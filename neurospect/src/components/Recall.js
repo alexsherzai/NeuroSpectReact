@@ -41,6 +41,9 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     const AddData = async() => {
         const reviewRef = doc(storage, "neurospect", docName);
 
+        let currentDate = new Date().toLocaleString() + "";
+        currentDate = currentDate.split(",")[0];
+
         let recScore = 0;
 
         for (const [key, value] of Object.entries(wordsDict)) {
@@ -55,6 +58,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
 
         try {
             await updateDoc(reviewRef, {
+                lastUpdated: currentDate,
                 recall: recScore,
                 recalledWords: wordsDict
             })

@@ -140,10 +140,6 @@ const App = () => {
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
-    let currentDate = new Date().toLocaleString() + "";
-    currentDate = currentDate.split(",")[0];
-    console.log("Dev Branch");
-
     let docName = userID;
     if(prolificID !== null) {
         docName = prolificID;
@@ -160,7 +156,6 @@ const App = () => {
 
         try {
             await setDoc(reviewRef, {
-                lastUpdated: currentDate,
                 testID: prolificID,
                 userID: userID,
             })
