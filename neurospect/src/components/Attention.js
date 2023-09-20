@@ -320,7 +320,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 
 	return (
 		<div>
-			<div className="header">Are the {answer.toLowerCase()}s the same?</div>
+			<div className="header">Are these {answer.toLowerCase()}s the same?</div>
             <div className="content">
                 <div className="shape">{displaySvgs[0]}</div>
                 <div className="shape">{displaySvgs[1]}</div>
