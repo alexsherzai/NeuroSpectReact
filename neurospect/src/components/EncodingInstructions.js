@@ -19,7 +19,7 @@ const EncodingInstructions = ({onTimeEnd}) => {
                 <div style={{height:'15vh'}}></div>
                 <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
                     <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'400'}}>Let's Test Your Memory!</div>
-                    <div style={{fontFamily:'Poppins-Regular', fontWeight:'600', fontSize:'30px', marginBottom: '10%'}}> You're about to see <span className='highlight'>8 words</span>. Try to <span className='highlight'>memorize</span> each one. You'll be asked to recall them later.
+                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> You're about to see <span className='highlight'>8 words</span>. Try to <span className='highlight'>memorize</span> each one. You'll be asked to recall them later.
                     </div>
                 </div>
             
