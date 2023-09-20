@@ -172,12 +172,12 @@ const App = () => {
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'att-instr' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'att-tutorial' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'att-tutorial2' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
+            {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'att-tutorial' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
+            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'att-tutorial2' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
             {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
