@@ -23,18 +23,6 @@ const Encoding = ({onTimeEnd, words}) => {
     } else if(userID === null && prolificID === null) {
         docName = "noID";
     }
-
-    const AddData = async() => {
-        const reviewRef = doc(storage, "neurospect", docName);
-
-        try {
-            await updateDoc(reviewRef, {
-                gameVersion: "study"
-            })
-        } catch(err) {
-            console.log(err);
-        }
-    }
     
     useEffect(() => {
 
@@ -45,7 +33,6 @@ const Encoding = ({onTimeEnd, words}) => {
                 if (oldTime <= 1) {
                     clearInterval(timer);
                     setEnd(true);
-                    AddData();
                 }
                 return oldTime - 1;
             });

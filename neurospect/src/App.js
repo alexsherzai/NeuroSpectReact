@@ -24,13 +24,20 @@ const App = () => {
     const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
     const words2 = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"]
     const words3 = ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]
-    const [selectedLevel, setSelectedLevel] = useState(0);
+
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
     const [psc, setPsc] = useState(0);
     const [pss, setPss] = useState(0);
     const [visSc, setVisSc] = useState(0);
     const [recSc, setRecSc] = useState(0);
+
+    const [attArrayCol, setAttArrayCol] = useState({});
+    const [attArraySh, setAttArraySh] = useState({});
+    const [visArray, setVisArray] = useState({});
+    const [recArray, setRecArray] = useState({});
+
+    //Passing Scores to App.js
 
     const storeAttentionColors = (score) => {
         setAcs(score);
@@ -51,8 +58,20 @@ const App = () => {
         setRecSc(score);
     };
 
-    console.log("Visuospatial", visSc);
-    console.log("Recall", recSc);
+    //Passing Data to App.js
+
+    const storeAttDataColors = (score) => {
+        setAttArrayCol(score);
+    };
+    const storeAttDataShapes = (score) => {
+        setAttArraySh(score);
+    };
+    const storeVisData = (score) => {
+        setVisArray(score);
+    };
+    const storeRecData = (score) => {
+        setRecArray(score);
+    };
 
     const attentionShapes = [
 		<svg width="100" height="100">
@@ -148,17 +167,23 @@ const App = () => {
     }
      
     const AddData = async() => {
-        setStage('int1');
-
         console.log(acs + ", " + AttShS + ", " + psc + ", " + pss + ", " + visSc + ", " + recSc);
+
+        let currentDate = new Date().toLocaleString() + "";
+        currentDate = currentDate.split(",")[0];
 
         const reviewRef = doc(storage, "neurospect", docName);
 
+        let data = {
+            testID: prolificID,
+            userID: userID,
+            lastUpdated: currentDate
+        }
+
+        Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+
         try {
-            await setDoc(reviewRef, {
-                testID: prolificID,
-                userID: userID,
-            })
+            await setDoc(reviewRef, data)
         } catch(err) {
             console.log(err);
         }
@@ -167,26 +192,26 @@ const App = () => {
 
     return (
         <div>
-            {stage === 'intro' && <Intro onTimeEnd={AddData} />}
+            {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
             {stage === 'int1' && <LevelDisplay level={0} onTimeEnd={() => nextStage('enc-instr')} />}
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
             {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
             {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'att-tutorial' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'attentionShapes' && <Attention storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionColors')} />}
+            {stage === 'attentionShapes' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
+            {stage === 'att-instr2' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'attentionColors' && <Attention storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
+            {stage === 'attentionColors' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
             {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
             {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
-            {stage === 'visuo' && <Visuospatial storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
+            {stage === 'visuo' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
             {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
+            {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
             {stage === 'end' && 
-                <DisplayScore id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             }
         </div>
     );

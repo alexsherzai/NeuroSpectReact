@@ -525,7 +525,7 @@ const VisuoTutorial = ({onTimeEnd }) => {
 
                     <div>
                         <div>
-                            <div className='fullGameMargin' style={{justifyContent: 'center', textAlign: 'center', alignItems: 'center', marginTop: '35%'}}>
+                            <div className='fullGameMargin' style={{justifyContent: 'center', textAlign: 'center', alignItems: 'center'}}>
                             <div style={{fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
                                 You have <span class="highlight">60 seconds</span> to complete <span class="highlight">15 puzzles</span>
                             </div>

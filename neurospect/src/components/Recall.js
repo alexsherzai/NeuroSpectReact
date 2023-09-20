@@ -5,7 +5,7 @@ import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition'
 import MicrophoneWaveform from './MicrophoneWaveform';
 
 
-const Recall = ({ storeRec, words, onTimeEnd }) => {
+const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
     const [inputWords, setInputWords] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
@@ -38,12 +38,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         docName = "noID";
     }
 
-    const AddData = async() => {
-        const reviewRef = doc(storage, "neurospect", docName);
-
-        let currentDate = new Date().toLocaleString() + "";
-        currentDate = currentDate.split(",")[0];
-
+    const AddData = () => {
         let recScore = 0;
 
         for (const [key, value] of Object.entries(wordsDict)) {
@@ -52,25 +47,26 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             }
         }
 
-        console.log(recScore);
+        if(recScore > 10) {
+            recScore = 10;
+        }
+
 
         storeRec(recScore);
 
-        try {
-            await updateDoc(reviewRef, {
-                lastUpdated: currentDate,
+
+        recData(
+            {
                 recall: recScore,
                 recalledWords: wordsDict
-            })
-        } catch(err) {
-            console.log(err);
-        }
+            }
+        );
     }
 
     const enterWord = () => {
         if(!(inputWords.toLowerCase() in wordsDict)) {
             setWarning("Wrong Word!");
-        } else if(wordsDict[inputWords.toLowerCase()] === true) {
+        } else if(wordsDict[inputWords.toLowerCase()] === true && !mic) {
             setWarning("You already answered this word!");
         } else if(wordsDict[inputWords.toLowerCase()] === false) {
             wordsDict[inputWords.toLowerCase()] = true;
@@ -139,8 +135,6 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             enterWord();
         }
 
-        AddData();
-
         let complete = true;
         for(let word in wordsDict) {
             if(wordsDict[word] === false) {
@@ -148,12 +142,17 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             }
         }
 
+        if(timeLeft <= 1) {
+            complete = true;
+        }
+
         if(complete) {
+            AddData();
             onTimeEnd();
         }
 
         return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
+    }, [AddData, onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 
-const Visuospatial = ( { storeVis, onTimeEnd }) => {
+const Visuospatial = ( { visData, storeVis, onTimeEnd }) => {
     const [iter, setIter] = useState(0);
     const [mainShape, setMainShape] = useState(null);
     const [optionShapes, setOptionShapes] = useState([null, null, null, null]);
@@ -31,7 +31,7 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         docName = "noID";
     }
 
-    const AddData = async() => {
+    const AddData = () => {
         const reviewRef = doc(storage, "neurospect", docName);
 
         let correctNum = 0;
@@ -41,15 +41,13 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
 
         storeVis(correctNum);
 
-        try {
-            await updateDoc(reviewRef, {
+        visData(
+            {
                 visuospatial: correctNum,
                 visuospatialAnswers: correct,
                 visuospatialSpeed: buttonClickTimes
-            })
-        } catch(err) {
-            console.log(err);
-        }
+            }
+        );
     }
 
     const turn = (pts, dir, size, rotation) => {
@@ -60,9 +58,11 @@ const Visuospatial = ( { storeVis, onTimeEnd }) => {
         for(let i = 0; i < array.length; i++) {
             let coords = array[i].split(',');
 
+            let newVal = 0;
+
             switch(dir) {
                 case 0:
-                    let newVal = parseInt(coords[1], 10) - size;
+                    newVal = parseInt(coords[1], 10) - size;
                     totalString += coords[0].toString() + ",";
                     totalString += newVal.toString() + " ";
                     break;
