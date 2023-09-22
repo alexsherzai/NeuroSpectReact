@@ -13,6 +13,8 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const [warning, setWarning] = useState('');
     const [wordsDict, setWordsDict] = useState({"elephant": false, "banana" : false, "australia" : false, "orange" : false, "tennis" : false, "guitar" : false, "truck" : false, "history" : false, "lily" : false, "valley" : false});
 
+    const [wordAtPoint, setWordAtPoint] = useState('');
+
     const [mic, setMic] = useState(false);
 
     const queryParams = new URLSearchParams(window.location.search)
@@ -66,8 +68,10 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const enterWord = () => {
         if(!(inputWords.toLowerCase() in wordsDict)) {
             setWarning("Wrong Word!");
+            setWordAtPoint(inputWords);
         } else if(wordsDict[inputWords.toLowerCase()] === true && !mic) {
             setWarning("You already answered this word!");
+            setWordAtPoint(inputWords);
         } else if(wordsDict[inputWords.toLowerCase()] === false) {
             wordsDict[inputWords.toLowerCase()] = true;
             setInputWords('');
@@ -75,7 +79,11 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     }
 
     useEffect(() => {
-        setWarning('');
+        if(inputWords !== wordAtPoint) {
+            setWarning('');
+        }
+
+        console.log("hehe");
 
 
         const timer = setInterval(() => {
@@ -152,7 +160,7 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
         }
 
         return () => clearInterval(timer);
-    }, [AddData, onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
+    }, [AddData, onTimeEnd, words, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>
