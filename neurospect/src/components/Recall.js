@@ -187,7 +187,9 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
                 )
                 }
                 <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
-                    { mic ? 
+                    <button className='enterButtonStatic' onClick={enterWord}><img src='send.svg'/></button>
+                    
+                    {/* mic ? 
                         (<button className='pause' onClick={listeningButton}><img src='pause.svg'/></button>)
                         :
                         (inputWords.length === 0 ? 
@@ -195,7 +197,8 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
                             :
                             (<button className='enterButton' onClick={enterWord}><img src='send.svg'/></button>)
                         ) 
-                    }
+                        */}
+                    
                 </div>
             </div>
             
