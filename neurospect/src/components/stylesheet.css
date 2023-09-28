@@ -793,20 +793,38 @@ input:focus {
     animation: micToEnter 0.1s linear forwards;
 }
 
+.enterButtonStatic {
+    width: 40px;
+    height: 40px;
+    border: none;
+    justify-content: center; 
+    margin: auto;
+    padding: 15px; 
+    align-items: center; 
+    text-align: center; 
+    display: flex; 
+    font-size: 16px;
+    font-family: 'Poppins-Regular';
+    -webkit-animation: micToEnter 0.1s linear forwards;
+    animation: micToEnter 0.1s linear forwards;
+    background-color: #5A89F5;
+}
+
+
 @-webkit-keyframes enterToMic {
-    0% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    0% {width: 40px; background-color: #5A89F5; border-radius: 50px;}
     100% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
 }
 @keyframes enterToMic {
-    0% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    0% {width: 40px; background-color: #5A89F5; border-radius: 50px;}
     100% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
 }
 
 @-webkit-keyframes micToEnter {
     0% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
-    100% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    100% {width: 40px; background-color: #5A89F5; border-radius: 50px;}
 }
 @keyframes micToEnter {
     0% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
-    100% {width: 60px; background-color: #5A89F5; border-radius: 50px;}
+    100% {width: 40px; background-color: #5A89F5; border-radius: 50px;}
 }

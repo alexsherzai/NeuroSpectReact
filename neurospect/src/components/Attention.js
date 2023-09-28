@@ -3,7 +3,7 @@ import './stylesheet.css';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 
-const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
+const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	const [counter, setCounter] = useState(0);
 	const [displaySvgs, setDisplaySvgs] = useState([null, null]);
 	const [svgIndeces, setSvgIndeces] = useState([null, null]);
@@ -254,7 +254,7 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 	}
 
 
-	const AddData = async() => {
+	const AddData = () => {
 		//0 is separater, 1 is correct, 2 is wrong
 		//1500 is separater for speed
 
@@ -289,38 +289,31 @@ const Attention = ({ storeAtt, storeSpeed, answer, shapes, onTimeEnd }) => {
 		storeAtt(correctNum);
 		storeSpeed(pSpeed);
 
-		const reviewRef = doc(storage, "neurospect", docName);
 
 		if(answer === "Color") {
-			try {
-				await updateDoc(reviewRef, {
-					attentionScoreColors: correctNum,
-					processingSpeedColors: pSpeed,
-					attentionColorsList: correct,
-					processingSpeedColorsList: buttonClickTimes,
-					shapeListColors: shapeList
-				})
-			} catch(err) {
-				console.log(err);
+			attData(
+			{
+				attentionScoreColors: correctNum,
+				processingSpeedColors: pSpeed,
+				attentionColorsList: correct,
+				processingSpeedColorsList: buttonClickTimes,
+				shapeListColors: shapeList
 			}
+			)
 		} else if(answer === "Shape") {
-			try {
-				await updateDoc(reviewRef, {
-					attentionScoreShapes: correctNum,
-					processingSpeedShapes: pSpeed,
-					attentionShapesList: correct,
-					processingSpeedShapesList: buttonClickTimes,
-					shapeListShapes: shapeList
-				})
-			} catch(err) {
-				console.log(err);
-			}
+			attData({
+				attentionScoreShapes: correctNum,
+				processingSpeedShapes: pSpeed,
+				attentionShapesList: correct,
+				processingSpeedShapesList: buttonClickTimes,
+				shapeListShapes: shapeList
+			})
 		}
     };
 
 	return (
 		<div>
-			<div className="header">Are the {answer.toLowerCase()}s the same?</div>
+			<div className="header">Are these {answer.toLowerCase()}s the same?</div>
             <div className="content">
                 <div className="shape">{displaySvgs[0]}</div>
                 <div className="shape">{displaySvgs[1]}</div>

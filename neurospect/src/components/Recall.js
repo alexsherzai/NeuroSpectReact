@@ -5,13 +5,15 @@ import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition'
 import MicrophoneWaveform from './MicrophoneWaveform';
 
 
-const Recall = ({ storeRec, words, onTimeEnd }) => {
+const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
     const [inputWords, setInputWords] = useState('');
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
     const [wordsDict, setWordsDict] = useState({"elephant": false, "banana" : false, "australia" : false, "orange" : false, "tennis" : false, "guitar" : false, "truck" : false, "history" : false, "lily" : false, "valley" : false});
+
+    const [wordAtPoint, setWordAtPoint] = useState('');
 
     const [mic, setMic] = useState(false);
 
@@ -38,9 +40,7 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
         docName = "noID";
     }
 
-    const AddData = async() => {
-        const reviewRef = doc(storage, "neurospect", docName);
-
+    const AddData = () => {
         let recScore = 0;
 
         for (const [key, value] of Object.entries(wordsDict)) {
@@ -49,25 +49,29 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             }
         }
 
-        console.log(recScore);
+        if(recScore > 10) {
+            recScore = 10;
+        }
+
 
         storeRec(recScore);
 
-        try {
-            await updateDoc(reviewRef, {
+
+        recData(
+            {
                 recall: recScore,
                 recalledWords: wordsDict
-            })
-        } catch(err) {
-            console.log(err);
-        }
+            }
+        );
     }
 
     const enterWord = () => {
         if(!(inputWords.toLowerCase() in wordsDict)) {
             setWarning("Wrong Word!");
-        } else if(wordsDict[inputWords.toLowerCase()] === true) {
+            setWordAtPoint(inputWords);
+        } else if(wordsDict[inputWords.toLowerCase()] === true && !mic) {
             setWarning("You already answered this word!");
+            setWordAtPoint(inputWords);
         } else if(wordsDict[inputWords.toLowerCase()] === false) {
             wordsDict[inputWords.toLowerCase()] = true;
             setInputWords('');
@@ -75,7 +79,11 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
     }
 
     useEffect(() => {
-        setWarning('');
+        if(inputWords !== wordAtPoint) {
+            setWarning('');
+        }
+
+        console.log("hehe");
 
 
         const timer = setInterval(() => {
@@ -135,8 +143,6 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             enterWord();
         }
 
-        AddData();
-
         let complete = true;
         for(let word in wordsDict) {
             if(wordsDict[word] === false) {
@@ -144,12 +150,17 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
             }
         }
 
+        if(timeLeft <= 1) {
+            complete = true;
+        }
+
         if(complete) {
+            AddData();
             onTimeEnd();
         }
 
         return () => clearInterval(timer);
-    }, [onTimeEnd, inputWords, words, wordsDict, mic, transcript]);
+    }, [AddData, onTimeEnd, words, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>
@@ -184,7 +195,9 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                 )
                 }
                 <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', marginLeft: '10px'}}>
-                    { mic ? 
+                    <button className='enterButtonStatic' onClick={enterWord}><img src='send.svg'/></button>
+                    
+                    {/* mic ? 
                         (<button className='pause' onClick={listeningButton}><img src='pause.svg'/></button>)
                         :
                         (inputWords.length === 0 ? 
@@ -192,7 +205,8 @@ const Recall = ({ storeRec, words, onTimeEnd }) => {
                             :
                             (<button className='enterButton' onClick={enterWord}><img src='send.svg'/></button>)
                         ) 
-                    }
+                        */}
+                    
                 </div>
             </div>
             

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { speedDialActionClasses } from '@mui/material';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
-const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
@@ -14,14 +14,12 @@ const DisplayScore = ({ id, attScoreColors, attScoreShapes, speedColors, speedSh
 		setIsOpen(false);
 	}
 
+    useEffect(() => {
+        AddData();
+    }, []);
+
 	return (
 		<div className=''>
-
-            {id !== null && 
-                        
-            <div>Enter this code into Prolific to confirm you finished: COQ89QD3</div>
-
-            }
             
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Visuospatial</div>

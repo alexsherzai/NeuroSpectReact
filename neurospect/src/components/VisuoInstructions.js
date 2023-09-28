@@ -16,7 +16,7 @@ const VisuoInstructions = ({tutButton, onTimeEnd}) => {
                 <div style={{height:'15vh'}}></div>
                 <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
                     <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'400'}}>Let's test your visual skills!</div>
-                    <div style={{fontFamily:'Poppins-Regular', fontWeight:'600', fontSize:'30px', marginBottom: '10%'}}> Look at the <span className='highlight'>reference shape</span>, then find the <span className='highlight'>matching shape</span> among the <span className='highlight'> ones</span>.
+                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> Look at the <span className='highlight'>reference shape</span>, then find the <span className='highlight'>matching shape</span> among the <span className='highlight'> ones</span>.
                     </div>
                 </div>
             <div className='buttonCont'>
