@@ -1,7 +1,6 @@
 import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
-import { speedDialActionClasses } from '@mui/material';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
 const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
