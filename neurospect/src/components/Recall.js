@@ -186,6 +186,7 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
                     type="text"
                     placeholder="Enter the words"
                     value={inputWords}
+                    autoFocus={true}
                     onChange={e => setInputWords(e.target.value)} 
                 />) : 
                 (
