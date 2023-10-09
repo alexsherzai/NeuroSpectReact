@@ -362,6 +362,7 @@ const Visuospatial = ( { visData, storeVis, onTimeEnd }) => {
             setTimeLeft(oldTime => {
                 if (oldTime <= 1) {
                     clearInterval(timer);
+                    AddData();
                     onTimeEnd();
                 }
                 return oldTime - 1;
