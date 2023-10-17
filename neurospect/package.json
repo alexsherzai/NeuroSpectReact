@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/lab": "^5.0.0-alpha.137",
     "@mui/material": "^5.14.1",
+    "@react-native-voice/voice": "^3.2.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,10 +15,19 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
+<<<<<<< Updated upstream
     "react-native": "^0.71.13",
     "react-native-web": "^0.19.9",
     "react-scripts": "^5.0.1",
+=======
+    "react-native": "^0.71.12",
+    "react-native-speech-to-text-ios": "^1.0.4",
+    "react-native-web": "^0.19.6",
+    "react-scripts": "5.0.1",
+    "react-speech-kit": "^3.0.1",
+>>>>>>> Stashed changes
     "react-speech-recognition": "^3.10.0",
+    "save": "^2.9.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
