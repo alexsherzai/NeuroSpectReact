@@ -8,8 +8,12 @@ import Voice from 'react-native-voice';
 
 
 const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
-    const [timeLeft, setTimeLeft] = useState(6000);
+    const [timeLeft, setTimeLeft] = useState(60);
+
     const [inputWords, setInputWords] = useState('');
+    const [error, setError] = useState('');
+    const [mic, setMic] = useState(false);
+
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
@@ -17,23 +21,54 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
 
     const [wordAtPoint, setWordAtPoint] = useState('');
 
-    const [mic, setMic] = useState(false);
-
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
+    const [mobileTranscript, setMobileTranscript] = useState('');
     const {transcript, browserSupportsSpeechRecognition} = useSpeechRecognition();
+
+    Voice._onSpeechStart = () => setMic(true);
+    Voice._onSpeechEnd = () => setMic(false);
+    Voice._onSpeechError = (err) => setError(err.error);
+    Voice.onSpeechResults = (result) => setMobileTranscript(result.value[0]);
+
+    const StartRecording = async() => {
+        setMic(true);
+        try {
+            await Voice.start('en-US');
+        } catch (err) {
+            setError(err);
+        }
+    };
+
+    const StopRecording = async() => {
+        setMic(false);
+        try {
+            await Voice.stop();
+        } catch (err) {
+            setError(err);
+        }
+    };
+
     const listeningButton = () => {
         if(!mic) {
-            SpeechRecognition.startListening({continuous: true, language: 'en-US'});
             setMic(true);
+            if(browserSupportsSpeechRecognition) {
+                SpeechRecognition.startListening({continuous: true, language: 'en-US'});
+            } else {
+                StartRecording();
+            }
         } else {
-            SpeechRecognition.stopListening();
+            if(browserSupportsSpeechRecognition) {
+                SpeechRecognition.stopListening();
+            } else {
+                StopRecording();
+            }
             setMic(false);
         }
-        
     };
+
 
     let docName = userID;
     if(prolificID !== null) {
@@ -85,9 +120,6 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
             setWarning('');
         }
 
-        console.log("hehe");
-
-
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {
                 if (oldTime <= 1) {
@@ -136,13 +168,22 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
             onTimeEnd();
         }
         */
-
-        if (mic && transcript) {
-            const spokenWords = transcript.trim().split(' ');
-            const newInputWord = spokenWords[spokenWords.length - 1];
-            setInputWords(newInputWord);
-            console.log(newInputWord);
-            enterWord();
+        try {
+            if (mic && transcript) {
+                let spokenWords;
+                let newInputWord;
+                if(browserSupportsSpeechRecognition) {
+                    spokenWords = transcript.trim().split(' ');
+                } else {
+                    spokenWords = mobileTranscript.trim().split(' ');
+                }
+                newInputWord = spokenWords[spokenWords.length - 1];
+                setInputWords(newInputWord);
+                console.log(newInputWord);
+                enterWord();
+            }
+        } catch(err) {
+            console.log(err);
         }
 
         let complete = true;
