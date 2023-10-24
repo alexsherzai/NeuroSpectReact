@@ -113,6 +113,8 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
             wordsDict[inputWords.toLowerCase()] = true;
             setInputWords('');
         } 
+        
+        document.getElementById('inputField').focus();
     }
 
     useEffect(() => {
@@ -225,6 +227,7 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
             <div className='recallInterface' style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
                 { mic === false ? 
                 (<input
+                    id="inputField"
                     className='textField'
                     type="text"
                     placeholder="Enter the words"
