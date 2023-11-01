@@ -185,8 +185,10 @@ const App = () => {
     const gameV = queryParams.get("version");
     
     useEffect(() => {
-        if(gameV === 2) {
-            setGameVersion(gameV);
+        setGameVersion(gameV);
+
+        if(gameV === null) {
+            setGameVersion(1);
         }
     });
 
@@ -228,8 +230,11 @@ const App = () => {
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
             {stage === 'encoding' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2')} />}
 
-            {stage === 'int2' && gameVersion === 1 && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'int2' && gameVersion === 2 && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />}
+            {gameVersion === 1 ? 
+            (stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr')} />)
+            :
+            (stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />)
+            }
 
             {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} />}
@@ -242,8 +247,11 @@ const App = () => {
 
             {stage === 'executive' && <CardPair onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
 
-            {stage === 'int3' && gameVersion === 1 && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />}
-            {stage === 'int3' && gameVersion === 2 && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />}
+            {gameVersion === 1 ? 
+            (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />)
+            :
+            (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />)
+            }
 
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
             {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
@@ -257,11 +265,14 @@ const App = () => {
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
             {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end')}/>}
 
-            {stage === 'end' && gameVersion === 1 && 
+            {gameVersion === 1 ?
+            (stage === 'end' && 
                 <DisplayScore AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
-            }
-            {stage === 'end' && gameVersion === 2 && 
+            )
+            :
+            (stage === 'end' &&
                 <DisplayScore gameVersion={gameVersion} AddData={filler} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
+            )
             }
         </div>
     );
