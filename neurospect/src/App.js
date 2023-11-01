@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Intro from './components/Intro';
 import Encoding from './components/Encoding';
 import EncodingInstructions from './components/EncodingInstructions';
@@ -14,6 +14,10 @@ import ShapesInstructions from './components/ShapesInstructions';
 import VisuoTutorial from './components/VisuoTutorial';
 import Countdown from './components/Countdown';
 import DisplayScore from './components/DisplayScore';
+import CardPair from './components/CardPair';
+import Grid from './components/Grid';
+import ExecutiveInstructions from './components/ExecutiveInstructions';
+import GridInstructions from './components/GridInstructions';
 import './components/stylesheet.css';
 
 import { setDoc, doc } from 'firebase/firestore';
@@ -21,9 +25,9 @@ import { storage } from './config/firebase';
 
 const App = () => {
     const [stage, setStage] = useState('intro');
-    const words = ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"];
-    const words2 = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"];
-    const words3 = ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"];
+    const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
+                    2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
+                    3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
 
     const [gameVersion, setGameVersion] = useState(1);
 
@@ -33,6 +37,10 @@ const App = () => {
     const [pss, setPss] = useState(0);
     const [visSc, setVisSc] = useState(0);
     const [recSc, setRecSc] = useState(0);
+
+    const [execSc, setExecSc] = useState(0);
+    const [gridSc, setGridSc] = useState(0);
+    const [gridSpeed, setGridSpeed] = useState(0);
 
     const [attArrayCol, setAttArrayCol] = useState({});
     const [attArraySh, setAttArraySh] = useState({});
@@ -59,6 +67,16 @@ const App = () => {
     const storeRecall = (score) => {
         setRecSc(score);
     };
+
+    const storeExec = (score) => {
+        setExecSc(score);
+    }
+    const storeGrid = (score) => {
+        setGridSc(score);
+    }
+    const storeGridSpeed = (score) => {
+        setGridSpeed(score);
+    }
 
     //Passing Data to App.js
 
@@ -157,9 +175,20 @@ const App = () => {
         setStage(stageName);
     }
 
+    const filler = () => {
+        console.log("Nothing");
+    }
+
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
+    const gameV = queryParams.get("version");
+    
+    useEffect(() => {
+        if(gameV === 2) {
+            setGameVersion(gameV);
+        }
+    });
 
     let docName = userID;
     if(prolificID !== null) {
@@ -195,25 +224,44 @@ const App = () => {
     return (
         <div>
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
-            {stage === 'int1' && <LevelDisplay level={0} onTimeEnd={() => nextStage('enc-instr')} />}
+            {stage === 'int1' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr')} />}
             {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
-            {stage === 'encoding' && <Encoding words={words} onTimeEnd={() => nextStage('int2')} />}
-            {stage === 'int2' && <LevelDisplay level={1} onTimeEnd={() => nextStage('att-instr')} />}
+            {stage === 'encoding' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2')} />}
+
+            {stage === 'int2' && gameVersion === 1 && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr')} />}
+            {stage === 'int2' && gameVersion === 2 && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />}
+
             {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
+            {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} />}
+
             {stage === 'att-tutorial' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'attentionShapes' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
             {stage === 'att-instr2' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'attentionColors' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
-            {stage === 'int3' && <LevelDisplay level={2} onTimeEnd={() => nextStage('vis-instr')} />}
-            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
+
+            {stage === 'executive' && <CardPair onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
+
+            {stage === 'int3' && gameVersion === 1 && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />}
+            {stage === 'int3' && gameVersion === 2 && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />}
+
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
+            {stage === 'grid-instr' && <GridInstructions onTimeEnd={() => nextStage('grid')}/>}
+
             {stage === 'visuo' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
-            {stage === 'int4' && <LevelDisplay level={3} onTimeEnd={() => nextStage('rec-instr')} />}
+            {stage === 'grid' && <Grid onTimeEnd={() => nextStage('int4')} accuracy={storeGrid} speed={storeGridSpeed}/>}
+
+            {stage === 'int4' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr')} />}
+
             {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words} onTimeEnd={() => nextStage('end')}/>}
-            {stage === 'end' && 
+            {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end')}/>}
+
+            {stage === 'end' && gameVersion === 1 && 
                 <DisplayScore AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+            }
+            {stage === 'end' && gameVersion === 2 && 
+                <DisplayScore gameVersion={gameVersion} AddData={filler} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
             }
         </div>
     );

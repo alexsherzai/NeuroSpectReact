@@ -6,7 +6,6 @@ import MicrophoneWaveform from './MicrophoneWaveform';
 
 import Voice from 'react-native-voice';
 
-
 const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
 
@@ -17,11 +16,12 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     const [correctWords, setCorrectWords] = useState(0);
     const [answeredWords, setAnsweredWords] = useState(['']);
     const [warning, setWarning] = useState('');
-    const [wordsDict, setWordsDict] = useState({"elephant": false, "banana" : false, "australia" : false, "orange" : false, "tennis" : false, "guitar" : false, "truck" : false, "history" : false, "lily" : false, "valley" : false});
+    const [wordsDict, setWordsDict] = useState({'placeholder': false});
+    const [start, setStart] = useState(true);
 
     const [wordAtPoint, setWordAtPoint] = useState('');
 
-    const queryParams = new URLSearchParams(window.location.search)
+    const queryParams = new URLSearchParams(window.location.search);
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
 
@@ -118,6 +118,17 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
     }
 
     useEffect(() => {
+        if(start) {
+            let newDict = {};
+            for(let a = 0; a < words.length; a++) {
+                newDict[words[a].toLowerCase()] = false;
+            }
+
+            setWordsDict(newDict);
+
+            setStart(false);
+        }
+
         if(inputWords !== wordAtPoint) {
             setWarning('');
         }
@@ -205,7 +216,7 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
         }
 
         return () => clearInterval(timer);
-    }, [AddData, onTimeEnd, words, mic, transcript]);
+    }, [start, AddData, onTimeEnd, words, mic, transcript]);
     
     return (
         <div className='fullGameMargin'>

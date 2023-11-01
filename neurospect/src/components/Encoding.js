@@ -6,7 +6,7 @@ import { storage } from '../config/firebase';
 
 import voiceover from '../WordsAudio/AllWords.wav';
 
-const Encoding = ({onTimeEnd, words}) => {
+const Encoding = ({gameVersion, onTimeEnd, words}) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
     const [end, setEnd] = useState(false);
@@ -26,7 +26,9 @@ const Encoding = ({onTimeEnd, words}) => {
     
     useEffect(() => {
 
-        audio.play();
+        if(gameVersion === 1) {
+            audio.play();
+        }
 
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {

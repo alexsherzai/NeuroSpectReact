@@ -2,9 +2,15 @@ import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 
-const LevelDisplay = ({ level, onTimeEnd }) => {
+const LevelDisplay = ({ version, level, onTimeEnd }) => {
 
-	const levels = ['Word Memory', 'Attention', 'Visuospatial', 'Recall'];
+	const levelVersions = {
+		1: ['Word Memory', 'Attention', 'Visuospatial', 'Recall'],
+		2: ['Word Memory', 'Executive Function', 'Processing', 'Recall']
+	};
+	
+	const levels = levelVersions[version];
+
 	const [isOpen, setIsOpen] = useState(false);
 	const [firstTime, setFirstTime] = useState(true);
 

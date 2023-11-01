@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
     font-family: Poppins-Light;
     src: url(../fonts/Poppins-Light.ttf);
@@ -15,6 +16,7 @@
     src: url(../fonts/Poppins-SemiBold.ttf);
 }
 
+/* General */ 
 h1 {
     font-family: Poppins-Bold;
     text-align: center;
@@ -84,6 +86,8 @@ h4 {
     font-family: 'Poppins-Regular';
     font-size: 13px;
 }
+
+/* Instructions */
 .highlight {
     font-family: 'Poppins-SemiBold';
     color:#FF9417;
@@ -811,7 +815,6 @@ input:focus {
     background-color: #5A89F5;
 }
 
-
 @-webkit-keyframes enterToMic {
     0% {width: 40px; background-color: #5A89F5; border-radius: 50px;}
     100% {width: 40px; background-color: #5A89F5; border-radius: 150px;}
@@ -840,4 +843,109 @@ input:focus {
     margin-right: auto;
     right: 20px;
     left: 20px;
+}
+
+
+/* Executive Function */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+  
+.card {
+    margin-bottom: 100px;
+    width: 75%;
+    height: 75%; 
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.card:hover {
+    background-color: #7c7c7c; 
+}
+
+.cardClicked {
+    margin-bottom: 100px;
+    width: 75%;
+    height: 75%; 
+    background-color: #FF9417;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+.cardSolved {
+    margin-bottom: 100px;
+    width: 75%;
+    height: 75%; 
+    background-color: #333;
+    opacity: 0.6;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+}
+
+
+/* Grid */
+
+.grid {
+    display: grid;
+    gap: 1px;
+    text-align: center;
+    justify-content: center;
+    vertical-align: center;
+    margin: auto;
+}
+
+.cell:hover {
+    background-color: #d0d0d0;
+}
+
+.cell {
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.cellClicked {
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: #FF9417;
+}
+
+.cellPattern {
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: #5A89F5;
+}
+
+.cellCorrect {
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: #2E8970;
+}
+
+.cellWrong {
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: #CD3843;
 }

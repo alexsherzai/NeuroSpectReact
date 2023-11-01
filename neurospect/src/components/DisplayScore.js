@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
-const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScore = ({ gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
@@ -19,7 +19,8 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
 
 	return (
 		<div className=''>
-            
+            { gameVersion === 1 &&
+            <div>
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Visuospatial</div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
@@ -51,6 +52,30 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
                     <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedShapes}</div>
                 </div>
             </div>
+            </div>
+            }
+            {gameVersion === 2 &&
+            <div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Colors</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '20px' }}>Executive Function</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore}</div>
+                    </div>
+                </div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Processing</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '20px' }}>Accuracy</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{gridScore}</div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '20px' }}>Speed</div>
+                        <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{gridSpeed}</div>
+                    </div>
+                </div>
+            </div>
+            }
 
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Recall</div>
