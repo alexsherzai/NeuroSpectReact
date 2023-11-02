@@ -60,14 +60,14 @@ const DisplayScore = ({ gameVersion, AddData, execScore, gridScore, gridSpeed, a
                     <div className='scoreBoxHeader'>Colors</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div style={{ fontSize: '20px' }}>Executive Function</div>
-                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore}</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore} / 9</div>
                     </div>
                 </div>
                 <div className='scoreSection'>
                     <div className='scoreBoxHeader'>Processing</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div style={{ fontSize: '20px' }}>Accuracy</div>
-                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{gridScore}</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{gridScore} / 100</div>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div style={{ fontSize: '20px' }}>Speed</div>

@@ -271,7 +271,7 @@ const App = () => {
             )
             :
             (stage === 'end' &&
-                <DisplayScore gameVersion={gameVersion} AddData={filler} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
+                <DisplayScore gameVersion={2} AddData={filler} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
             )
             }
         </div>

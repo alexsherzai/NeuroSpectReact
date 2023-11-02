@@ -22,8 +22,8 @@ const Grid = ({onTimeEnd, accuracy, speed}) => {
     useEffect(() => {
         if(level >= 20) {
             onTimeEnd(); 
-            accuracy(scores.reduce((prev, a ) => prev + a, 0) / 40);
-            speed(speeds.reduce((prev, a ) => prev + a, 0) / 40);
+            accuracy(100 - (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100));
+            speed(Math.round(speeds.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100);
         }
         if (spawn) {
             console.log(level);

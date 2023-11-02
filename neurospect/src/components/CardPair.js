@@ -1,7 +1,7 @@
 import { click } from '@testing-library/user-event/dist/click';
 import React, { useEffect, useState } from 'react';
 
-const CardPair = (onTimeEnd, storeExec) => {
+const CardPair = ({onTimeEnd, storeExec}) => {
     const shapes = [
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="green" />
@@ -760,34 +760,37 @@ const CardPair = (onTimeEnd, storeExec) => {
         
             if (level === 1) {
                 newChosenSet = "Shape";
-                numPairs = 3;
+                numPairs = 2;
             } else if (level === 2) {
                 newChosenSet = "Color";
-                numPairs = 3;
+                numPairs = 2;
             } else if (level === 3) {
                 newChosenSet = "Pattern";
-                numPairs = 3;
+                numPairs = 2;
             } else if (level > 3 && level <= 6) {
                 let temp = Math.floor(Math.random() * 3);
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * 3);
                 }
                 newChosenSet = sets[temp];
-                numPairs = 4;
+                numPairs = 3;
             } else if (level > 6 && level <= 9) {
                 let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 }
                 newChosenSet = sets[temp];
-                numPairs = 6;
+                numPairs = 4;
             } else if (level > 9) {
-                let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
+                /*let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 }
                 newChosenSet = sets[temp];
-                numPairs = 8;
+                numPairs = 4;
+                */
+                onTimeEnd();
+                storeExec(scores.reduce((sum, a) => sum + a, 0));
             } else if (level >= 12) {
                 onTimeEnd();
                 storeExec(scores.reduce((sum, a) => sum + a, 0));
@@ -805,6 +808,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(i % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(newArray[i - 1] % 8 !== temp % 8) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -822,6 +826,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(j % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(Math.floor(newArray[j - 1] / 32) !== Math.floor(temp / 32)) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -839,6 +844,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(k % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(Math.floor((newArray[k - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -856,6 +862,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(l % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(newArray[l - 1] % 8 !== temp % 8 || Math.floor(newArray[l - 1] / 32) !== Math.floor(temp / 32)) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -873,6 +880,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(m % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(newArray[m - 1] % 8 !== temp % 8 || Math.floor((newArray[m - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -890,6 +898,7 @@ const CardPair = (onTimeEnd, storeExec) => {
                             if(n % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
                                 while(Math.floor(newArray[n - 1] / 32) !== Math.floor(temp / 32) || Math.floor((newArray[n - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                    
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
@@ -906,10 +915,6 @@ const CardPair = (onTimeEnd, storeExec) => {
             setSpawn(false);
 
             newArray = newArray.sort(() => Math.random() - 0.5);
-
-            console.log(newArray);
-            console.log(newChosenSet);
-            console.log(newArray.map((val) => shapes[val]));
 
             setShuffledShapesIndeces(newArray);
             setShuffledShapes(newArray.map((index) => shapes[index]));
@@ -949,9 +954,26 @@ const CardPair = (onTimeEnd, storeExec) => {
         let tempCurr = curr.map((val) => rule1(val));
         let tempCurr2 = curr.map((val) => rule2(val));
 
+        console.log(rule1);
+        console.log(rule2);
+
         let temp = Math.floor(Math.random() * shapes.length);
+
+        console.log(curr);
+        console.log(tempCurr);
+        console.log(tempCurr2);
+
+        let count = 0;
         while(tempCurr.includes(rule1(temp)) || tempCurr2.includes(rule2.temp)) {
+            console.log(temp +  ", " + rule1(temp) + ", " + rule2(temp));
             temp = Math.floor(Math.random() * shapes.length);
+
+            count++;
+
+            if(count > 3000) {
+                console.log("Cut off");
+                break;
+            }
         }
 
         return temp;
