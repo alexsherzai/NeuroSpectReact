@@ -19,7 +19,7 @@ const GridInstructions = ({onTimeEnd}) => {
                 <div style={{height:'15vh'}}></div>
                 <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
                     <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'40s0'}}>How Fast Can You React?</div>
-                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> You will be shown a <span className='highlight'>grid of squares</span> which will light up at random times. Your job is to <span className='highlight'>click</span> the squares that light up as soon as possible. You may see multiple squares light up, in which case you'll have to click <span className='highlight'>all of them</span>! The grid will <span className='highlight'>grow</span> and more squares will light up so pay attention!
+                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> You will be shown a <span className='highlight'>grid of squares</span> which will light up randomly. <span className='highlight'>Click the squares</span> that light up as soon as possible.
                     </div>
                 </div>
             
