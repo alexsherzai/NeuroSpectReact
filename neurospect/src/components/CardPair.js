@@ -794,6 +794,8 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             } else if (level === 3) {
                 newChosenSet = "Pattern";
                 numPairs = 2;
+                AddData();
+                onTimeEnd();
             } else if (level > 3 && level <= 6) {
                 let temp = Math.floor(Math.random() * 3);
                 while (chosenSet === sets[temp]) {
