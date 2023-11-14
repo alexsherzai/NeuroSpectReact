@@ -225,9 +225,9 @@ const App = () => {
             gameVersion: gameVersion
         }
 
-        if(gameVersion === 1) {
+        if(gameV === 1) {
             Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
-        } else if(gameVersion === 2) {
+        } else if(gameV === 2) {
             Object.assign(data, execData, gridData);
         }
 
@@ -285,11 +285,11 @@ const App = () => {
 
             {gameVersion === 1 ?
             (stage === 'end' && 
-                <DisplayScore gameVersion={1} AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore prolific={prolificID} gameVersion={1} AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             )
             :
             (stage === 'end' &&
-                <DisplayScore gameVersion={2} AddData={AddData} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
+                <DisplayScore prolific={prolificID} gameVersion={2} AddData={AddData} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
             )
             }
         </div>

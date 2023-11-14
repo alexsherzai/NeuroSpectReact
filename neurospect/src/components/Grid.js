@@ -32,7 +32,7 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     }
 
     const AddData = () => {
-        let acc = 100 - (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 100) / 100)
+        let acc = (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 50) / 100)
         let sp = Math.round(speeds.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100;
         accuracy(acc);
         speed(sp);
