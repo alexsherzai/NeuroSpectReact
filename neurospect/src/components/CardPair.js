@@ -765,7 +765,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
     }
 
     const AddData = () => {
-        let sc = scores.reduce((sum, a) => sum + a, 0)
+        let sc = Math.round(scores.reduce((sum, a) => sum + a, 0) * 100) / 100;
         storeExec(sc);
 
         execData(

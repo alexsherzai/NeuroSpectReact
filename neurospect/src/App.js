@@ -225,7 +225,11 @@ const App = () => {
             gameVersion: gameVersion
         }
 
-        Object.assign(data, attArrayCol, attArraySh, visArray, recArray, execData, gridData);
+        if(gameVersion === 1) {
+            Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+        } else if(gameVersion === 2) {
+            Object.assign(data, execData, gridData);
+        }
 
         console.log(data);
 
