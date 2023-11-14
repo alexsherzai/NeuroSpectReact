@@ -227,8 +227,14 @@ const App = () => {
 
         if(execData === null) {
             Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+
+            console.log("Version 1");
         } else {
             Object.assign(data, execData, gridData);
+
+            console.log(execData);
+            console.log(gridData);
+            console.log("Version 2");
         }
 
         console.log(data);
