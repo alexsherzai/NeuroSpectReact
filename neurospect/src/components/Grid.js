@@ -48,7 +48,7 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     }
 
     useEffect(() => {
-        if(level >= 4) {
+        if(level >= 20) {
             AddData();
             onTimeEnd(); 
         }
