@@ -946,7 +946,9 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             setShuffledShapesIndeces(newArray);
             setShuffledShapes(newArray.map((index) => shapes[index]));
 
-            chosenSetList.push(newChosenSet);
+            if(level < 9) {
+                chosenSetList.push(newChosenSet);
+            }
             shapesListList[level] = newArray;
         }
 
