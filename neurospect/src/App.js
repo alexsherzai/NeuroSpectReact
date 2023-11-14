@@ -24,7 +24,7 @@ import { setDoc, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro');
+    const [stage, setStage] = useState('recall');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
@@ -225,9 +225,9 @@ const App = () => {
             gameVersion: gameVersion
         }
 
-        console.log("test");
-
         Object.assign(data, attArrayCol, attArraySh, visArray, recArray, execData, gridData);
+
+        console.log(data);
 
         try {
             await setDoc(reviewRef, data)
@@ -281,7 +281,7 @@ const App = () => {
 
             {gameVersion === 1 ?
             (stage === 'end' && 
-                <DisplayScore AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
+                <DisplayScore gameVersion={1} AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>
             )
             :
             (stage === 'end' &&
