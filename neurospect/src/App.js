@@ -225,9 +225,9 @@ const App = () => {
             gameVersion: gameVersion
         }
 
-        if(gameV === 1) {
+        if(execData === null) {
             Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
-        } else if(gameV === 2) {
+        } else {
             Object.assign(data, execData, gridData);
         }
 
