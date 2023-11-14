@@ -751,7 +751,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
     const [scores, setScores] = useState([]);
     const [chosenSetList, setChosenSetList] = useState([]);
-    const [shapesListList, setShapesListList] = useState([]);
+    const [shapesListList, setShapesListList] = useState({});
 
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
@@ -949,7 +949,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             setShuffledShapes(newArray.map((index) => shapes[index]));
 
             chosenSetList.push(newChosenSet);
-            shapesListList.push(newArray);
+            shapesListList[level] = newArray;
         }
 
         if(clickedShapes.length === 2) {
