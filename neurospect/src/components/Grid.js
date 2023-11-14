@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './stylesheet.css';
 import { click } from '@testing-library/user-event/dist/click';
 
-const Grid = ({onTimeEnd, accuracy, speed}) => {
+const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     const [gridSize, setGridSize] = useState(3);
     const [cellColors, setCellColors] = useState([]);
     const [level, setLevel] = useState(0);
@@ -19,11 +19,38 @@ const Grid = ({onTimeEnd, accuracy, speed}) => {
     const [scores, setScores] = useState([]);
     const [speeds, setSpeeds] = useState([]);
 
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
+    }
+
+    const AddData = () => {
+        let acc = 100 - (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100)
+        let sp = Math.round(speeds.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100;
+        accuracy(acc);
+        speed(sp);
+
+        gridData(
+            {
+                prosScores: scores,
+                prosSpeeds: speeds,
+                accuracy: acc,
+                speed: sp
+            }
+        );
+    }
+
     useEffect(() => {
         if(level >= 20) {
+            AddData();
             onTimeEnd(); 
-            accuracy(100 - (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100));
-            speed(Math.round(speeds.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100);
         }
         if (spawn) {
             console.log(level);

@@ -1,7 +1,7 @@
 import { click } from '@testing-library/user-event/dist/click';
 import React, { useEffect, useState } from 'react';
 
-const CardPair = ({onTimeEnd, storeExec}) => {
+const CardPair = ({onTimeEnd, storeExec, execData}) => {
     const shapes = [
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="green" />
@@ -750,6 +750,33 @@ const CardPair = ({onTimeEnd, storeExec}) => {
     const [pairsAfterFirst, setPairsAfterFirst] = useState(0);
 
     const [scores, setScores] = useState([]);
+    const [chosenSetList, setChosenSetList] = useState([]);
+    const [shapesListList, setShapesListList] = useState([]);
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const prolificID = queryParams.get("PROLIFIC_PID");
+    const userID = queryParams.get("userID");
+
+    let docName = userID;
+    if(prolificID !== null) {
+        docName = prolificID;
+    } else if(userID === null && prolificID === null) {
+        docName = "noID";
+    }
+
+    const AddData = () => {
+        let sc = scores.reduce((sum, a) => sum + a, 0)
+        storeExec(sc);
+
+        execData(
+            {
+                execData: scores,
+                execScore: sc,
+                chosenSetList: chosenSetList,
+                shapesListList: shapesListList
+            }
+        );
+    }
 
     useEffect(() => {
         setWarningText("");
@@ -789,11 +816,11 @@ const CardPair = ({onTimeEnd, storeExec}) => {
                 newChosenSet = sets[temp];
                 numPairs = 4;
                 */
+                AddData();
                 onTimeEnd();
-                storeExec(scores.reduce((sum, a) => sum + a, 0));
             } else if (level >= 12) {
+                AddData();
                 onTimeEnd();
-                storeExec(scores.reduce((sum, a) => sum + a, 0));
             }
         
             setChosenSet(newChosenSet);
@@ -918,6 +945,9 @@ const CardPair = ({onTimeEnd, storeExec}) => {
 
             setShuffledShapesIndeces(newArray);
             setShuffledShapes(newArray.map((index) => shapes[index]));
+
+            chosenSetList.push(newChosenSet);
+            shapesListList.push(newArray);
         }
 
         if(clickedShapes.length === 2) {

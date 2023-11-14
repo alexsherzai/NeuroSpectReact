@@ -47,6 +47,9 @@ const App = () => {
     const [visArray, setVisArray] = useState({});
     const [recArray, setRecArray] = useState({});
 
+    const [gridData, setGridData] = useState({});
+    const [execData, setExecData] = useState({});
+
     //Passing Scores to App.js
 
     const storeAttentionColors = (score) => {
@@ -91,6 +94,13 @@ const App = () => {
     };
     const storeRecData = (score) => {
         setRecArray(score);
+    };
+
+    const storeGridData = (score) => {
+        setGridData(score);
+    };
+    const storeExecData = (score) => {
+        setExecData(score);
     };
 
     const attentionShapes = [
@@ -207,13 +217,17 @@ const App = () => {
 
         const reviewRef = doc(storage, "neurospect", docName);
 
+        
         let data = {
             testID: prolificID,
             userID: userID,
-            lastUpdated: currentDate
+            lastUpdated: currentDate,
+            gameVersion: gameVersion
         }
 
-        Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+        console.log("test");
+
+        Object.assign(data, attArrayCol, attArraySh, visArray, recArray, execData, gridData);
 
         try {
             await setDoc(reviewRef, data)
@@ -245,7 +259,7 @@ const App = () => {
             {stage === 'att-tutorial2' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
             {stage === 'attentionColors' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
 
-            {stage === 'executive' && <CardPair onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
+            {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
 
             {gameVersion === 1 ? 
             (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />)
@@ -258,7 +272,7 @@ const App = () => {
             {stage === 'grid-instr' && <GridInstructions onTimeEnd={() => nextStage('grid')}/>}
 
             {stage === 'visuo' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
-            {stage === 'grid' && <Grid onTimeEnd={() => nextStage('int4')} accuracy={storeGrid} speed={storeGridSpeed}/>}
+            {stage === 'grid' && <Grid onTimeEnd={() => nextStage('int4')} gridData={storeGridData} accuracy={storeGrid} speed={storeGridSpeed}/>}
 
             {stage === 'int4' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr')} />}
 
@@ -271,7 +285,7 @@ const App = () => {
             )
             :
             (stage === 'end' &&
-                <DisplayScore gameVersion={2} AddData={filler} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
+                <DisplayScore gameVersion={2} AddData={AddData} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>
             )
             }
         </div>
