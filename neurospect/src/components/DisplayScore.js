@@ -20,7 +20,7 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
 	return (
 		<div className=''>
             { prolific !== null &&
-            <div>Code to enter: COQ89QD3</div>
+            <h1>Code to enter: COQ89QD3</h1>
             }
             { gameVersion === 1 &&
             <div>
