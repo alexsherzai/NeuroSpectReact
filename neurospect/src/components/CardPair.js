@@ -183,6 +183,235 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-green)" opacity="1" />
         </svg>,
 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-green" fill="green" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-green)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-green)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="green" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>, 
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-green">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="green" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-green)" />
+        </svg>,
+
 
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="red" />
@@ -362,6 +591,234 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
         </svg>,
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-red)" opacity="1" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-red" fill="red" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-red)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-red)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="red" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-red">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="red" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-red)" />
         </svg>,
 
 
@@ -545,6 +1002,234 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-blue)" opacity="1" />
         </svg>,
 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-blue" fill="blue" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-blue)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-blue)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="blue" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-blue">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="blue" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-blue)" />
+        </svg>,
+
 
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="orange" />
@@ -724,7 +1409,1870 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
         </svg>,
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
             <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-orange)" opacity="1" />
-        </svg>
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-orange" fill="orange" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-orange)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-orange)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="orange" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-orange">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="orange" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-orange)" />
+        </svg>,
+
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="purple" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "purple" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "purple" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-purple)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-purple" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "purple" cx="5" cy="5" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="5" cy="15" r="4"></circle>
+                <circle fill = "purple" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-purple)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-purple)" opacity="1" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-purple" fill="purple" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-purple)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-purple)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="purple" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-purple">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="purple" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-purple)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="teal" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "teal" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "teal" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-teal)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-teal" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "teal" cx="5" cy="5" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="5" cy="15" r="4"></circle>
+                <circle fill = "teal" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-teal)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-teal)" opacity="1" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-teal" fill="teal" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-teal)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-teal)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="teal" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-teal">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="teal" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-teal)" />
+        </svg>,
+
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="gray" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "gray" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "gray" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-gray)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-gray" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "gray" cx="5" cy="5" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="5" cy="15" r="4"></circle>
+                <circle fill = "gray" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-gray)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-gray)" opacity="1" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-gray" fill="gray" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-gray)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-gray)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="gray" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-gray">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="gray" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-gray)" />
+        </svg>,
+
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="black" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-checkers-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <rect fill = "black" x="0" width="10" height="10" y="0"></rect>
+                <rect fill = "black" x="10" width="10" height="10" y="10"></rect>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-checkers-black)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-dots-black" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                <circle fill = "black" cx="5" cy="5" r="4"></circle>
+                <circle fill = "black" cx="15" cy="15" r="4"></circle>
+                <circle fill = "black" cx="5" cy="15" r="4"></circle>
+                <circle fill = "black" cx="15" cy="5" r="4"></circle>
+            </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-dots-black)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1"/>
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-stripes-black)" opacity="1" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-diamond-black" fill="black" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+                    <path d='M0 8 
+          C5 11 5 11 8 16 
+          C11 11 11 11 16 8 
+          C11 5 11 5 8 0 
+          C5 5 5 5 0 8 Z' />
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-diamond-black)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                        <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                    </pattern>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-lines-black)" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="4.7" fill="transparent" />
+        </svg>,
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <circle cx="25" cy="25" r="20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <rect x="5" y="5" width="40" height="40" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,45 5,45" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 45,20 40,45 10,45 5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 32,18 47.5,21 35.5,31.5 38,47.5 25,39.5 12,47.5 14.5,31.5 2.5,21 18,18" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <path d="M25 5 Q40 10, 45 25 Q40 40, 25 45 Q10 40, 5 25 Q10 10, 25 5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,20 25,45 7.5,20" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>, 
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                        <radialGradient id="pattern-gradient-black">
+                        <stop offset="3%" stop-color="white" />
+                        <stop offset="95%" stop-color="black" />
+                        </radialGradient>
+                    </defs>
+            <polygon points="25,5 42.5,17.5 32.5,45 17.5,45 7.5,17.5" stroke="black" stroke-width="1.5" fill="url(#pattern-gradient-black)" />
+        </svg>,
     ]; 
 
     
@@ -746,7 +3294,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
     const [numPairs, setNumPairs] = useState(0);
 
     const [pairsPreFirst, setPairsPreFirst] = useState(0);
-    const [firstPair, setFirstPair] = useState(true);
+    const [firstPair, setFirstPair] = useState(false);
     const [pairsAfterFirst, setPairsAfterFirst] = useState(0);
 
     const [scores, setScores] = useState([]);
@@ -800,24 +3348,21 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                     temp = Math.floor(Math.random() * 3);
                 }
                 newChosenSet = sets[temp];
-                numPairs = 3;
+                numPairs = 4;
             } else if (level > 6 && level <= 9) {
                 let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 }
                 newChosenSet = sets[temp];
-                numPairs = 4;
+                numPairs = 6;
             } else if (level > 9) {
-                /*let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
+                let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 }
                 newChosenSet = sets[temp];
-                numPairs = 4;
-                */
-                AddData();
-                onTimeEnd();
+                numPairs = 8;
             } else if (level >= 12) {
                 AddData();
                 onTimeEnd();
@@ -986,24 +3531,15 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
         let tempCurr = curr.map((val) => rule1(val));
         let tempCurr2 = curr.map((val) => rule2(val));
 
-        console.log(rule1);
-        console.log(rule2);
-
         let temp = Math.floor(Math.random() * shapes.length);
-
-        console.log(curr);
-        console.log(tempCurr);
-        console.log(tempCurr2);
 
         let count = 0;
         while(tempCurr.includes(rule1(temp)) || tempCurr2.includes(rule2.temp)) {
-            console.log(temp +  ", " + rule1(temp) + ", " + rule2(temp));
             temp = Math.floor(Math.random() * shapes.length);
 
             count++;
 
             if(count > 3000) {
-                console.log("Cut off");
                 break;
             }
         }
@@ -1080,6 +3616,8 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
         return decision;
     };
 
+    
+
     const nextLevel = () => {
         let score = 0;
         let temp = 0;
@@ -1151,6 +3689,66 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                     <defs>
                         <pattern id="pattern-stripes-orange" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
                             <line x1="0" y="0" x2="0" y2="6" stroke="orange" stroke-width="6" />
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-stripes-gray" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                            <line x1="0" y="0" x2="0" y2="6" stroke="gray" stroke-width="6" />
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-stripes-black" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                            <line x1="0" y="0" x2="0" y2="6" stroke="black" stroke-width="6" />
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-stripes-purple" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                            <line x1="0" y="0" x2="0" y2="6" stroke="purple" stroke-width="6" />
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-stripes-teal" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                            <line x1="0" y="0" x2="0" y2="6" stroke="teal" stroke-width="6" />
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-green" fill="green" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "green" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-red" fill="red" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "red" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-blue" fill="blue" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "blue" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-orange" fill="orange" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "orange" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-black" fill="black" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "black" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-gray" fill="gray" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "gray" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-teal" fill="teal" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "teal" x="0" width="20" height="5" y="0"></rect>
+                        </pattern>
+                    </defs>
+                    <defs>
+                        <pattern id="pattern-lines-purple" fill="purple" x="9" y="9" width="16" height="16" patternUnits="userSpaceOnUse">
+                            <rect fill = "purple" x="0" width="20" height="5" y="0"></rect>
                         </pattern>
                     </defs>
                 </svg>
