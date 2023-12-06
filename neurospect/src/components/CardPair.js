@@ -3488,7 +3488,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             
             console.log(level);
 
-            //newArray = newArray.sort(() => Math.random() - 0.5);
+            newArray = newArray.sort(() => Math.random() - 0.5);
 
             setShuffledShapesIndeces(newArray);
             setShuffledShapes(newArray.map((index) => shapes[index]));
