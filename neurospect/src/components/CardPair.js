@@ -3356,14 +3356,14 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                 }
                 newChosenSet = sets[temp];
                 numPairs = 6;
-            } else if (level > 9) {
+            } else if (level > 9 && level <= 12) {
                 let temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 while (chosenSet === sets[temp]) {
                     temp = Math.floor(Math.random() * (sets.length - 3)) + 3;
                 }
                 newChosenSet = sets[temp];
                 numPairs = 8;
-            } else if (level >= 12) {
+            } else if (level > 12) {
                 AddData();
                 onTimeEnd();
             }
@@ -3397,13 +3397,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                         if(j > 0) {
                             if(j % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
-                                while(Math.floor(newArray[j - 1] / 32) !== Math.floor(temp / 32)) {
+                                while(Math.floor(newArray[j - 1] / 64) !== Math.floor(temp / 64)) {
                                     
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
                             } else {
-                                newArray.push(createUnique(newArray, (val) => Math.floor(val / 32)));
+                                newArray.push(createUnique(newArray, (val) => Math.floor(val / 64)));
                             }
                         } else {
                             newArray.push(Math.floor(Math.random() * shapes.length));
@@ -3415,13 +3415,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                         if(k > 0) {
                             if(k % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
-                                while(Math.floor((newArray[k - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                while(Math.floor((newArray[k - 1] % 64) / 8) !== Math.floor((temp % 64) / 8)) {
                                     
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
                             } else {
-                                newArray.push(createUnique(newArray, (val) => Math.floor((val % 32) / 8)));
+                                newArray.push(createUnique(newArray, (val) => Math.floor((val % 64) / 8)));
                             }
                         } else {
                             newArray.push(Math.floor(Math.random() * shapes.length));
@@ -3433,13 +3433,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                         if(l > 0) {
                             if(l % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
-                                while(newArray[l - 1] % 8 !== temp % 8 || Math.floor(newArray[l - 1] / 32) !== Math.floor(temp / 32)) {
+                                while(newArray[l - 1] % 8 !== temp % 8 || Math.floor(newArray[l - 1] / 64) !== Math.floor(temp / 64)) {
                                     
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
                             } else {
-                                newArray.push(createUniqueMult(newArray, (val) => val % 8, (val) => Math.floor(val / 32)));
+                                newArray.push(createUniqueMult(newArray, (val) => val % 8, (val) => Math.floor(val / 64)));
                             }
                         } else {
                             newArray.push(Math.floor(Math.random() * shapes.length));
@@ -3451,13 +3451,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                         if(m > 0) {
                             if(m % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
-                                while(newArray[m - 1] % 8 !== temp % 8 || Math.floor((newArray[m - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                while(newArray[m - 1] % 8 !== temp % 8 || Math.floor((newArray[m - 1] % 64) / 8) !== Math.floor((temp % 64) / 8)) {
                                     
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
                             } else {
-                                newArray.push(createUniqueMult(newArray, (val) => val % 8, (val) => Math.floor((val % 32) / 8)));
+                                newArray.push(createUniqueMult(newArray, (val) => val % 8, (val) => Math.floor((val % 64) / 8)));
                             }
                         } else {
                             newArray.push(Math.floor(Math.random() * shapes.length));
@@ -3469,13 +3469,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                         if(n > 0) {
                             if(n % 2 === 1) {
                                 let temp = Math.floor(Math.random() * shapes.length);
-                                while(Math.floor(newArray[n - 1] / 32) !== Math.floor(temp / 32) || Math.floor((newArray[n - 1] % 32) / 8) !== Math.floor((temp % 32) / 8)) {
+                                while(Math.floor(newArray[n - 1] / 64) !== Math.floor(temp / 64) || Math.floor((newArray[n - 1] % 64) / 8) !== Math.floor((temp % 64) / 8)) {
                                     
                                     temp = Math.floor(Math.random() * shapes.length);
                                 }
                                 newArray.push(temp);
                             } else {
-                                newArray.push(createUniqueMult(newArray, (val) => Math.floor(val / 32), (val) => Math.floor((val % 32) / 8)));
+                                newArray.push(createUniqueMult(newArray, (val) => Math.floor(val / 64), (val) => Math.floor((val % 64) / 8)));
                             }
                         } else {
                             newArray.push(Math.floor(Math.random() * shapes.length));
@@ -3485,13 +3485,15 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             }
 
             setSpawn(false);
+            
+            console.log(level);
 
-            newArray = newArray.sort(() => Math.random() - 0.5);
+            //newArray = newArray.sort(() => Math.random() - 0.5);
 
             setShuffledShapesIndeces(newArray);
             setShuffledShapes(newArray.map((index) => shapes[index]));
 
-            if(level < 9) {
+            if(level < 12) {
                 chosenSetList.push(newChosenSet);
             }
             shapesListList[level] = newArray;
@@ -3577,27 +3579,27 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                 }
                 break;
             case "Color":
-                if(Math.floor(val1 / 32) === Math.floor(val2 / 32)) {
+                if(Math.floor(val1 / 64) === Math.floor(val2 / 64)) {
                     decision = true;
                 }
                 break;
             case "Pattern":
-                if(Math.floor((val1 % 32) / 8) === Math.floor((val2 % 32) / 8)) {
+                if(Math.floor((val1 % 64) / 8) === Math.floor((val2 % 64) / 8)) {
                     decision = true;
                 }
                 break;
             case "ShapeColor":
-                if(val1 % 8 === val2 % 8 && Math.floor(val1 / 32) === Math.floor(val2 / 32)) {
+                if(val1 % 8 === val2 % 8 && Math.floor(val1 / 64) === Math.floor(val2 / 64)) {
                     decision = true;
                 }
                 break;
             case "ShapePattern":
-                if(val1 % 8 === val2 % 8 && Math.floor((val1 % 32) / 8) === Math.floor((val2 % 32) / 8)) {
+                if(val1 % 8 === val2 % 8 && Math.floor((val1 % 64) / 8) === Math.floor((val2 % 64) / 8)) {
                     decision = true;
                 }
                 break;
             case "ColorPattern":
-                if(Math.floor(val1 / 32) === Math.floor(val2 / 32) && Math.floor((val1 % 32) / 8) === Math.floor((val2 % 32) / 8)) {
+                if(Math.floor(val1 / 64) === Math.floor(val2 / 64) && Math.floor((val1 % 64) / 8) === Math.floor((val2 % 64) / 8)) {
                     decision = true;
                 }
                 break;
