@@ -3628,6 +3628,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
         temp += (0.3 * (pairsAfterFirst - (numPairs - 1)));
 
         score = Math.round(Math.exp(-1 * temp) * 1000) / 1000;
+        score *= (100/12);
         scores.push(score);
         setFirstPair(false);
         setPairsPreFirst(0);

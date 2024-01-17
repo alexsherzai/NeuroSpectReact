@@ -18,6 +18,7 @@ import CardPair from './components/CardPair';
 import Grid from './components/Grid';
 import ExecutiveInstructions from './components/ExecutiveInstructions';
 import GridInstructions from './components/GridInstructions';
+import Language from './components/Language';
 import './components/stylesheet.css';
 
 import { setDoc, doc } from 'firebase/firestore';
@@ -257,7 +258,10 @@ const App = () => {
             {gameVersion === 1 ? 
             (stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr')} />)
             :
+            (gameVersion === 2 ? 
             (stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />)
+            :
+            (stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('lang-instr')} />))
             }
 
             {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
@@ -270,6 +274,8 @@ const App = () => {
             {stage === 'attentionColors' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
 
             {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
+
+            {stage === "language" && <Language />}
 
             {gameVersion === 1 ? 
             (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />)

@@ -60,10 +60,9 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
             {gameVersion === 2 &&
             <div>
                 <div className='scoreSection'>
-                    <div className='scoreBoxHeader'>Colors</div>
+                    <div className='scoreBoxHeader'>Executive Function</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                        <div style={{ fontSize: '20px' }}>Executive Function</div>
-                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore} / 9</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore} / 100</div>
                     </div>
                 </div>
                 <div className='scoreSection'>

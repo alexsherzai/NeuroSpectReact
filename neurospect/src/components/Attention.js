@@ -272,6 +272,8 @@ const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd })
 		let correctNum = 0;
 		correct.forEach(e => {if(e === 1) {correctNum++}});
 
+		correctNum *= (10/3);
+
 
 
 		console.log(buttonClickTimes);
