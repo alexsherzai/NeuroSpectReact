@@ -19,6 +19,8 @@ import Grid from './components/Grid';
 import ExecutiveInstructions from './components/ExecutiveInstructions';
 import GridInstructions from './components/GridInstructions';
 import Language from './components/Language';
+import LangInstructinos from './components/LangInstructions';
+
 import './components/stylesheet.css';
 
 import { setDoc, doc } from 'firebase/firestore';
@@ -266,6 +268,7 @@ const App = () => {
 
             {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} />}
+            {stage === 'lang-instr' && <LangInstructinos onTimeEnd={() => nextStage('language')} />}
 
             {stage === 'att-tutorial' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
             {stage === 'attentionShapes' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
@@ -275,12 +278,16 @@ const App = () => {
 
             {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3')} storeExec={storeExec}/>}
 
-            {stage === "language" && <Language />}
+            {stage === "language" && <Language onTimeEnd={() => nextStage('int3')} />}
 
             {gameVersion === 1 ? 
             (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />)
             :
+            (gameVersion === 2 ?
             (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />)
+            :
+            (stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('rec-instr')} />)
+            )
             }
 
             {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
