@@ -4,7 +4,7 @@ import './stylesheet.css';
 import { updateDoc, doc } from 'firebase/firestore';
 import { storage } from '../config/firebase';
 
-const Language = ({gameVersion, onTimeEnd, words}) => {
+const Language = ({onTimeEnd, langScore, langData}) => {
     const [timeLeft, setTimeLeft] = useState(120);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
     const [end, setEnd] = useState(false);
@@ -29,7 +29,10 @@ const Language = ({gameVersion, onTimeEnd, words}) => {
     const [optionList, setOptionList] = useState([]);
 
     const [listOfAnswers, setListOfAnswers] = useState([]);
+    const [langTime, setLangTime] = useState([]);
     const [score, setScore] = useState(0);
+
+    const [curTime, setCurTime] = useState(Date.now());
 
     let docName = userID;
     if(prolificID !== null) {
@@ -39,6 +42,7 @@ const Language = ({gameVersion, onTimeEnd, words}) => {
     }
     
     useEffect(() => {
+        setCurTime(Date.now());
         generateQ();
 
         const timer = setInterval(() => {
@@ -50,6 +54,16 @@ const Language = ({gameVersion, onTimeEnd, words}) => {
                 return oldTime - 1;
             });
         }, 1000);
+
+        if(iter >= 24 || timeLeft <= 0) {
+            langScore(score);
+            langData(
+                {
+                    langWordList: listOfAnswers,
+                    langSpeed: langTime
+                }
+            );
+        }
 
         console.log(listOfAnswers);
         console.log(score);
@@ -69,6 +83,9 @@ const Language = ({gameVersion, onTimeEnd, words}) => {
     const clicked = (buttonNum) => {
         const wordClicked = optionList[buttonNum];
         listOfAnswers.push(wordClicked);
+
+        let temp = Date.now() - curTime;
+        langTime.push(temp);
 
         if(wordClicked === options[iter][0]) {
             setScore(score + 1);

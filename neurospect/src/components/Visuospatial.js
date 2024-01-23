@@ -38,6 +38,7 @@ const Visuospatial = ( { visData, storeVis, onTimeEnd }) => {
 		correct.forEach(e => {if(e === 1) {correctNum++}});
 
         correctNum *= (100/15);
+        correctNum = Math.round(correctNum * 100) / 100
 
         console.log("Score", correctNum);
 

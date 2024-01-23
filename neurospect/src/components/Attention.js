@@ -274,6 +274,8 @@ const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd })
 
 		correctNum *= (10/3);
 
+		correctNum = Math.round(correctNum * 100) / 100
+
 
 
 		console.log(buttonClickTimes);

@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
-const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, langScore, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
@@ -40,7 +40,7 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div style={{ fontSize: '20px' }}>Processing Speed</div>
-                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedColors}</div>
+                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedColors} s</div>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div style={{ fontSize: '20px' }}>Processing Speed</div>
-                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedShapes}</div>
+                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedShapes} s</div>
                 </div>
             </div>
             </div>
@@ -74,6 +74,17 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div style={{ fontSize: '20px' }}>Speed</div>
                         <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{gridSpeed}</div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            {gameVersion === 3 &&
+            <div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Language</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{langScore} / 24</div>
                     </div>
                 </div>
             </div>
