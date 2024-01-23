@@ -283,9 +283,8 @@ const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd })
 
 		const average = array => array.reduce((a, b) => a + b) / array.length;
 
-		let pSpeed = Math.round(average(buttonClickTimes))
+		let pSpeed = Math.round(average(buttonClickTimes)) / 1000;
 
-		console.log();
 		console.log(shapeList);
 
 		storeAtt(correctNum);

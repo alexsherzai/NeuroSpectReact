@@ -196,6 +196,16 @@ h4 {
     align-items: center;
     height: 70vh;
 }
+
+.level-content-full {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .listCont {
     position: relative;
     display: flex;
