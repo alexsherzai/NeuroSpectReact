@@ -23,7 +23,7 @@ import LangInstructinos from './components/LangInstructions';
 
 import './components/stylesheet.css';
 
-import { setDoc, doc } from 'firebase/firestore';
+import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
@@ -214,8 +214,18 @@ const App = () => {
     const userID = queryParams.get("userID");
     const gameV = queryParams.get("version");
     const isFull = queryParams.get("isFull");
+
+    const storePreviousAttempts = async() => {
+        await getDocs(collection(storage, "neurospect"))
+            .then((querySnapshot)=>{               
+                const newData = querySnapshot.docs
+                    .map((doc) => ({...doc.data(), id:doc.userID }));
+                console.log(newData);
+            })
+    }
     
     useEffect(() => {
+        storePreviousAttempts();
         setGameVersion(gameV);
         if(!first) {
             switch(gameV) {
