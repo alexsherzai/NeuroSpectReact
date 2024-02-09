@@ -22,6 +22,14 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                     for(var i = 0; i < newData.length; i++) {
                         if(newData[i].userID === userID) {
                             console.log(newData[i]);
+
+                            if(newData[i].previousAttempts == null && newData[i].lastUpdated != null) {
+                                console.log("2nd attempt");
+                            } else if(newData[i].lastUpdated == null) {
+                                console.log("1st attempt");
+                            } else if(newData[i].previousAttempts != null) {
+                                console.log("Attempt #" + newData[i].previousAttempts.length.toString());
+                            }
                         }
                     }
             })
