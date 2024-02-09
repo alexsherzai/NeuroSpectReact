@@ -20,7 +20,9 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                     setAllData(newData);
 
                     for(var i = 0; i < newData.length; i++) {
-                        console.log(newData[i]);
+                        if(newData[i].userID === userID) {
+                            console.log(newData[i]);
+                        }
                     }
             })
     }
