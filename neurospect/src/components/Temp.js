@@ -19,7 +19,9 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                 
                     setAllData(newData);
 
-                    console.log(newData);
+                    for(var i = 0; i < newData.length; i++) {
+                        console.log(newData[i]);
+                    }
             })
     }
 
@@ -44,7 +46,7 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                 introFull();
                 break;
         }*/
-    }, [allData]);
+    }, []);
 
 };
 
