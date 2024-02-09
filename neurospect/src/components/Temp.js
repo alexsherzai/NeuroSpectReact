@@ -44,8 +44,8 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                                 console.log(prevObj);
                             } else if(newData[i].previousAttempts != null) {
                                 console.log(newData[i].previousAttempts);
-                                console.log("Attempt #" + newData[i].previousAttempts.length.toString());
-                                let dateStr = newData[i].lastUpdated.toString();
+                                console.log("Attempt #" + newData[i].previousAttempts.length);
+                                let dateStr = newData[i].lastUpdated;
 
                                 let temp = newData[i];
 
