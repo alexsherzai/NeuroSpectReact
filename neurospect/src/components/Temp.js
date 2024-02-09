@@ -18,6 +18,8 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                     .map((doc) => ({...doc.data(), id:doc.userID }));
                 
                     setAllData(newData);
+
+                    console.log("test");
             })
     }
 
