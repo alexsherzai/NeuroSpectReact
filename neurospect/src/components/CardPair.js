@@ -3646,6 +3646,8 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
     return (
         <div>
+            <div style={{"height": "15vh"}}>
+            </div>
             <div className="card-grid">
             
             {shuffledShapes.map((shape, index) => (

@@ -41,8 +41,8 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
             {
                 prosScores: {scores},
                 prosSpeeds: {speeds},
-                accuracy: acc,
-                speed: sp
+                accuracyGrid: acc,
+                speedGrid: sp
             }
         );
     }

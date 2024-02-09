@@ -13,13 +13,16 @@ import AttentionTutorial from './components/AttentionTutorial';
 import ShapesInstructions from './components/ShapesInstructions';
 import VisuoTutorial from './components/VisuoTutorial';
 import Countdown from './components/Countdown';
-import DisplayScore from './components/DisplayScore';
+import DisplayScoreOld from './components/DisplayScoreOld';
+import Final from './components/Final';
 import CardPair from './components/CardPair';
 import Grid from './components/Grid';
 import ExecutiveInstructions from './components/ExecutiveInstructions';
+import ExecTutorial from './components/ExecTutorial';
 import GridInstructions from './components/GridInstructions';
 import Language from './components/Language';
 import LangInstructinos from './components/LangInstructions';
+import Temp from './components/Temp';
 
 import './components/stylesheet.css';
 
@@ -27,7 +30,7 @@ import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('');
+    const [stage, setStage] = useState('prescene');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
@@ -212,47 +215,14 @@ const App = () => {
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
-    const gameV = queryParams.get("version");
-    const isFull = queryParams.get("isFull");
 
-    const storePreviousAttempts = async() => {
-        await getDocs(collection(storage, "neurospect"))
-            .then((querySnapshot)=>{               
-                const newData = querySnapshot.docs
-                    .map((doc) => ({...doc.data(), id:doc.userID }));
-                console.log(newData);
-            })
+    const setGameV = (vers) => {
+        setGameVersion(vers);
     }
     
     useEffect(() => {
-        storePreviousAttempts();
-        setGameVersion(gameV);
-        if(!first) {
-            switch(gameV) {
-                case 1:
-                    setStage("intro");
-                    break;
-                case 2:
-                    setStage("intro-2");
-                    break;
-                case 3:
-                    setStage("intro-3");
-                    break;
-                case 4:
-                    setStage("intro-full");
-                    break;
-                default:
-                    setStage("intro");
-                    break;
-            }
-
-            setFirst(true);
-        }
-
-        if(gameV === null) {
-            setGameVersion(1);
-        }
-    });
+        
+    }, [stage]);
 
     let docName = userID;
     if(prolificID !== null) {
@@ -305,6 +275,8 @@ const App = () => {
 
     return (
         <div>
+            {stage === 'prescene' && <Temp userID = {userID} setGameV = {setGameV} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
+
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
             {stage === 'intro-2' && <Intro onTimeEnd={() => nextStage('int1-2')} />}
             {stage === 'intro-3' && <Intro onTimeEnd={() => nextStage('int1-3')} />}
@@ -334,7 +306,7 @@ const App = () => {
             {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end')}/>}
 
             {stage === 'end' && 
-                <DisplayScore prolific={prolificID} gameVersion={1} AddData={AddData} id={prolificID} attScoreColors={acs} attScoreShapes={AttShS} speedColors={psc} speedShapes={pss} visuo={visSc} recall={recSc}/>}
+                <Final prolific={prolificID} version={1} AddData={AddData}/>}
 
             {/* Version 2 */}
 
@@ -343,7 +315,8 @@ const App = () => {
             {stage === 'encoding-2' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2-2')} />}
 
             {stage === "int2-2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />}
-            {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} />}
+            {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} tutButton={() => nextStage('exec-tut')}/>}
+            {stage === "exec-tut" && <ExecTutorial onTimeEnd={() => nextStage('executive')} />}
             {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3-2')} storeExec={storeExec}/>}
 
             {stage === "int3-2" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />}
@@ -355,7 +328,7 @@ const App = () => {
             {stage === 'recall-2' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end-2')}/>}
 
             {stage === 'end-2' &&
-                <DisplayScore prolific={prolificID} gameVersion={2} AddData={AddData} id={prolificID} execScore={execSc} gridScore={gridSc} gridSpeed={gridSpeed} recall={recSc}/>}
+                <Final prolific={prolificID} version={2} AddData={AddData}/>}
 
             {/* Version 3 */}
 
@@ -363,7 +336,7 @@ const App = () => {
             {stage === 'enc-instr-3' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-3')} />}
             {stage === 'encoding-3' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2-3')} />}
 
-            {stage === "int2-2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('lang-instr')} />}
+            {stage === "int2-3" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('lang-instr')} />}
             {stage === 'lang-instr' && <LangInstructinos onTimeEnd={() => nextStage('language')} />}
             {stage === "language" && <Language langScore={storeLang} langData={storeLangData} onTimeEnd={() => nextStage('int3-3')} />}
 
@@ -372,7 +345,7 @@ const App = () => {
             {stage === 'recall-3' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end-3')}/>}
 
             {stage === 'end-3' &&
-                <DisplayScore prolific={prolificID} gameVersion={3} AddData={AddData} id={prolificID} langScore={langSc} recall={recSc}/>}
+                <Final prolific={prolificID} version={3} AddData={AddData}/>}
 
 
             {/*Full Version*/}

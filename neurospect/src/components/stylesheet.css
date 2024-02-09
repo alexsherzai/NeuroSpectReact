@@ -247,6 +247,7 @@ h4 {
     border: 1px dashed #5A89F5;
     height: 80px;
 }
+
 .listContCurr::before {
     content: "";
     position: absolute;
@@ -855,10 +856,39 @@ input:focus {
     left: 20px;
 }
 
+/*Executive Tutorial */
+
+.exec-main-shape {
+    z-index: 1002;
+    background-color: #F4F6FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+    text-align:'center';
+}
+.exec-main-shape2 {
+    z-index: 0;
+    background-color: #F4F6FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    border-radius: 15px;
+    text-align:'center';
+    margin:'10px';
+}
 
 /* Executive Function */
 
 .card-grid {
+    justify-content: end;
+    align-items: end;
+    align-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
@@ -867,8 +897,24 @@ input:focus {
   
 .card {
     margin-bottom: 75px;
-    width: 75%;
-    height: 65%; 
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: solid 1.5px #D1D5DA;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+    padding: 10px;
+}
+
+.card-tut {
+    width: 60px;
+    height: 60px;
     background-color: #f0f0f0;
     border-radius: 6px;
     display: flex;
@@ -878,6 +924,7 @@ input:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out; 
+    padding: 10px;
 }
 
 .card:hover {
@@ -886,9 +933,10 @@ input:focus {
 
 .cardClicked {
     margin-bottom: 75px;
-    width: 75%;
-    height: 65%; 
-    background-color: #FF9417;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: solid 1.5px #5A89F5;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -897,13 +945,15 @@ input:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out; 
+    padding: 10px;
 }
 
 .cardSolved {
     margin-bottom: 75px;
-    width: 75%;
-    height: 65%; 
+    width: 60px;
+    height: 60px;
     background-color: #333;
+    border: solid 1.5px #D1D5DA;
     opacity: 0.6;
     border-radius: 6px;
     display: flex;
@@ -913,6 +963,7 @@ input:focus {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out; 
+    padding: 10px;
 }
 
 

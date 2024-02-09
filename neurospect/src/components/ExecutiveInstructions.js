@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './stylesheet.css';
 
-const ExecutiveInstructions = ({onTimeEnd}) => {
+const ExecutiveInstructions = ({onTimeEnd, tutButton}) => {
 
     const handleClick = () => {
         onTimeEnd();
@@ -25,6 +25,7 @@ const ExecutiveInstructions = ({onTimeEnd}) => {
                 </div>
             
             <div className='buttonCont'>
+            <button className="buttonSecondary" onClick={tutButton}>How To Play</button>
             <button className="buttonNext" onClick={handleClick}>Play Game</button>
             </div>
         </div>

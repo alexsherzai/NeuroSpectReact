@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
-const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, langScore, recall}) => {
+const DisplayScoreOld = ({ prolific, gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, langScore, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
@@ -143,4 +143,4 @@ const DisplayScore = ({ prolific, gameVersion, AddData, execScore, gridScore, gr
 	);
 };
 
-export default DisplayScore;
+export default DisplayScoreOld;
