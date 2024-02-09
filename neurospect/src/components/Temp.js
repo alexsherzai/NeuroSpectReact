@@ -19,7 +19,7 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                 
                     setAllData(newData);
 
-                    console.log("test");
+                    console.log(newData);
             })
     }
 
