@@ -34,10 +34,13 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
 
                                 let prevObj = {
                                     previousAttempts: {
-                                        dateStr: newData[i]
+                                        
                                     }
-                                };
+                                }
 
+                                prevObj.previousAttempts[dateStr] = newData[i];
+
+                                
                                 console.log(prevObj);
                             } else if(newData[i].previousAttempts != null) {
                                 console.log("Attempt #" + newData[i].previousAttempts.length.toString());
