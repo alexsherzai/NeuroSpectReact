@@ -19,18 +19,36 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                 
                     setAllData(newData);
 
+                    let found = false;
+
                     for(var i = 0; i < newData.length; i++) {
                         if(newData[i].userID === userID) {
                             console.log(newData[i]);
 
+                            found = true;
+
                             if(newData[i].previousAttempts == null && newData[i].lastUpdated != null) {
                                 console.log("2nd attempt");
-                            } else if(newData[i].lastUpdated == null) {
-                                console.log("1st attempt");
+
+                                let dateStr = newData[i].lastUpdated.toString();
+
+                                let prevObj = {
+                                    previousAttempts: {
+                                        dateStr: newData[i]
+                                    }
+                                };
+
+                                console.log(prevObj);
                             } else if(newData[i].previousAttempts != null) {
                                 console.log("Attempt #" + newData[i].previousAttempts.length.toString());
                             }
+
+                            break;
                         }
+                    }
+
+                    if(!found) {
+                        console.log("1st attempt");
                     }
             })
     }
