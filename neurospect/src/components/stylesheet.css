@@ -932,7 +932,7 @@ input:focus {
 }
 
 .cardClicked {
-    margin-bottom: 75px;
+    margin-bottom: 20px;
     width: 60px;
     height: 60px;
     background-color: white;
@@ -949,7 +949,7 @@ input:focus {
 }
 
 .cardSolved {
-    margin-bottom: 75px;
+    margin-bottom: 20px;
     width: 60px;
     height: 60px;
     background-color: #333;
