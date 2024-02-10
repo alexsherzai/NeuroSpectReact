@@ -85,6 +85,7 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
 
                     if(!found) {
                         setGameV(1);
+                        intro();
                     }
             })
     }
