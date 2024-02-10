@@ -4,9 +4,9 @@ import { storage } from '../config/firebase';
 
 import './stylesheet.css';
 
-const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
+const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}) => {
 
-    const [allData, setAllData] = useState({});
+    const [prevData, setPrevData] = useState({});
 
     const [result, setResult] = useState([]);
     
@@ -17,8 +17,6 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({...doc.data(), id:doc.userID }));
                 
-                    setAllData(newData);
-
                     let found = false;
 
                     for(var i = 0; i < newData.length; i++) {
@@ -40,19 +38,41 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
 
                                 prevObj.previousAttempts[dateStr] = newData[i];
 
-                                
                                 console.log(prevObj);
+                                storePrevAtt(prevObj);
+
+                                setGameV(2);
+                                intro2();
                             } else if(newData[i].previousAttempts != null) {
                                 let dateStr = newData[i].lastUpdated;
 
-                                let temp = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts').reduce((newObj, key) => {
+                                let prevAtt = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' || objKey !== 'userID' || objKey !== 'testID').reduce((newObj, key) => {
                                     newObj[key] = newData[i][key];
                                     return newObj;
                                 }, {}
                                 );
 
-                                console.log(temp);
-                                console.log(newData[i]);
+                                let allAttempts = Object.keys(newData[i].previousAttempts);
+
+                                allAttempts[dateStr] = prevAtt;
+
+                                console.log(allAttempts);
+                                storePrevAtt(allAttempts);
+
+                                switch((Object.keys(newData[i].previousAttempts).length + 2) % 3) {
+                                    case 0:
+                                        setGameV(3);
+                                        intro3();
+                                        break;
+                                    case 1:
+                                        setGameV(1);
+                                        intro();
+                                        break;
+                                    case 2:
+                                        setGameV(2);
+                                        intro2();
+                                        break;
+                                }
 
 
                                 
@@ -64,7 +84,7 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                     }
 
                     if(!found) {
-                        console.log("1st attempt");
+                        setGameV(1);
                     }
             })
     }
@@ -73,23 +93,6 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
 
         storePreviousAttempts();
 
-        console.log(allData);
-                
-        /*switch(parseInt(vers)) {
-            case 1:
-                intro();
-                break;
-            case 2:
-                console.log("made it to 2")
-                intro2();
-                break;
-            case 3:
-                intro3();
-                break;
-            case 4:
-                introFull();
-                break;
-        }*/
     }, []);
 
 };
