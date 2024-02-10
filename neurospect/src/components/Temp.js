@@ -58,9 +58,9 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }, {}
                                 );
 
-                                let allAttempts = Object.keys(newData[i]);
+                                let allAttempts = Object.keys(newData[i].previousAttempts);
 
-                                allAttempts.previousAttempts[dateStr] = prevAtt;
+                                allAttempts[dateStr] = prevAtt;
 
                                 console.log(allAttempts);
 
