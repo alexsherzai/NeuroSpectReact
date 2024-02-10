@@ -75,8 +75,6 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }
 
 
-                                
-                                //newData[i].previousAttempts[dateStr] = newData[i].delete
                             }
 
                             break;

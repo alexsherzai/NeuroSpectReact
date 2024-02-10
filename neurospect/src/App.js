@@ -261,6 +261,8 @@ const App = () => {
                 break;
         }
 
+        Object.assign(data, prevAtt);
+
         console.log(data);
 
         try {
