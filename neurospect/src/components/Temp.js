@@ -21,12 +21,10 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
 
                     for(var i = 0; i < newData.length; i++) {
                         if(newData[i].userID === userID) {
-                            console.log(newData[i]);
 
                             found = true;
 
                             if(newData[i].previousAttempts == null && newData[i].lastUpdated != null) {
-                                console.log("2nd attempt");
 
                                 let dateStr = newData[i].lastUpdated.toString();
 
@@ -37,9 +35,6 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }
 
                                 prevObj.previousAttempts[dateStr] = newData[i];
-
-                                console.log(prevObj);
-                                storePrevAtt(prevObj);
 
                                 setGameV(2);
                                 intro2();
@@ -56,7 +51,6 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
 
                                 allAttempts[dateStr] = prevAtt;
 
-                                console.log(allAttempts);
                                 storePrevAtt(allAttempts);
 
                                 switch((Object.keys(newData[i].previousAttempts).length + 2) % 3) {

@@ -203,17 +203,10 @@ const App = () => {
 		</svg>,
 	];
 
-    console.log(gameVersion);
-    console.log(stage);
-
     const nextStage = (stageName) => {
         setStage(stageName);
     }
-
-    const filler = () => {
-        console.log("Nothing");
-    }
-
+    
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
