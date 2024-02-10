@@ -226,6 +226,8 @@ const App = () => {
         let currentDate = new Date().toLocaleString() + "";
         currentDate = currentDate.split(",")[0];
 
+        console.log(prevAtt);
+
         const reviewRef = doc(storage, "neurospect", docName);
 
         

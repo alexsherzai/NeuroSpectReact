@@ -36,12 +36,16 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
 
                                 prevObj.previousAttempts[dateStr] = newData[i];
 
+                                
+
+                                
+
                                 setGameV(2);
                                 intro2();
                             } else if(newData[i].previousAttempts != null) {
                                 let dateStr = newData[i].lastUpdated;
 
-                                let prevAtt = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' || objKey !== 'userID' || objKey !== 'testID').reduce((newObj, key) => {
+                                let prevAtt = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' || objKey !== 'userID' || objKey !== 'testID' || objKey !== 'id').reduce((newObj, key) => {
                                     newObj[key] = newData[i][key];
                                     return newObj;
                                 }, {}
