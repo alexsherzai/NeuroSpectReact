@@ -28,7 +28,7 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
 
                                 let dateStr = newData[i].lastUpdated.toString();
 
-                                let tempPrevData = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' || objKey !== 'userID' || objKey !== 'testID' || objKey !== 'id').reduce((newObj, key) => {
+                                let tempPrevData = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' && objKey !== 'userID' && objKey !== 'testID' && objKey !== 'id').reduce((newObj, key) => {
                                     newObj[key] = newData[i][key];
                                     return newObj;
                                 }, {}
@@ -52,7 +52,7 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                             } else if(newData[i].previousAttempts != null) {
                                 let dateStr = newData[i].lastUpdated;
 
-                                let prevAtt = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' || objKey !== 'userID' || objKey !== 'testID' || objKey !== 'id').reduce((newObj, key) => {
+                                let prevAtt = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts' && objKey !== 'userID' && objKey !== 'testID' && objKey !== 'id').reduce((newObj, key) => {
                                     newObj[key] = newData[i][key];
                                     return newObj;
                                 }, {}
