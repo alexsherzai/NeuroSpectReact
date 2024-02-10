@@ -62,6 +62,8 @@ const App = () => {
 
     const [first, setFirst] = useState(false);
 
+    const [prevAtt, setPrevAtt] = useState({});
+
     //Passing Scores to App.js
 
     const storeAttentionColors = (score) => {
@@ -215,10 +217,6 @@ const App = () => {
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
     const userID = queryParams.get("userID");
-
-    const setGameV = (vers) => {
-        setGameVersion(vers);
-    }
     
     useEffect(() => {
         
@@ -275,7 +273,7 @@ const App = () => {
 
     return (
         <div>
-            {stage === 'prescene' && <Temp userID = {userID} setGameV = {setGameV} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
+            {stage === 'prescene' && <Temp userID = {userID} storePrevAtt={setPrevAtt} setGameV = {setGameVersion} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
 
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
             {stage === 'intro-2' && <Intro onTimeEnd={() => nextStage('int1-2')} />}
