@@ -45,7 +45,11 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
                             } else if(newData[i].previousAttempts != null) {
                                 let dateStr = newData[i].lastUpdated;
 
-                                let temp = newData[i];
+                                let temp = Object.keys(newData[i]).filter(objKey => objKey !== 'previousAttempts').reduce((newObj, key) => {
+                                    newObj[key] = newData[i][key];
+                                    return newObj;
+                                }, {}
+                                );
 
                                 console.log(temp);
                                 console.log(newData[i]);
