@@ -47,14 +47,12 @@ const Temp = ({userID, setGameV, intro, intro2, intro3, introFull}) => {
 
                                 let temp = newData[i];
 
-                                delete temp.previousAttempts;
-
                                 console.log(temp);
                                 console.log(newData[i]);
 
 
                                 
-                                newData[i].previousAttempts[dateStr] = newData[i].delete
+                                //newData[i].previousAttempts[dateStr] = newData[i].delete
                             }
 
                             break;
