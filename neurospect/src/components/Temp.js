@@ -34,17 +34,17 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }, {}
                                 );
 
-                                console.log(tempPrevData);
-
                                 let prevObj = {
                                     previousAttempts: {
                                         
                                     }
                                 }
 
-                                prevObj.previousAttempts[dateStr] = tempPrevData[i];
+                                prevObj.previousAttempts[dateStr] = tempPrevData;
 
                                 console.log(prevObj);
+
+                                storePrevAtt(prevObj);
                                 
 
                                 setGameV(2);
@@ -58,9 +58,9 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }, {}
                                 );
 
-                                let allAttempts = Object.keys(newData[i].previousAttempts);
+                                let allAttempts = Object.keys(newData[i]);
 
-                                allAttempts[dateStr] = prevAtt;
+                                allAttempts.previousAttempts[dateStr] = prevAtt;
 
                                 console.log(allAttempts);
 
