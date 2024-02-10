@@ -58,15 +58,15 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }, {}
                                 );
 
-                                let allAttempts = Object.keys(newData[i].previousAttempts);
+                                let allData = Object.keys(newData[i]);
 
-                                console.log(allAttempts);
+                                console.log(allData.previousAttempts);
 
+                                /*
                                 allAttempts[dateStr] = prevAtt;
-
                                 console.log(allAttempts);
-
                                 storePrevAtt(allAttempts);
+                                */
 
                                 switch((Object.keys(newData[i].previousAttempts).length + 2) % 3) {
                                     case 0:
