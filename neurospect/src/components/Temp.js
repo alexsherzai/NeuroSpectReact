@@ -34,6 +34,8 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }, {}
                                 );
 
+                                console.log(tempPrevData);
+
                                 let prevObj = {
                                     previousAttempts: {
                                         
@@ -41,8 +43,6 @@ const Temp = ({userID, storePrevAtt, setGameV, intro, intro2, intro3, introFull}
                                 }
 
                                 prevObj.previousAttempts[dateStr] = tempPrevData;
-
-                                console.log(prevObj);
 
                                 storePrevAtt(prevObj);
                                 

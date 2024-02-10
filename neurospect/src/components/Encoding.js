@@ -56,7 +56,6 @@ const Encoding = ({gameVersion, onTimeEnd, words}) => {
                 setHighlightedIndex(value);
             }
         }        
-        console.log(highlightedIndex);
     }
     
     return (
