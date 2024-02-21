@@ -111,7 +111,7 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     const cellClicked = (index) => {
         if (clickable && cellColors[index] !== 'Clicked') {
             const tempArr = [...cellColors];
-            tempArr[index] = 'Clicked';
+            tempArr[index] = 'Pattern';
             setCellColors(tempArr);
 
             let temp = [...clickedCells, index];

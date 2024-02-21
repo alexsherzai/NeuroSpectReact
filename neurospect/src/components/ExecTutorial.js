@@ -18,7 +18,8 @@ const ExecTutorial = ({onTimeEnd }) => {
 
     const [showButton, setShowButton] = useState(false);
 
-    const shuffledShapes = [<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+    const shuffledShapes = [
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
                 <pattern id="pattern-dots-green" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                     <circle fill = "green" cx="5" cy="5" r="4"></circle>
                     <circle fill = "green" cx="15" cy="15" r="4"></circle>
@@ -306,16 +307,16 @@ const ExecTutorial = ({onTimeEnd }) => {
                             {shuffledShapes.map((shape, index) => (
                                 solvedCards.includes(index) ?
                                 (<div key={index} className="cardSolved">
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (clickedShapes.includes(index) ?
                                 (<div key={index} className="cardClicked" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (<div key={index} className="card" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>))
                             ))}
                                 
@@ -346,16 +347,16 @@ const ExecTutorial = ({onTimeEnd }) => {
                             {shuffledShapes.map((shape, index) => (
                                 solvedCards.includes(index) ?
                                 (<div key={index} className="cardSolved">
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (clickedShapes.includes(index) ?
                                 (<div key={index} className="cardClicked" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (<div key={index} className="card" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>))
                             ))}
                                 
@@ -396,16 +397,16 @@ const ExecTutorial = ({onTimeEnd }) => {
                             {shuffledShapes.map((shape, index) => (
                                 solvedCards.includes(index) ?
                                 (<div key={index} className="cardSolved">
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (clickedShapes.includes(index) ?
                                 (<div key={index} className="cardClicked" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>)
                                 :
                                 (<div key={index} className="card" onClick={() => cardClicked(index)}>
-                                <div>{shape}</div>
+                                {shape}
                                 </div>))
                             ))}
                                 

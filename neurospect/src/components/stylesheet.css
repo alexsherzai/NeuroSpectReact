@@ -431,6 +431,7 @@ h4 {
     left: 0;
     right: 0;
     text-align: center;
+    justify-content: center;
 }
 
 .buttonNextModal {
@@ -901,7 +902,7 @@ input:focus {
     width: 60px;
     height: 60px;
     background-color: white;
-    border: solid 1.5px #D1D5DA;
+    border: solid 1px #D1D5DA;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -916,7 +917,8 @@ input:focus {
 .card-tut {
     width: 60px;
     height: 60px;
-    background-color: #f0f0f0;
+    background-color: white;
+    border: solid 1px #D1D5DA;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -928,16 +930,31 @@ input:focus {
     padding: 10px;
 }
 
-.card:hover {
-    background-color: #7c7c7c; 
-}
-
 .cardClicked {
     margin-bottom: 20px;
     width: 60px;
     height: 60px;
     background-color: white;
-    border: solid 1.5px #5A89F5;
+    border: solid 1px #5A89F5;
+    box-shadow: 0px 1px 4px 0px #3F63B7;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; 
+    padding: 10px;
+}
+
+.cardWrong {
+    margin-bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: solid 1px #CD3843;
+    box-shadow: 0px 1px 4px 0px #3F63B7;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -950,11 +967,12 @@ input:focus {
 }
 
 .cardSolved {
+    opacity: 0.3;
     margin-bottom: 20px;
     width: 60px;
     height: 60px;
-    background-color: #333;
-    border: solid 1.5px #D1D5DA;
+    background-color: white;
+    border: solid 1px #D1D5DA;
     opacity: 0.6;
     border-radius: 6px;
     display: flex;
@@ -993,12 +1011,8 @@ input:focus {
     margin-right: auto;
 }
 
-.cell:hover {
-    background-color: #d0d0d0;
-}
-
 .cell {
-    border: solid 2px black;
+    border: solid 2px #D1D5DA;
     border-radius: 10px;
 }
 
@@ -1007,12 +1021,6 @@ input:focus {
     margin-top: 25%;
     max-width: 350px;
     min-width: 300px;
-}
-
-.cellClicked {
-    border: solid 2px black;
-    border-radius: 10px;
-    background-color: #FF9417;
 }
 
 .cellPattern {

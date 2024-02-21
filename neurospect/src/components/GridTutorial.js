@@ -19,11 +19,82 @@ const GridTutorial = ({onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(4);
 	const [countdownText, setCountdownText] = useState("Ready?");
 
+    const [shown, setShown] = useState(false);
+    const [clickable, setClickable] = useState(true);
+
+    const patternIndices = [4, 8];
+
     const cellClicked = (index) => {
-        
+        if(clickable) {
+            let temp = [...clickedShapes];
+            temp.push(index);
+
+            let tempColors = [...cellColors];
+
+            tempColors[index] = "Pattern";
+
+            if(temp.length >= 2) {
+                setClickable(false);
+
+                let bothTrue = true;
+
+                for(let i = 0; i < temp.length; i++) {
+                    let found = false;
+                    for(let j = 0; j < patternIndices.length; j++) {
+                        if(temp[i] === patternIndices[j]) {
+                            found = true;
+                        }
+                    }
+
+                    if(found) {
+                        tempColors[temp[i]] = "Correct";
+                    } else {
+                        tempColors[temp[i]] = "Wrong";
+                        bothTrue = false;
+                    }
+                }
+
+                if(bothTrue) {
+                    setTimeout(() => {
+                        setCellColors(Array(9).fill(''));
+                        setClickedShapes([]);
+                        setClickable(true);
+                        setIter(5);
+                    }, 1000);
+                }
+
+                setTimeout(() => {
+                    setCellColors(Array(9).fill(''));
+                    setClickedShapes([]);
+                    setClickable(true);
+                }, 1000);
+            }
+
+            setCellColors(tempColors);
+
+            setClickedShapes(temp);
+        }
     };
 
     useEffect(() => {
+
+        if(iter === 4 && !shown) {
+            let grid = [];
+                for (let i = 0; i < gridSize ** 2; i++) {
+                    if(patternIndices.includes(i)) {
+                        grid.push('Pattern');
+                    } else {
+                        grid.push('');
+                    }
+                }
+                setCellColors(grid);
+
+            setShown(true);
+            
+            setTimeout(() => {
+                setCellColors(Array(9).fill(''));
+            }, 1000);
+        }
 
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {
@@ -187,21 +258,15 @@ const GridTutorial = ({onTimeEnd }) => {
 
              {iter === 4 &&
 
-                <div onClick={onClickResponse}>
+                <div>
                     <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>
                         <div style={{height: '10vh', textAlign: 'center'}}>
                             <h3>Replicate the Sequence</h3>
                         </div>
                         <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
-                            <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
-                            <div className='cell' onClick={() => cellClicked(1)} key={1}></div>
-                            <div className='cell' onClick={() => cellClicked(2)} key={2}></div>
-                            <div className='cell' onClick={() => cellClicked(3)} key={3}></div>
-                            <div className='cell' onClick={() => cellClicked(4)} key={4}></div>
-                            <div className='cell' onClick={() => cellClicked(5)} key={5}></div>
-                            <div className='cell' onClick={() => cellClicked(6)} key={6}></div>
-                            <div className='cell' onClick={() => cellClicked(7)} key={7}></div>
-                            <div className='cell' onClick={() => cellClicked(8)} key={8}></div>
+                            {cellColors.map((cell, index) => (
+                                <div className={`cell${cellColors[index]}`} onClick={() => cellClicked(index)} key={index}></div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -213,17 +278,22 @@ const GridTutorial = ({onTimeEnd }) => {
                 <div>
 
                     <div style={{position: "absolute"}}>
-                    <div style={{height: "15vh", left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>Pair up the matching cards</div>
-                        <div className="exec-main-shape">
-                            <div className="card-grid" style={{ backgroundColor:"#F4F6FA", borderRadius:"10px"}}>
-
-                            
-                                
+                        <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>
+                            <div style={{height: '10vh', textAlign: 'center'}}>
+                                <h3>Replicate the Sequence</h3>
+                            </div>
+                            <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
+                                <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
+                                <div className='cell' onClick={() => cellClicked(1)} key={1}></div>
+                                <div className='cell' onClick={() => cellClicked(2)} key={2}></div>
+                                <div className='cell' onClick={() => cellClicked(3)} key={3}></div>
+                                <div className='cell' onClick={() => cellClicked(4)} key={4}></div>
+                                <div className='cell' onClick={() => cellClicked(5)} key={5}></div>
+                                <div className='cell' onClick={() => cellClicked(6)} key={6}></div>
+                                <div className='cell' onClick={() => cellClicked(7)} key={7}></div>
+                                <div className='cell' onClick={() => cellClicked(8)} key={8}></div>
                             </div>
                         </div>
-                        <div className='buttonCont'>
-                            <h3 style={{color: {textColor}}}>{warningText}</h3>
-                    </div>
                     </div>
             
                 <div className="countdownText">
