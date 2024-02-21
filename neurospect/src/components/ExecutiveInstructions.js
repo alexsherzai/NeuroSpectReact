@@ -25,8 +25,8 @@ const ExecutiveInstructions = ({onTimeEnd, tutButton}) => {
                 </div>
             
             <div className='buttonCont'>
-            <button className="buttonSecondary" onClick={tutButton}>How To Play</button>
-            <button className="buttonNext" onClick={handleClick}>Play Game</button>
+            <button className="buttonNext" onClick={tutButton}>How To Play</button>
+            <button className="buttonSecondary" onClick={handleClick}>Play Game</button>
             </div>
         </div>
     );

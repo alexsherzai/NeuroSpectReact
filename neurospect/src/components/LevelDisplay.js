@@ -6,7 +6,7 @@ const LevelDisplay = ({ version, level, onTimeEnd }) => {
 
 	const levelVersions = {
 		1: ['Word Memory', 'Attention', 'Visuospatial', 'Recall'],
-		2: ['Word Memory', 'Executive Function', 'Processing', 'Recall'],
+		2: ['Word Memory', 'Problem Solving', 'Pattern Play', 'Recall'],
 		3: ['Word Memory', 'Language', 'Short-Term Recall'],
 		4: ['Word Memory', 'Attention', 'Visuospatial', 'Executive Function', 'Processing', 'Language', 'Long-Term Recall']
 	};

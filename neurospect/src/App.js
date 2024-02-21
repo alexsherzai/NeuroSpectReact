@@ -20,6 +20,7 @@ import Grid from './components/Grid';
 import ExecutiveInstructions from './components/ExecutiveInstructions';
 import ExecTutorial from './components/ExecTutorial';
 import GridInstructions from './components/GridInstructions';
+import GridTutorial from './components/GridTutorial';
 import Language from './components/Language';
 import LangInstructinos from './components/LangInstructions';
 import Temp from './components/Temp';
@@ -30,7 +31,7 @@ import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('prescene');
+    const [stage, setStage] = useState('exec-instr');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
@@ -315,7 +316,8 @@ const App = () => {
             {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3-2')} storeExec={storeExec}/>}
 
             {stage === "int3-2" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />}
-            {stage === 'grid-instr' && <GridInstructions onTimeEnd={() => nextStage('grid')}/>}
+            {stage === 'grid-instr' && <GridInstructions onTimeEnd={() => nextStage('grid')} tutButton={() => nextStage('grid-tut')}/>}
+            {stage === "grid-tut" && <GridTutorial onTimeEnd={() => nextStage('grid')} />}
             {stage === 'grid' && <Grid onTimeEnd={() => nextStage('int4-2')} gridData={storeGridData} accuracy={storeGrid} speed={storeGridSpeed}/>}
 
             {stage === 'int4-2' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr-2')} />}

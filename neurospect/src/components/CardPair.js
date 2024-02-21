@@ -3758,6 +3758,8 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                     </defs>
                 </svg>
             </div>
+
+            <button className="buttonNext" onClick={onTimeEnd}>Skip</button>
         </div>
     );
 };

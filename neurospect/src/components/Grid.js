@@ -196,10 +196,15 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     }
 
     return (
-        <div className="grid" style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)`, width: '100%', height: '350px'}}>
-            {cellColors.map((cell, index) => (
-                <div className={`cell${cellColors[index]}`} onClick={() => cellClicked(index)} key={index}></div>
-            ))}
+        <div className='gridCont'>
+            <div style={{height: '10vh', textAlign: 'center'}}>
+                <h3>Replicate the Sequence</h3>
+            </div>
+            <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: `repeat(${gridSize}, 1fr)`, width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
+                {cellColors.map((cell, index) => (
+                    <div className={`cell${cellColors[index]}`} onClick={() => cellClicked(index)} key={index}></div>
+                ))}
+            </div>
         </div>
     );
 }

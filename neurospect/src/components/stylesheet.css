@@ -868,6 +868,7 @@ input:focus {
     border-radius: 15px;
     text-align:'center';
 }
+
 .exec-main-shape2 {
     z-index: 0;
     background-color: #F4F6FA;
@@ -966,6 +967,18 @@ input:focus {
     padding: 10px;
 }
 
+/* Grid Tutorial */
+
+.grid-main-shape {
+    z-index: 1004;
+    background-color: #F4F6FA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    text-align:'center';
+}
+
 
 /* Grid */
 
@@ -976,6 +989,8 @@ input:focus {
     justify-content: center;
     vertical-align: center;
     margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cell:hover {
@@ -983,30 +998,37 @@ input:focus {
 }
 
 .cell {
-    border: solid 1px black;
+    border: solid 2px black;
     border-radius: 10px;
 }
 
+.gridCont {
+    margin: 15px;
+    margin-top: 25%;
+    max-width: 350px;
+    min-width: 300px;
+}
+
 .cellClicked {
-    border: solid 1px black;
+    border: solid 2px black;
     border-radius: 10px;
     background-color: #FF9417;
 }
 
 .cellPattern {
-    border: solid 1px black;
+    border: solid 2px #5A89F5;
     border-radius: 10px;
-    background-color: #5A89F5;
+    background-color: #D1DCF7;
 }
 
 .cellCorrect {
-    border: solid 1px black;
+    border: solid 2px #2E8970;
     border-radius: 10px;
     background-color: #2E8970;
 }
 
 .cellWrong {
-    border: solid 1px black;
+    border: solid 2px #CD3843;
     border-radius: 10px;
     background-color: #CD3843;
 }
