@@ -363,7 +363,7 @@ const ExecTutorial = ({onTimeEnd }) => {
                             </div>
                         </div>
                         <div className='buttonCont'>
-                            <h3 style={{color: {textColor}}}>{warningText}</h3>
+                            <h3 style={{textColor: {textColor}}}>{warningText}</h3>
                     </div>
                     </div>
             
@@ -413,7 +413,7 @@ const ExecTutorial = ({onTimeEnd }) => {
                             </div>
                         </div>
                         <div className='buttonCont'>
-                            <h3 style={{color: {textColor}}}>{warningText}</h3>
+                            <h3 style={{textColor: {textColor}}}>{warningText}</h3>
                     </div>
                     </div>
             
