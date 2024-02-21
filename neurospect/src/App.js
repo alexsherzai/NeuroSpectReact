@@ -224,8 +224,8 @@ const App = () => {
     }
      
     const AddData = async() => {
-        let currentDate = new Date().toLocaleString() + "";
-        currentDate = currentDate.split(",")[0];
+        let currentDate = Date.now();
+        let nextAvailableDate = currentDate + 2628000000;
 
         console.log(prevAtt);
 
@@ -236,6 +236,7 @@ const App = () => {
             testID: prolificID,
             userID: userID,
             lastUpdated: currentDate,
+            nextAvailableDate: nextAvailableDate,
             gameVersion: gameVersion
         }
 
