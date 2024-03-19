@@ -37,9 +37,10 @@ const LevelDisplay = ({ version, level, onTimeEnd }) => {
 	return (
 		<div className='fullGameMargin'>
 			<div>
-				<div style={{height:'5vh'}}>
-					
+				<div style={{height:'8vh'}}>
+					<h2>{Intl.DateTimeFormat('en-UK', {month: 'short', year: 'numeric', day: '2-digit'}).format(Date.now())}</h2>
 				</div>
+				
 
 				
 

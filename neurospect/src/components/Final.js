@@ -6,7 +6,7 @@ const Final = ({ prolific, AddData, version }) => {
 
 	const levelVersions = {
 		1: ['Word Memory', 'Attention', 'Visuospatial', 'Recall'],
-		2: ['Word Memory', 'Executive Function', 'Processing', 'Recall'],
+		2: ['Word Memory', 'Problem Solving', 'Pattern Play', 'Recall'],
 		3: ['Word Memory', 'Language', 'Short-Term Recall'],
 		4: ['Word Memory', 'Attention', 'Visuospatial', 'Executive Function', 'Processing', 'Language', 'Long-Term Recall']
 	};
@@ -36,7 +36,7 @@ const Final = ({ prolific, AddData, version }) => {
 		<div className='fullGameMargin'>
 			<div>
 				<div style={{height:'8vh'}}>
-					<h2>{Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(Date.now())}</h2>
+					<h2>{Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}).format(Date.now())}</h2>
 				</div>
 
 				<div className={`level-content${levelVersions[version].length > 4 ? `-full` : ``}`}>

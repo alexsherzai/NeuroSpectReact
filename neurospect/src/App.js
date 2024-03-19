@@ -31,7 +31,7 @@ import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('prescene');
+    const [stage, setStage] = useState('executive');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}

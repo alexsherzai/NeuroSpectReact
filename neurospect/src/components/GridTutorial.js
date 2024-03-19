@@ -304,7 +304,7 @@ const GridTutorial = ({onTimeEnd }) => {
 								<div style={{textAlign: 'center', fontFamily: "Poppins-Regular", fontSize: "30px", fontWeight: '600', marginBottom: '10%', color: 'white'}}>
 									Tutorial Over!
 								</div>
-								<button className="buttonSecondary" onClick={() => reset()}>How To Play</button>
+								<button className="buttonSecondary" onClick={() => reset()}>How to Play?</button>
 								<button className="buttonNext" onClick={onClickResponse}>Start Playing</button>
 							</div>
 						</div>

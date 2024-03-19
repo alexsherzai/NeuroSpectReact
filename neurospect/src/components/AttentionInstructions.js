@@ -18,7 +18,7 @@ const AttentionInstructions = ({tutButton, onTimeEnd}) => {
                     </div>
                 </div>
                 <div className='buttonCont'>
-                    <button className="buttonSecondary" onClick={tutButton}>How To Play</button>
+                    <button className="buttonSecondary" onClick={tutButton}>How To Play?</button>
                     <button className="buttonNext" onClick={onTimeEnd}>Start Playing</button>
                 </div>
             </div>

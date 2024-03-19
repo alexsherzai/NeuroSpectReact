@@ -24,7 +24,7 @@ const GridInstructions = ({onTimeEnd, tutButton}) => {
                 </div>
             
             <div className='buttonCont'>
-            <button className="buttonNext" onClick={tutButton}>How To Play</button>
+            <button className="buttonNext" onClick={tutButton}>How to Play?</button>
             <button className="buttonSecondary" onClick={handleClick}>Play Game</button>
             </div>
         </div>
