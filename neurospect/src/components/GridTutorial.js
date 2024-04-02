@@ -147,7 +147,7 @@ const GridTutorial = ({onTimeEnd }) => {
 						Tap on the screen to move forward
 			    </div>
 
-                <div style={{position: "absolute"}}>
+                <div>
 
                     <div className="grid-main-shape">
                         <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>

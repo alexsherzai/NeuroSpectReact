@@ -14,12 +14,12 @@ const GridInstructions = ({onTimeEnd, tutButton}) => {
             <div style={{height:'6vh'}}></div>
                 <div>
                     <div style={{fontFamily:'Poppins-Bold', fontSize:'22px'}}>Processing</div>
-                    <div style={{fontFamily:'Poppins-Regular', fontSize:'16px'}}>This game will measure how fast you can react to stimuli</div>
+                    <div style={{fontFamily:'Poppins-Regular', fontSize:'16px'}}>This game will measure how fast you can react and replicate a sequence</div>
                 </div>
                 <div style={{height:'15vh'}}></div>
                 <div style={{justifyContent:'center', alignItems:'center', textAlign:'center'}}>
                     <div style={{fontFamily:'Poppins-Regular', fontSize:'24px', fontWeight:'40s0'}}>How Fast Can You React?</div>
-                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> You will be shown a <span className='highlight'>grid of squares</span> which will light up. <span className='highlight'>Click the squares</span> that light up as soon as possible.
+                    <div style={{fontFamily:'Poppins-SemiBold', fontSize:'30px', marginBottom: '10%'}}> You will be shown a <span className='highlight'>sequence of lights</span> which will light up. Your task is to <span className='highlight'>replicate</span> the exact <span className='highlight'>sequence</span>.
                     </div>
                 </div>
             
