@@ -420,7 +420,7 @@ h4 {
     display: flex;
     width: 350px;
     height: 48px;
-    padding: 8px 100px;
+    padding: 8px 50px;
     gap: 10px;
     color: #5A89F5;
     font-size: 22px;
@@ -1002,7 +1002,6 @@ input:focus {
     position: absolute;
     left: 0;
     right: 0;
-    width: 50%;
 }
 
 
@@ -1027,7 +1026,6 @@ input:focus {
 
 .gridCont {
     margin: 15px;
-    margin-top: 25%;
     max-width: 350px;
     min-width: 300px;
 }
