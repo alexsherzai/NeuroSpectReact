@@ -3286,6 +3286,8 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
     const [level, setLevel] = useState(1);
     const [solvedCards, setSolvedCards] = useState([]);
+    const [correctCards, setCorrectCards] = useState([]);
+    const [wrongCards, setWrongCards] = useState([]);
     const [warningText, setWarningText] = useState("");
     const [textColor, setTextColor] = useState("");
     const [spawn, setSpawn] = useState(true);
@@ -3501,14 +3503,26 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
         if(clickedShapes.length === 2) {
             if(checkMatch()) {
-                solvedCards.push.apply(solvedCards, clickedShapes);
+                correctCards.push.apply(correctCards, clickedShapes);
                 setWarningText("Nice!");
                 setTextColor("#2E8970");
             } else {
+                wrongCards.push.apply(wrongCards, clickedShapes);
                 setWarningText("Not a pair!");
                 setTextColor("#CD3843");
             }
             clickedShapes.length = 0;
+        }
+
+        if(correctCards.length === 2) {
+            //setTimeout(() => {
+                solvedCards.push.apply(solvedCards, correctCards);
+                correctCards.splice(0, correctCards.length);
+            //}, 750);
+        } else if(wrongCards.length === 2) {
+            setTimeout(() => {
+                wrongCards.splice(0, wrongCards.length);
+            }, 750);
         }
 
         if(solvedCards.length === numPairs * 2 && solvedCards.length > 0) {
@@ -3516,7 +3530,7 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
             setWarningText("Good job!");
             setTextColor("#FF9417");
         }
-    }, [level, clickedShapes, onTimeEnd]);
+    }, [level, clickedShapes, correctCards, wrongCards, onTimeEnd]);
 
     const createUnique = (curr, rule) => {
         let tempCurr = curr.map((val) => rule(val));
@@ -3646,7 +3660,13 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
     return (
         <div>
-            <div style={{"height": "15vh"}}>
+            <div style={{"height": "5vh"}}>
+
+            </div>
+            <div style={{"height": "10vh"}}>
+                <div style={{textAlign: 'center'}}>
+                    <h3>Pair up the matching cards</h3>
+                </div>
             </div>
             <div className="card-grid">
             
@@ -3661,9 +3681,19 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
                 <div>{shape}</div>
                 </div>)
                 :
+                (correctCards.includes(index) ? 
+                (<div key={index} className="cardCorrect" onClick={() => cardClicked(index)}>
+                <div>{shape}</div>
+                </div>)
+                :
+                (wrongCards.includes(index) ? 
+                (<div key={index} className="cardWrong" onClick={() => cardClicked(index)}>
+                <div>{shape}</div>
+                </div>)
+                :
                 (<div key={index} className="card" onClick={() => cardClicked(index)}>
                 <div>{shape}</div>
-                </div>))
+                </div>))))
             ))}
             </div>
             <div className='buttonCont'>

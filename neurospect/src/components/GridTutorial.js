@@ -148,9 +148,11 @@ const GridTutorial = ({onTimeEnd }) => {
 			    </div>
 
                 <div>
-
-                    <div className="grid-main-shape"  style={{marginTop: "15vh"}}>
-                        <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px"}}>
+                    <div style={{position: "absolute", height: '10vh', textAlign: 'center', justifyContent: "center", display: "flex", margin: "auto", left: 0, right: 0}}>
+                        <h3>Replicate the Sequence</h3>
+                    </div>
+                    <div className="grid-main-tut"  style={{marginTop: "15vh"}}>
+                        <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>
                             <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
                                 <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
                                 <div className='cell' onClick={() => cellClicked(1)} key={1}></div>
@@ -165,10 +167,10 @@ const GridTutorial = ({onTimeEnd }) => {
                         </div>
                     </div>
 
-                    <div className="tut-intro-fade" style={{position: "absolute", zIndex:1100, marginLeft: "60%", marginTop: "65vh"}}>
+                    <div className="tut-intro-fade" style={{position: "absolute", zIndex:1100, marginLeft: "60%", marginTop: "69vh"}}>
                         <img src="/TutorialIcons/Arrow1.png"/>
                     </div>
-                    <div className="tut-intro-fade" style={{zIndex:1004, position:"absolute", marginTop: "72vh", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: "16%"}}>
+                    <div className="tut-intro-fade" style={{zIndex:1004, position:"absolute", marginTop: "76vh", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: "16%"}}>
                         <Text style={{padding: '30px', fontSize: "16px"}}>This is a <strong>grid</strong> of squares</Text>
                     </div>
                     
@@ -186,9 +188,11 @@ const GridTutorial = ({onTimeEnd }) => {
 						Tap on the screen to move forward
 			    </div>
 
-                <div style={{position: "absolute"}}>
-
-                    <div className="grid-main-shape">
+                <div>
+                    <div style={{position: "absolute", height: '10vh', textAlign: 'center', justifyContent: "center", display: "flex", margin: "auto", left: 0, right: 0}}>
+                        <h3>Replicate the Sequence</h3>
+                    </div>
+                    <div className="grid-main-tut" style={{marginTop: "15vh"}}>
                         <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>
                             <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
                                 <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
@@ -204,10 +208,10 @@ const GridTutorial = ({onTimeEnd }) => {
                         </div>
                     </div>
 
-                    <div style={{position: "absolute", zIndex:1100, marginLeft: "60%"}}>
+                    <div style={{position: "absolute", zIndex:1100, marginLeft: "60%", marginTop: "69vh"}}>
                         <img src="/TutorialIcons/Arrow1.png"/>
                     </div>
-                    <div style={{zIndex:1004, position:"absolute", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginTop:"12%", marginLeft: "2%"}}>
+                    <div style={{zIndex:1004, position:"absolute", marginTop: "76vh", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginLeft: "5%"}}>
                         <Text style={{padding: '30px', fontSize: "16px"}}>You will be shown a <strong>sequence of lights</strong></Text>
                     </div>
                     
@@ -225,9 +229,11 @@ const GridTutorial = ({onTimeEnd }) => {
 						Tap on the screen to move forward
 			    </div>
 
-                <div style={{position: "absolute"}}>
-
-                    <div className="grid-main-shape">
+                <div>
+                    <div style={{position: "absolute", height: '10vh', textAlign: 'center', justifyContent: "center", display: "flex", margin: "auto", left: 0, right: 0}}>
+                        <h3>Replicate the Sequence</h3>
+                    </div>
+                    <div className="grid-main-tut" style={{marginTop: "15vh"}}>
                         <div className='gridCont' style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px", padding: '15px'}}>
                             <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
                                 <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
@@ -243,10 +249,10 @@ const GridTutorial = ({onTimeEnd }) => {
                         </div>
                     </div>
 
-                    <div style={{position: "absolute", zIndex:1100, marginLeft: "60%"}}>
+                    <div style={{position: "absolute", zIndex:1100, marginLeft: "60%", marginTop: "69vh"}}>
                         <img src="/TutorialIcons/Arrow1.png"/>
                     </div>
-                    <div style={{zIndex:1004, position:"absolute", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginTop:"12%", marginLeft: "2%"}}>
+                    <div style={{zIndex:1004, position:"absolute", paddingTop:'10px', paddingBottom:'10px', padding: '5px', fontFamily:"Poppins-Regular", border:"solid 2px #FF9417", backgroundColor:"white", borderRadius:"6px", marginTop:"76vh", marginLeft: "5%"}}>
                         <Text style={{padding: '30px', fontSize: "16px"}}>Tap the squares to <strong>copy the sequence</strong></Text>
                     </div>
                     
@@ -263,7 +269,7 @@ const GridTutorial = ({onTimeEnd }) => {
                         <div style={{height: '10vh', textAlign: 'center'}}>
                             <h3>Replicate the Sequence</h3>
                         </div>
-                        <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
+                        <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '300px', maxHeight: '300px', minHeight: '300px', gap: '5px'}}>
                             {cellColors.map((cell, index) => (
                                 <div className={`cell${cellColors[index]}`} onClick={() => cellClicked(index)} key={index}></div>
                             ))}
@@ -282,7 +288,7 @@ const GridTutorial = ({onTimeEnd }) => {
                             <div style={{height: '10vh', textAlign: 'center'}}>
                                 <h3>Replicate the Sequence</h3>
                             </div>
-                            <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '350px', minHeight: '300px', gap: '5px'}}>
+                            <div className="grid" style={{left: 0, right: 0, gridTemplateColumns: 'repeat(3, 1fr)', width: '100%', maxHeight: '300px', minHeight: '300px', gap: '5px'}}>
                                 <div className='cell' onClick={() => cellClicked(0)} key={0}></div>
                                 <div className='cell' onClick={() => cellClicked(1)} key={1}></div>
                                 <div className='cell' onClick={() => cellClicked(2)} key={2}></div>

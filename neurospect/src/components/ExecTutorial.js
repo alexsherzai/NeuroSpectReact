@@ -162,7 +162,7 @@ const ExecTutorial = ({onTimeEnd }) => {
                     <div>
                     
                     <div style={{position: "absolute", "height": "15vh", left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>Pair up the matching cards</div>
-                    <div className="exec-main-shape" style={{marginTop: "15vh"}}>
+                    <div className="exec-main-tut" style={{marginTop: "15vh"}}>
                         <div className="card-grid" style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px"}}>
                             <div className="card-tut">
                                 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
@@ -234,7 +234,7 @@ const ExecTutorial = ({onTimeEnd }) => {
                         <div>
                         
                         <div style={{position: "absolute", "height": "15vh", left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>Pair up the matching cards</div>
-                        <div className="exec-main-shape"  style={{marginTop: "15vh"}}>
+                        <div className="exec-main-tut"  style={{marginTop: "15vh"}}>
                             <div className="card-grid" style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px"}}>
                                 <div className="card-tut">
                                     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
@@ -301,7 +301,7 @@ const ExecTutorial = ({onTimeEnd }) => {
             
                 <div>
                     <div style={{"height": "15vh", left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>Pair up the matching cards</div>
-                        <div className="exec-main-shape">
+                        <div className="exec-main-tut">
                             <div className="card-grid" style={{zIndex: "inherit", backgroundColor:"#F4F6FA", borderRadius:"10px"}}>
 
                             {shuffledShapes.map((shape, index) => (
@@ -341,7 +341,7 @@ const ExecTutorial = ({onTimeEnd }) => {
 
                     <div>
                     <div style={{position: "absolute", height: "15vh", left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', fontSize: '20px', fontFamily: 'Poppins-Regular', fontWeight: '600'}}>Pair up the matching cards</div>
-                        <div className="exec-main-shape" style={{marginTop: "15vh", zIndex: 0}}>
+                        <div className="exec-main-tut" style={{marginTop: "15vh", zIndex: 0}}>
                             <div className="card-grid" style={{ zIndex: 0, backgroundColor: "#F4F6FA", borderRadius:"10px"}}>
 
                             {shuffledShapes.map((shape, index) => (
