@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
+
 import Intro from './components/Intro';
 import Encoding from './components/Encoding';
 import EncodingInstructions from './components/EncodingInstructions';
@@ -213,7 +215,33 @@ const App = () => {
     const userID = queryParams.get("userID");
     
     useEffect(() => {
-        
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4MjM2MzE0LCJpYXQiOjE3MTgwNjM1MTQsImp0aSI6ImY5ZThiNzdlNDk5NjRkMjU4YTQ5YmE0MjE2ZTY5N2QwIiwidXNlcl9pZCI6ImI0N2EyY2M4LThlYTktNGIyZi05OGYwLTJiNWQ4ZTRkNTljMyJ9.lKpsAXv5v_WZq1fRpe2GtTHg7uQdiVdtFvGDpBYlFuQ"
+
+        const data = axios({
+            // Endpoint to send files
+            url: "https://api.neuroplanapp.com/swagger/api/neurospect/attention/",
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            paramsSerializer: {
+                indexes: null // by default: false
+            },
+            body: {
+                "game_version": 1,
+                "attention_score_colors": 25,
+                "processing_speed_colors": 1100,
+                "attention_score_shapes": 28,
+                "processing_speed_shapes": 940
+            },
+        })
+            // Handle the response from backend here
+            .then((res) => {})
+ 
+            // Catch errors if any
+            .catch((err) => {});
     }, [stage]);
 
     let docName = userID;
@@ -261,6 +289,29 @@ const App = () => {
         Object.assign(data, prevAtt);
 
         console.log(data);
+
+        //Axios
+
+        let username = "haziq"
+        let password = "@Seecs123"
+
+        const token = axios({
+            url: "https://api.neuroplanapp.com/",
+            method: "POST",
+            headers: {
+                username: username,
+                password: password
+            },
+ 
+            data: data,
+        })
+        .then((res) => {})
+
+        .catch((err) => {});
+
+        console.log(token)
+
+        //Firebase
 
         try {
             await setDoc(reviewRef, data)
