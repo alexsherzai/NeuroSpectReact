@@ -3320,10 +3320,10 @@ const CardPair = ({onTimeEnd, storeExec, execData}) => {
 
         execData(
             {
-                execData: scores,
-                execScore: sc,
-                chosenSetList: chosenSetList,
-                shapesListList: shapesListList
+                exec_data: scores,
+                exec: sc,
+                chosen_set_list: chosenSetList,
+                shapes_list: shapesListList
             }
         );
     }

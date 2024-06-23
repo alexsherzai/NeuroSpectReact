@@ -38,7 +38,7 @@ const App = () => {
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
 
-    const [gameVersion, setGameVersion] = useState(1);
+    const [gameVersion, setGameVersion] = useState(0);
 
     const [acs, setAcs] = useState(0);
     const [AttShS, setAttShS] = useState(0);
@@ -212,37 +212,12 @@ const App = () => {
     
     const queryParams = new URLSearchParams(window.location.search)
     const prolificID = queryParams.get("PROLIFIC_PID");
-    const userID = queryParams.get("userID");
+    let token = queryParams.get("userID");
+    const userID = null;
     
     useEffect(() => {
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4MjM2MzE0LCJpYXQiOjE3MTgwNjM1MTQsImp0aSI6ImY5ZThiNzdlNDk5NjRkMjU4YTQ5YmE0MjE2ZTY5N2QwIiwidXNlcl9pZCI6ImI0N2EyY2M4LThlYTktNGIyZi05OGYwLTJiNWQ4ZTRkNTljMyJ9.lKpsAXv5v_WZq1fRpe2GtTHg7uQdiVdtFvGDpBYlFuQ"
-
-        const data = axios({
-            // Endpoint to send files
-            url: "https://api.neuroplanapp.com/swagger/api/neurospect/attention/",
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            paramsSerializer: {
-                indexes: null // by default: false
-            },
-            body: {
-                "game_version": 1,
-                "attention_score_colors": 25,
-                "processing_speed_colors": 1100,
-                "attention_score_shapes": 28,
-                "processing_speed_shapes": 940
-            },
-        })
-            // Handle the response from backend here
-            .then((res) => {})
- 
-            // Catch errors if any
-            .catch((err) => {});
-    }, [stage]);
+        
+    }, [stage, gameVersion]);
 
     let docName = userID;
     if(prolificID !== null) {
@@ -260,20 +235,156 @@ const App = () => {
         const reviewRef = doc(storage, "neurospect", docName);
 
         
-        let data = {
-            testID: prolificID,
-            userID: userID,
-            lastUpdated: currentDate,
-            nextAvailableDate: nextAvailableDate,
-            gameVersion: gameVersion
-        }
+        // let data = {
+        //     testID: prolificID,
+        //     userID: userID,
+        //     lastUpdated: currentDate,
+        //     nextAvailableDate: nextAvailableDate,
+        //     gameVersion: gameVersion
+        // }
+
+        let data = {}
+
+        let attentionData = Object.assign({game_version: gameVersion}, attArrayCol, attArraySh);
+        let visuoData = Object.assign({game_version: gameVersion}, visArray)
+        let recData = Object.assign({game_version: gameVersion}, recArray)
+        let execData = Object.assign({game_version: gameVersion}, execData)
+        let gridData = Object.assign({game_version: gameVersion}, gridData)
 
         switch(gameVersion) {
             case 1:
-                Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+                //Object.assign(data, attArrayCol, attArraySh, visArray, recArray);
+                const attStore = axios({
+                    url: "https://api.neuroplanapp.com/api/neurospect/attention/",
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    paramsSerializer: {
+                        indexes: null 
+                    },
+                    data: attentionData
+                })
+                    // Handle the response from backend here
+                    .then((res) => {
+                        
+                    })
+        
+                    // Catch errors if any
+                    .catch((err) => {});
+
+                const visStore = axios({
+                        url: "https://api.neuroplanapp.com/api/neurospect/visuospatial/",
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        paramsSerializer: {
+                            indexes: null 
+                        },
+                        data: visuoData
+                    })
+                        // Handle the response from backend here
+                        .then((res) => {
+                            
+                        })
+            
+                        // Catch errors if any
+                        .catch((err) => {});
+
+                const recStore = axios({
+                        url: "https://api.neuroplanapp.com/api/neurospect/recall/",
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        paramsSerializer: {
+                            indexes: null 
+                        },
+                        data: recData
+                    })
+                        // Handle the response from backend here
+                        .then((res) => {
+                            
+                        })
+            
+                        // Catch errors if any
+                        .catch((err) => {});
+
+                
                 break;
             case 2:
-                Object.assign(data, execData, gridData, recArray);
+                //Object.assign(data, execData, gridData, recArray);
+
+                const execStore = axios({
+                    url: "https://api.neuroplanapp.com/api/neurospect/executivefn/",
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    paramsSerializer: {
+                        indexes: null 
+                    },
+                    data: execData
+                })
+                    // Handle the response from backend here
+                    .then((res) => {
+                        
+                    })
+        
+                    // Catch errors if any
+                    .catch((err) => {});
+
+                const gridStore = axios({
+                        url: "https://api.neuroplanapp.com/api/neurospect/processing/",
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        paramsSerializer: {
+                            indexes: null 
+                        },
+                        data: gridData
+                    })
+                        // Handle the response from backend here
+                        .then((res) => {
+                            
+                        })
+            
+                        // Catch errors if any
+                        .catch((err) => {});
+
+                const recStore2 = axios({
+                        url: "https://api.neuroplanapp.com/api/neurospect/recall/",
+                        method: "POST",
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        paramsSerializer: {
+                            indexes: null 
+                        },
+                        data: recData
+                    })
+                        // Handle the response from backend here
+                        .then((res) => {
+                            
+                        })
+            
+                        // Catch errors if any
+                        .catch((err) => {});
+
                 break;
             case 3:
                 Object.assign(data, langData, recArray);
@@ -286,44 +397,23 @@ const App = () => {
                 break;
         }
 
-        Object.assign(data, prevAtt);
+        // Object.assign(data, prevAtt);
 
-        console.log(data);
-
-        //Axios
-
-        let username = "haziq"
-        let password = "@Seecs123"
-
-        const token = axios({
-            url: "https://api.neuroplanapp.com/",
-            method: "POST",
-            headers: {
-                username: username,
-                password: password
-            },
- 
-            data: data,
-        })
-        .then((res) => {})
-
-        .catch((err) => {});
-
-        console.log(token)
+        // console.log(data);
 
         //Firebase
 
-        try {
-            await setDoc(reviewRef, data)
-        } catch(err) {
-            console.log(err);
-        }
+        // try {
+        //     await setDoc(reviewRef, data)
+        // } catch(err) {
+        //     console.log(err);
+        // }
     }
 
 
     return (
         <div>
-            {stage === 'prescene' && <Temp userID = {userID} storePrevAtt={setPrevAtt} setGameV = {setGameVersion} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
+            {stage === 'prescene' && <Temp userID = {userID} storePrevAtt={setPrevAtt} gameVersion = {gameVersion} setGameV = {setGameVersion} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
 
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
             {stage === 'intro-2' && <Intro onTimeEnd={() => nextStage('int1-2')} />}
