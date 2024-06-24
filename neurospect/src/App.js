@@ -216,7 +216,7 @@ const App = () => {
     const userID = null;
     
     useEffect(() => {
-        
+
     }, [stage, gameVersion]);
 
     let docName = userID;
@@ -230,9 +230,9 @@ const App = () => {
         let currentDate = Date.now();
         let nextAvailableDate = currentDate + 2628000000;
 
-        console.log(prevAtt);
+        //console.log(prevAtt);
 
-        const reviewRef = doc(storage, "neurospect", docName);
+        //const reviewRef = doc(storage, "neurospect", docName);
 
         
         // let data = {
@@ -245,11 +245,15 @@ const App = () => {
 
         let data = {}
 
+        if(token === null) {
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIxNjk1MTMxLCJpYXQiOjE3MTkxMDMxMzEsImp0aSI6IjE2M2Q1MmU1MDJiNzRhNTg5MDEwYmIzMTg3MTBjNzQwIiwidXNlcl9pZCI6ImI0N2EyY2M4LThlYTktNGIyZi05OGYwLTJiNWQ4ZTRkNTljMyJ9.Uo8JICl1ODNBhBw5JJIyopkmSNF3HUcepwklDVMlejk";
+        }
+
         let attentionData = Object.assign({game_version: gameVersion}, attArrayCol, attArraySh);
         let visuoData = Object.assign({game_version: gameVersion}, visArray)
         let recData = Object.assign({game_version: gameVersion}, recArray)
-        let execData = Object.assign({game_version: gameVersion}, execData)
-        let gridData = Object.assign({game_version: gameVersion}, gridData)
+        let execD = Object.assign({game_version: gameVersion}, execData)
+        let gridD = Object.assign({game_version: gameVersion}, gridData)
 
         switch(gameVersion) {
             case 1:
@@ -269,7 +273,7 @@ const App = () => {
                 })
                     // Handle the response from backend here
                     .then((res) => {
-                        
+                        console.log(res)
                     })
         
                     // Catch errors if any
@@ -290,7 +294,7 @@ const App = () => {
                     })
                         // Handle the response from backend here
                         .then((res) => {
-                            
+                            console.log(res)
                         })
             
                         // Catch errors if any
@@ -311,7 +315,7 @@ const App = () => {
                     })
                         // Handle the response from backend here
                         .then((res) => {
-                            
+                            console.log(res)
                         })
             
                         // Catch errors if any
@@ -333,11 +337,11 @@ const App = () => {
                     paramsSerializer: {
                         indexes: null 
                     },
-                    data: execData
+                    data: execD
                 })
                     // Handle the response from backend here
                     .then((res) => {
-                        
+                        console.log(res)
                     })
         
                     // Catch errors if any
@@ -354,11 +358,11 @@ const App = () => {
                         paramsSerializer: {
                             indexes: null 
                         },
-                        data: gridData
+                        data: gridD
                     })
                         // Handle the response from backend here
                         .then((res) => {
-                            
+                            console.log(res)
                         })
             
                         // Catch errors if any
