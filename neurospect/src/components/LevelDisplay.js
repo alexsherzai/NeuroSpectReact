@@ -2,16 +2,17 @@ import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
 
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
+const LevelDisplay = ({ version, level, onTimeEnd }) => {
 
-const LevelDisplay = ({ level, onTimeEnd }) => {
+	const levelVersions = {
+		1: ['Word Memory', 'Attention', 'Visuospatial', 'Recall'],
+		2: ['Word Memory', 'Problem Solving', 'Pattern Play', 'Recall'],
+		3: ['Word Memory', 'Language', 'Short-Term Recall'],
+		4: ['Word Memory', 'Attention', 'Visuospatial', 'Executive Function', 'Processing', 'Language', 'Long-Term Recall']
+	};
+	
+	const levels = levelVersions[version];
 
-	const levels = ['Word Memory', 'Attention', 'Visuospatial', 'Recall'];
 	const [isOpen, setIsOpen] = useState(false);
 	const [firstTime, setFirstTime] = useState(true);
 
@@ -36,25 +37,34 @@ const LevelDisplay = ({ level, onTimeEnd }) => {
 	return (
 		<div className='fullGameMargin'>
 			<div>
-				<div style={{height:'5vh'}}>
-					
+				<div style={{height:'8vh'}}>
+					<h2>{Intl.DateTimeFormat('en-UK', {month: 'short', year: 'numeric', day: '2-digit'}).format(Date.now())}</h2>
 				</div>
+				
 
 				
 
-				<div className='level-content'>
-						{completedLevels && completedLevels.map((levelNum, index) => (
+				<div className={`level-content${levelVersions[version].length > 4 ? `-full` : ``}`}>
+						{level >= 3 ?
+						(completedLevels && completedLevels.slice(-4).map((levelNum, index) => (
 							<div className="listCont">
 								<span className='levels'>✓</span> 
 								<div className='level-name'>{levelNum}</div>
 							</div>
-						))}
-					<div className={`${level === 3 ? "listContLast" : "listContCurr"}`}>
+						)))
+						:
+						(completedLevels && completedLevels.map((levelNum, index) => (
+							<div className="listCont">
+								<span className='levels'>✓</span> 
+								<div className='level-name'>{levelNum}</div>
+							</div>
+						)))}
+					{<div className={`${level === levelVersions[version] - 1 ? "listContLast" : "listContCurr"}`}>
 						<span className='levels-curr'>{level + 1}</span> 
 						<div className='level-name-curr'>{currentLevel}</div>
-					</div>
+					</div>}
 						{remainingLevels && remainingLevels.map((levelNum, index) => (
-							<div className={`${level + index === 2 ? "listContLast" : "listContInactive"}`}>
+							<div className={`${levelVersions[version].length - level - index === 2 ? "listContLast" : "listContInactive"}`}>
 								<span className='levels-incomp'>{level + index + 2}</span> 
 								<div className='level-name-incomp'>{levelNum}</div>
 							</div>

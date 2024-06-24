@@ -1,10 +1,9 @@
 import './stylesheet.css';
 import ReactModal from 'react-modal';
 import React, { useEffect, useState } from 'react';
-import { speedDialActionClasses } from '@mui/material';
 import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 
-const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, recall}) => {
+const DisplayScoreOld = ({ prolific, gameVersion, AddData, execScore, gridScore, gridSpeed, attScoreColors, attScoreShapes, speedColors, speedShapes, visuo, langScore, recall}) => {
 
     const [isOpen, setIsOpen] = useState(true);
     const startListening = () => {SpeechRecognition.startListening({continuous: true, language: 'en-US'})};
@@ -20,7 +19,11 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
 
 	return (
 		<div className=''>
-            
+            { prolific !== null &&
+            <h1>Code to enter: COQ89QD3</h1>
+            }
+            { gameVersion === 1 &&
+            <div>
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Visuospatial</div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
@@ -37,7 +40,7 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div style={{ fontSize: '20px' }}>Processing Speed</div>
-                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedColors}</div>
+                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedColors} s</div>
                 </div>
             </div>
 
@@ -49,9 +52,43 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div style={{ fontSize: '20px' }}>Processing Speed</div>
-                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedShapes}</div>
+                    <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{speedShapes} s</div>
                 </div>
             </div>
+            </div>
+            }
+            {gameVersion === 2 &&
+            <div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Executive Function</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{execScore} / 100</div>
+                    </div>
+                </div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Processing</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '20px' }}>Accuracy</div>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{gridScore} / 100</div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '20px' }}>Speed</div>
+                        <div style={{ fontSize: '26px', color: '#FF9417', fontWeight: 600 }}>{gridSpeed}</div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            {gameVersion === 3 &&
+            <div>
+                <div className='scoreSection'>
+                    <div className='scoreBoxHeader'>Language</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+                        <div style={{ fontSize: '26px', color: '#5A89F5', fontWeight: 600 }}>{langScore} / 24</div>
+                    </div>
+                </div>
+            </div>
+            }
 
             <div className='scoreSection'>
                 <div className='scoreBoxHeader'>Recall</div>
@@ -106,4 +143,4 @@ const DisplayScore = ({ AddData, attScoreColors, attScoreShapes, speedColors, sp
 	);
 };
 
-export default DisplayScore;
+export default DisplayScoreOld;

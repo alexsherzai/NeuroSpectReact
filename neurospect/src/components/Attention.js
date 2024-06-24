@@ -272,6 +272,10 @@ const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd })
 		let correctNum = 0;
 		correct.forEach(e => {if(e === 1) {correctNum++}});
 
+		correctNum *= (10/3);
+
+		correctNum = Math.round(correctNum * 100) / 100
+
 
 
 		console.log(buttonClickTimes);
@@ -281,33 +285,33 @@ const Attention = ({ attData, storeAtt, storeSpeed, answer, shapes, onTimeEnd })
 
 		const average = array => array.reduce((a, b) => a + b) / array.length;
 
-		let pSpeed = Math.round(average(buttonClickTimes))
+		let pSpeed = Math.round(average(buttonClickTimes)) / 1000;
 
-		console.log();
 		console.log(shapeList);
 
 		storeAtt(correctNum);
 		storeSpeed(pSpeed);
 
+		let attDataColor = {
+			attention_score_colors: correctNum,
+			processing_speed_colors: pSpeed,
+			attention_colors_list: correct,
+			processing_speed_colors_list: buttonClickTimes,
+			shape_list_colors: shapeList
+		}
+
+		let attDataShape = {
+			attention_score_shapes: correctNum,
+			processing_speed_shapes: pSpeed,
+			attention_shapes_list: correct,
+			processing_speed_shapes_list: buttonClickTimes,
+			shape_list_shapes: shapeList
+		}
 
 		if(answer === "Color") {
-			attData(
-			{
-				attentionScoreColors: correctNum,
-				processingSpeedColors: pSpeed,
-				attentionColorsList: correct,
-				processingSpeedColorsList: buttonClickTimes,
-				shapeListColors: shapeList
-			}
-			)
+			attData(attDataColor)
 		} else if(answer === "Shape") {
-			attData({
-				attentionScoreShapes: correctNum,
-				processingSpeedShapes: pSpeed,
-				attentionShapesList: correct,
-				processingSpeedShapesList: buttonClickTimes,
-				shapeListShapes: shapeList
-			})
+			attData(attDataShape)
 		}
     };
 
