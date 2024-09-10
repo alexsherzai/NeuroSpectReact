@@ -26,6 +26,8 @@ import GridTutorial from './components/GridTutorial';
 import Language from './components/Language';
 import LangInstructinos from './components/LangInstructions';
 import Temp from './components/Temp';
+import VisualEncoding from './components/VisualEncoding';
+import VisualMemory from './components/VisualMemory';
 
 import './components/stylesheet.css';
 
@@ -245,6 +247,7 @@ const App = () => {
 
         let data = {}
 
+        /*
         if(token === null) {
             token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIxNjk1MTMxLCJpYXQiOjE3MTkxMDMxMzEsImp0aSI6IjE2M2Q1MmU1MDJiNzRhNTg5MDEwYmIzMTg3MTBjNzQwIiwidXNlcl9pZCI6ImI0N2EyY2M4LThlYTktNGIyZi05OGYwLTJiNWQ4ZTRkNTljMyJ9.Uo8JICl1ODNBhBw5JJIyopkmSNF3HUcepwklDVMlejk";
         }
@@ -412,83 +415,82 @@ const App = () => {
         // } catch(err) {
         //     console.log(err);
         // }
+
+        */
     }
+
+    const [shapesVisMem, setShapesVisMem] = useState([])
+    const shapesToMem = (shapes) => {
+        setShapesVisMem(shapes);
+    }
+
+    const shapes = [
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,15 61,35 85,35 66,50 75,75 50,55 25,75 34,50 15,35 39,35" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,50 Q25,10 40,50 T70,50 T100,50" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,50 m-25,0 a25,25 0 1,1 50,0 a25,25 0 1,1 -50,0" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="50" r="20" stroke="black" fill="none" stroke-width="2"/>
+            <circle cx="70" cy="50" r="20" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="40" stroke="black" fill="none" stroke-width="2"/>
+            <polygon points="50,20 70,70 30,70" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="10,90 30,10 50,90 70,10 90,90" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,30 Q25,10 40,30 T70,30 T100,30 M10,70 Q25,50 40,70 T70,70 T100,70" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="40" height="40" stroke="black" fill="none" stroke-width="2"/>
+            <rect x="40" y="40" width="40" height="40" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,20 Q50,50 80,20 M20,80 Q50,50 80,80" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "-5 -5 110 110" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="10" stroke="black" fill="none" stroke-width="2"/>
+            <circle cx="50" cy="50" r="30" stroke="black" fill="none" stroke-width="2"/>
+            <circle cx="50" cy="50" r="50" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <line x1="10" y1="10" x2="90" y2="90" stroke="black" stroke-width="2"/>
+            <line x1="10" y1="90" x2="90" y2="10" stroke="black" stroke-width="2"/>
+            <line x1="50" y1="10" x2="50" y2="90" stroke="black" stroke-width="2"/>
+            <line x1="10" y1="50" x2="90" y2="50" stroke="black" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "-15 -15 130 130" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50,10 Q65,30 80,10 Q95,30 110,10 Q95,70 80,50 Q65,70 50,50 Q35,70 20,50 Q5,70 -10,50 Q5,30 20,10 Q35,30 50,10" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "10 0 100 65" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="30,20 40,10 60,10 70,20 60,30 40,30" stroke="black" fill="none" stroke-width="2"/>
+            <polygon points="50,40 60,30 80,30 90,40 80,50 60,50" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,10 L90,10 L90,90 L10,90 L10,30 L70,30 L70,70 L30,70 L30,50 L50,50" stroke="black" fill="none" stroke-width="2"/>
+        </svg>,
+        <svg width="100" height="100" viewBox = "0 0 105 105" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="10" x2="50" y2="90" stroke="black" stroke-width="2"/>
+            <line x1="10" y1="50" x2="90" y2="50" stroke="black" stroke-width="2"/>
+            <line x1="20" y1="20" x2="80" y2="80" stroke="black" stroke-width="2"/>
+            <line x1="80" y1="20" x2="20" y2="80" stroke="black" stroke-width="2"/>
+        </svg>
+    ];
 
 
     return (
         <div>
             {stage === 'prescene' && <Temp userID = {userID} storePrevAtt={setPrevAtt} gameVersion = {gameVersion} setGameV = {setGameVersion} intro={() => nextStage('intro')} intro2={() => nextStage('intro-2')} intro3={() => nextStage('intro-3')} introFull={() => nextStage('intro-full')}/>}
-
-            {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
-            {stage === 'intro-2' && <Intro onTimeEnd={() => nextStage('int1-2')} />}
-            {stage === 'intro-3' && <Intro onTimeEnd={() => nextStage('int1-3')} />}
-            {stage === 'intro-full' && <Intro onTimeEnd={() => nextStage('int1-full')} />}
-
-            {/* Version 1 */}
-
-            {stage === 'int1' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr')} />}
-            {stage === 'enc-instr' && <EncodingInstructions onTimeEnd={() => nextStage('encoding')} />}
-            {stage === 'encoding' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2')} />}
-
-            {stage === "int2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr')} />}
-            {stage === 'att-instr' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial')} onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'att-tutorial' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes')} />}
-            {stage === 'attentionShapes' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2')}/>}
-            {stage === 'att-instr2' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2')} onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'att-tutorial2' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors')} />}
-            {stage === 'attentionColors' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('int3')}/>}
-
-            {stage === "int3" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('vis-instr')} />}
-            {stage === 'vis-tutorial' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo')} />}
-            {stage === 'vis-instr' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial')} onTimeEnd={() => nextStage('visuo')} />}
-            {stage === 'visuo' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('int4')}/>}
-
-            {stage === 'int4' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr')} />}
-            {stage === 'rec-instr' && <RecallInstructions onTimeEnd={() => nextStage('recall')} />}
-            {stage === 'recall' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end')}/>}
-
-            {stage === 'end' && 
-                <Final prolific={prolificID} version={1} AddData={AddData}/>}
-
-            {/* Version 2 */}
-
-            {stage === 'int1-2' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr-2')} />}
-            {stage === 'enc-instr-2' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-2')} />}
-            {stage === 'encoding-2' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2-2')} />}
-
-            {stage === "int2-2" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('exec-instr')} />}
-            {stage === 'exec-instr' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive')} tutButton={() => nextStage('exec-tut')}/>}
-            {stage === "exec-tut" && <ExecTutorial onTimeEnd={() => nextStage('executive')} />}
-            {stage === 'executive' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('int3-2')} storeExec={storeExec}/>}
-
-            {stage === "int3-2" && <LevelDisplay version={gameVersion} level={2} onTimeEnd={() => nextStage('grid-instr')} />}
-            {stage === 'grid-instr' && <GridInstructions onTimeEnd={() => nextStage('grid')} tutButton={() => nextStage('grid-tut')}/>}
-            {stage === "grid-tut" && <GridTutorial onTimeEnd={() => nextStage('grid')} />}
-            {stage === 'grid' && <Grid onTimeEnd={() => nextStage('int4-2')} gridData={storeGridData} accuracy={storeGrid} speed={storeGridSpeed}/>}
-
-            {stage === 'int4-2' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr-2')} />}
-            {stage === 'rec-instr-2' && <RecallInstructions onTimeEnd={() => nextStage('recall-2')} />}
-            {stage === 'recall-2' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end-2')}/>}
-
-            {stage === 'end-2' &&
-                <Final prolific={prolificID} version={2} AddData={AddData}/>}
-
-            {/* Version 3 */}
-
-            {stage === 'int1-3' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr-3')} />}
-            {stage === 'enc-instr-3' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-3')} />}
-            {stage === 'encoding-3' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2-3')} />}
-
-            {stage === "int2-3" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('lang-instr')} />}
-            {stage === 'lang-instr' && <LangInstructinos onTimeEnd={() => nextStage('language')} />}
-            {stage === "language" && <Language langScore={storeLang} langData={storeLangData} onTimeEnd={() => nextStage('int3-3')} />}
-
-            {stage === 'int3-3' && <LevelDisplay version={gameVersion} level={3} onTimeEnd={() => nextStage('rec-instr-3')} />}
-            {stage === 'rec-instr-3' && <RecallInstructions onTimeEnd={() => nextStage('recall-3')} />}
-            {stage === 'recall-3' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end-3')}/>}
-
-            {stage === 'end-3' &&
-                <Final prolific={prolificID} version={3} AddData={AddData}/>}
+            {stage === 'intro-full' && <Intro onTimeEnd={() => nextStage('temp')} />}
+            {stage === 'temp' && <VisualEncoding shapes={shapes} shapesToMem={shapesToMem} onTimeEnd={() => nextStage('temp2')} />}
+            {stage === 'temp2' && <VisualMemory shapes={shapes} shapesToMem={shapesVisMem} onTimeEnd={() => nextStage('int1-full')}  />}
 
 
             {/*Full Version*/}

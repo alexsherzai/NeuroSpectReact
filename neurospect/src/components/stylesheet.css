@@ -1109,3 +1109,33 @@ input:focus {
 .button-container button {
     flex: 1 0 40%; /* Adjust the percentage based on your design */
 }
+
+.shape-box {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    justify-content: center;
+    display: flex;
+    align-items:  center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    padding: 8px;
+}
+
+.visMemSlot {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    padding: 8px;
+}
+
+.slot-box {
+    justify-content: center;
+    display: flex;
+    align-items:  center;
+}
