@@ -33,7 +33,7 @@ import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('prescene');
+    const [stage, setStage] = useState('intro-full');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
@@ -422,7 +422,7 @@ const App = () => {
             {stage === 'intro' && <Intro onTimeEnd={() => nextStage('int1')} />}
             {stage === 'intro-2' && <Intro onTimeEnd={() => nextStage('int1-2')} />}
             {stage === 'intro-3' && <Intro onTimeEnd={() => nextStage('int1-3')} />}
-            {stage === 'intro-full' && <Intro onTimeEnd={() => nextStage('int1-full')} />}
+            {stage === 'intro-full' && <Intro onTimeEnd={() => nextStage('enc-instr-full')} />}
 
             {/* Version 1 */}
 
@@ -492,7 +492,7 @@ const App = () => {
 
 
             {/*Full Version*/}
-            {stage === 'int1-full' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr-full')} />}
+            {/* {stage === 'int1-full' && <LevelDisplay version={gameVersion} level={0} onTimeEnd={() => nextStage('enc-instr-full')} />}
             {stage === 'enc-instr-full' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-full')} />}
             {stage === 'encoding-full' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('int2-full')} />}
             {stage === "int2-full" && <LevelDisplay version={gameVersion} level={1} onTimeEnd={() => nextStage('att-instr-full')} />}
@@ -518,6 +518,27 @@ const App = () => {
             {stage === "int7-full" && <LevelDisplay version={gameVersion} level={6} onTimeEnd={() => nextStage('rec-instr-full')} />}
             {stage === 'rec-instr-full' && <RecallInstructions onTimeEnd={() => nextStage('recall-full')} />}
             {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('end-full')}/>}
+            {stage === 'end-full' &&
+                <h1>Scores Not Available</h1>} */}
+
+            {/*Full Version*/}
+            {stage === 'enc-instr-full' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-full')} />}
+            {stage === 'encoding-full' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('att-instr-full')} />}
+            {stage === 'att-instr-full' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial-full')} onTimeEnd={() => nextStage('attentionShapes-full')} />}
+            {stage === 'att-tutorial-full' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes-full')} />}
+            {stage === 'attentionShapes-full' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2-full')}/>}
+            {stage === 'att-instr2-full' && <AttentionInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial2-full')} onTimeEnd={() => nextStage('attentionColors-full')} />}
+            {stage === 'att-tutorial2-full' && <AttentionTutorial answer="Color" onTimeEnd={() => nextStage('attentionColors-full')} />}
+            {stage === 'attentionColors-full' && <Attention attData={storeAttDataColors} storeAtt={storeAttentionColors} storeSpeed={storeSpeedColors} answer="Color" shapes={attentionShapes} onTimeEnd={() => nextStage('vis-instr-full')}/>}
+            {stage === 'vis-tutorial-full' && <VisuoTutorial level={3} onTimeEnd={() => nextStage('visuo-full')} />}
+            {stage === 'vis-instr-full' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial-full')} onTimeEnd={() => nextStage('visuo-full')} />}
+            {stage === 'visuo-full' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('rec-instr-full')}/>}
+            {stage === 'rec-instr-full' && <RecallInstructions onTimeEnd={() => nextStage('recall-full')} />}
+            {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('exec-instr-full')}/>}
+            {stage === 'exec-instr-full' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive-full')} />}
+            {stage === 'executive-full' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('grid-instr-full')} storeExec={storeExec}/>}
+            {stage === 'grid-instr-full' && <GridInstructions onTimeEnd={() => nextStage('grid-full')}/>}
+            {stage === 'grid-full' && <Grid onTimeEnd={() => nextStage('end-full')} gridData={storeGridData} accuracy={storeGrid} speed={storeGridSpeed}/>}
             {stage === 'end-full' &&
                 <h1>Scores Not Available</h1>}
 
