@@ -523,7 +523,7 @@ const App = () => {
 
             {/*Full Version*/}
             {stage === 'enc-instr-full' && <EncodingInstructions onTimeEnd={() => nextStage('encoding-full')} />}
-            {stage === 'encoding-full' && <Encoding words={words[gameVersion]} onTimeEnd={() => nextStage('att-instr-full')} />}
+            {stage === 'encoding-full' && <Encoding words={words[2]} onTimeEnd={() => nextStage('att-instr-full')} />}
             {stage === 'att-instr-full' && <ShapesInstructions tutorial="yes" tutButton={() => nextStage('att-tutorial-full')} onTimeEnd={() => nextStage('attentionShapes-full')} />}
             {stage === 'att-tutorial-full' && <AttentionTutorial answer="Shape" onTimeEnd={() => nextStage('attentionShapes-full')} />}
             {stage === 'attentionShapes-full' && <Attention attData={storeAttDataShapes} storeAtt={storeAttentionShapes} storeSpeed={storeSpeedShapes} answer="Shape" shapes={attentionShapes} onTimeEnd={() => nextStage('att-instr2-full')}/>}
@@ -534,7 +534,7 @@ const App = () => {
             {stage === 'vis-instr-full' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial-full')} onTimeEnd={() => nextStage('visuo-full')} />}
             {stage === 'visuo-full' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('rec-instr-full')}/>}
             {stage === 'rec-instr-full' && <RecallInstructions onTimeEnd={() => nextStage('recall-full')} />}
-            {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[gameVersion]} onTimeEnd={() => nextStage('exec-instr-full')}/>}
+            {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[2]} onTimeEnd={() => nextStage('exec-instr-full')}/>}
             {stage === 'exec-instr-full' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive-full')} />}
             {stage === 'executive-full' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('grid-instr-full')} storeExec={storeExec}/>}
             {stage === 'grid-instr-full' && <GridInstructions onTimeEnd={() => nextStage('grid-full')}/>}
