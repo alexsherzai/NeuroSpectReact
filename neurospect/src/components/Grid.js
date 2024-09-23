@@ -34,22 +34,22 @@ const Grid = ({onTimeEnd, accuracy, speed, gridData}) => {
     const AddData = () => {
         let acc = (Math.round(scores.reduce((prev, a ) => prev + a, 0) * 50) / 100)
         let sp = Math.round(speeds.reduce((prev, a ) => prev + a, 0) * 100/ 40) / 100;
-        accuracy(acc);
-        speed(sp);
+        //accuracy(acc);
+        //speed(sp);
 
-        gridData(
-            {
-                pros_scores: {scores},
-                pros_speeds: {speeds},
-                accuracy_grid: acc,
-                speed_grid: sp
-            }
-        );
+        // gridData(
+        //     {
+        //         pros_scores: {scores},
+        //         pros_speeds: {speeds},
+        //         accuracy_grid: acc,
+        //         speed_grid: sp
+        //     }
+        // );
     }
 
     useEffect(() => {
         if(level >= 20) {
-            AddData();
+            //AddData();
             onTimeEnd(); 
         }
         if (spawn) {

@@ -217,6 +217,18 @@ h4 {
     background-color: #F4F6FA;
 }
 .word {
+    width: 70%;
+    font-size: 40px;
+    text-align: center;
+    background-color: white;
+    border-radius: 6px;
+    border: 2px solid white;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    font-family: 'Poppins-Regular';
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+.recWord {
     width: 40%;
     text-align: center;
     background-color: white;
@@ -278,7 +290,8 @@ h4 {
     height: 50vh;
 }
 .visuoButton {
-    width: 45%;
+    width: 45vh;
+    height: 45vh;
     margin: 2.5%;
     z-index: inherit;
     border-radius: 7px;
@@ -801,7 +814,6 @@ input:focus {
     border-radius: 10px;
     position: fixed;
 }
-
 .tut-intro-fade {
     animation: opacityEffectText 1.5s linear;
     animation-iteration-count: 1;
@@ -1204,4 +1216,36 @@ input:focus {
 
 .button-container button {
     flex: 1 0 40%; /* Adjust the percentage based on your design */
+}
+
+
+/* computer vis */
+
+.mainShapeVis {
+    width: 180px;
+    height: 180px;
+}
+
+@media screen and (max-width: 720px) {
+    .recWord {
+        width: 20%;
+        text-align: center;
+        background-color: white;
+        border-radius: 6px;
+        border: 2px solid white;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+        font-family: 'Poppins-Regular';
+    }
+    .mainShapeVis {
+        width: 240px;
+        height: 240px;
+    }
+    .visuoButton {
+        width: 22vh;
+        height: 22vh;
+        margin: 2.5%;
+        z-index: inherit;
+        border-radius: 7px;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    }
 }

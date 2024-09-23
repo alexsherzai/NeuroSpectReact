@@ -6,8 +6,9 @@ import MicrophoneWaveform from './MicrophoneWaveform';
 
 import Voice from 'react-native-voice';
 
-const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
+const Recall = ({ recData, storeRec, onTimeEnd }) => {
     const [timeLeft, setTimeLeft] = useState(60);
+    const words = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math"]; //, "Rose", "River"
 
     const [inputWords, setInputWords] = useState('');
     const [error, setError] = useState('');
@@ -225,7 +226,7 @@ const Recall = ({ recData, storeRec, words, onTimeEnd }) => {
                 <div className="encoding-content">
                     {Object.entries(wordsDict).map(([word, answered]) => 
                     
-                    <p className="word">{!answered ? "" : word.charAt(0).toUpperCase() + word.substring(1)}</p>
+                    <p className="recWord">{!answered ? "" : word.charAt(0).toUpperCase() + word.substring(1)}</p>
                     
                     )}
                 </div>

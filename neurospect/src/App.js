@@ -28,6 +28,8 @@ import LangInstructinos from './components/LangInstructions';
 import Temp from './components/Temp';
 import VisualEncoding from './components/VisualEncoding';
 import VisualMemory from './components/VisualMemory';
+import VisEncInstructions from './components/VisEncInstructions';
+import VisMemInstructions from './components/VisMemInstructions';
 
 import './components/stylesheet.css';
 
@@ -35,7 +37,7 @@ import { collection, setDoc, getDocs, doc } from 'firebase/firestore';
 import { storage } from './config/firebase';
 
 const App = () => {
-    const [stage, setStage] = useState('intro-full');
+    const [stage, setStage] = useState('vis-enc-instr-full');
     const words = {1: ["Elephant", "Banana", "Australia", "Orange", "Tennis", "Guitar", "Truck", "History", "Lily", "Valley"],
                     2: ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math", "Rose", "River"],
                     3: ["Gorilla", "Mango", "Japan", "Green", "Hockey", "Flute", "Boat", "Biology", "Tulip", "Forest"]}
@@ -652,12 +654,14 @@ const App = () => {
             {stage === 'vis-instr-full' && <VisuoInstructions tutButton={() => nextStage('vis-tutorial-full')} onTimeEnd={() => nextStage('visuo-full')} />}
             {stage === 'visuo-full' && <Visuospatial visData={storeVisData} storeVis={storeVisuospatial} onTimeEnd={() => nextStage('rec-instr-full')}/>}
             {stage === 'rec-instr-full' && <RecallInstructions onTimeEnd={() => nextStage('recall-full')} />}
-            {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[2]} onTimeEnd={() => nextStage('vis-enc-full')}/>}
+            {stage === 'recall-full' && <Recall recData={storeRecData} storeRec={storeRecall} words={words[2]} onTimeEnd={() => nextStage('vis-enc-instr-full')}/>}
+            {stage === 'vis-enc-instr-full' && <VisEncInstructions onTimeEnd={() => nextStage('vis-enc-full')} />}
             {stage === 'vis-enc-full' && <VisualEncoding shapes={shapes} onTimeEnd={() => nextStage('exec-instr-full')} />}
             {stage === 'exec-instr-full' && <ExecutiveInstructions onTimeEnd={() => nextStage('executive-full')} />}
             {stage === 'executive-full' && <CardPair execData={storeExecData} onTimeEnd={() => nextStage('grid-instr-full')} storeExec={storeExec}/>}
             {stage === 'grid-instr-full' && <GridInstructions onTimeEnd={() => nextStage('grid-full')}/>}
-            {stage === 'grid-full' && <Grid onTimeEnd={() => nextStage('vis-mem-full')} gridData={storeGridData} accuracy={storeGrid} speed={storeGridSpeed}/>}
+            {stage === 'grid-full' && <Grid onTimeEnd={() => nextStage('vis-mem-instr-full')} />}
+            {stage === 'vis-mem-instr-full' && <VisEncInstructions onTimeEnd={() => nextStage('vis-mem-full')} />}
             {stage === 'vis-mem-full' && <VisualMemory shapes={shapes}  onTimeEnd={() => nextStage('end-full')}  />}
             {stage === 'end-full' &&
                 <h1>Scores Not Available</h1>}

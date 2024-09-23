@@ -472,19 +472,19 @@ const Visuospatial = ( { visData, storeVis, onTimeEnd }) => {
 
             <div className="fullGameMargin vis-button-container">
                 <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                    <div>{mainShape}</div>
+                    <div className="mainShapeVis">{mainShape}</div>
                 </div>
                 <button style={{border: button1style}} className="visuoButton" onClick={button1}>
-                    <div>{optionShapes[0]}</div>
+                    <div className='visuoShape'>{optionShapes[0]}</div>
                 </button>
                 <button style={{border: button2style}} className="visuoButton" onClick={button2}>
-                    <div>{optionShapes[1]}</div>
+                    <div className='visuoShape'>{optionShapes[1]}</div>
                 </button>
                 <button style={{border: button3style}} className="visuoButton" onClick={button3}>
-                    <div>{optionShapes[2]}</div>
+                    <div className='visuoShape'>{optionShapes[2]}</div>
                 </button>
                 <button style={{border: button4style}} className="visuoButton" onClick={button4}>
-                    <div>{optionShapes[3]}</div>
+                    <div className='visuoShape'>{optionShapes[3]}</div>
                 </button>
             </div>
 

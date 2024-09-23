@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react'
 
-const VisualEncoding = ({onTimeEnd, shapesToMem, shapes}) => {
+const VisualEncoding = ({onTimeEnd, shapes}) => {
     const [end, setEnd] = useState(false);
     const [timeLeft, setTimeLeft] = useState(30);
     const [first, setFirst] = useState(true);
@@ -26,7 +26,6 @@ const VisualEncoding = ({onTimeEnd, shapesToMem, shapes}) => {
             }
         
             setSel(h);
-            shapesToMem(arr);
             setFirst(false);
         }
 

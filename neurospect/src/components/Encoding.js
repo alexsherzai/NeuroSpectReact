@@ -1,34 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 import './stylesheet.css';
-import { updateDoc, doc } from 'firebase/firestore';
-import { storage } from '../config/firebase';
 
-import voiceover from '../WordsAudio/AllWords.wav';
-
-const Encoding = ({gameVersion, onTimeEnd, words}) => {
+const Encoding = ({gameVersion, onTimeEnd}) => {
     const [timeLeft, setTimeLeft] = useState(20);
     const [highlightedIndex, setHighlightedIndex] = useState(0);
     const [end, setEnd] = useState(false);
 
-    const queryParams = new URLSearchParams(window.location.search)
-    const prolificID = queryParams.get("PROLIFIC_PID");
-    const userID = queryParams.get("userID");
-
-    const audio = new Audio(voiceover);
-
-    let docName = userID;
-    if(prolificID !== null) {
-        docName = prolificID;
-    } else if(userID === null && prolificID === null) {
-        docName = "noID";
-    }
+    const words = ["Dolphin", "Apple", "Canada", "Purple", "Football", "Piano", "Airplane", "Math"];
     
     useEffect(() => {
-
-        if(gameVersion === 1) {
-            audio.play();
-        }
 
         const timer = setInterval(() => {
             setTimeLeft(oldTime => {
@@ -45,6 +26,7 @@ const Encoding = ({gameVersion, onTimeEnd, words}) => {
 
     useEffect(() => {
         calculateIndex();
+        console.log(highlightedIndex)
     });
 
     const calculateIndex = () => {
@@ -67,18 +49,16 @@ const Encoding = ({gameVersion, onTimeEnd, words}) => {
                 Memorize These Words
             </div>
             <div className="encoding-content">
-                {words && words.map((word, index) => (
-                    <p key={index} className={`word ${index % 2 === 0 ? 'word-left' : 'word-right'} ${highlightedIndex === index ? 'highlighted' : ''}`}>{word}</p>
-                ))}
+                <p className='word highlighted'>{words[highlightedIndex]}</p>
             </div>
         </div>
         }
 
         {end && 
         
-        <div className='fullGameMargin'>
-            <h1 className="timer">0 sec</h1>
-            <div style={{margin: '10px', fontFamily: 'Poppins-SemiBold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
+        <div>
+            <h1 style={{top: "15vh"}} className="timer">0 sec</h1>
+            <div style={{fontFamily: 'Poppins-SemiBold', alignItems:'center', justifyContent: 'center', display:'flex', fontSize: '26px'}}>
                 Time's Up!
             </div>
             <div style={{fontFamily: 'Poppins-Regular', fontSize: '18px', textAlign: 'center'}}>Your time to memorize has expired. Brace yourselves for the upcoming test of your memory. Stay sharp, stay focused! The challenge awaits.💡</div>
